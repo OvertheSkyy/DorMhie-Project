@@ -4,5 +4,15 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="Splashbg">#D7942E</color>
+    <color name="bgcolor">#FDF8F0</color>
+    <color name="blueish">#205375</color>
+    
+    //for button
+    <color name="brownish">#C07A35</color>
+    <color name="brownish_pressed">#A0632C</color>
+    <color name="brownish_focused">#E0975A</color>
+    
+    //for dot
+    <color name="inactivedot">#E4C99D</color>
 
 </resources>

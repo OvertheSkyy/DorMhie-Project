@@ -11,7 +11,7 @@ class SplashScreen : AppCompatActivity() {
     private val Delay_Splash_Screen: Long = 3000 //delay duration for 3 seconds
 
     private val splashRunnable = Runnable{
-        val intent = Intent(this@SplashScreen, MainActivity::class.java) //To go to Main Activity or next page.
+        val intent = Intent(this@SplashScreen, GetStarted::class.java) //To go to Main Activity or next page.
         startActivity(intent)
         finish()
     }
