@@ -28,7 +28,7 @@
         android:text="Next"
         android:textSize="12sp"
         android:textColor="@color/white"
-        android:background="@drawable/button_design"
+        android:backgroundTint="@color/brownish"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="85dp"
