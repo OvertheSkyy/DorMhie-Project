@@ -15,4 +15,8 @@
     //for dot
     <color name="inactivedot">#E4C99D</color>
 
+    //progress bar (splash)
+    <color name="progressbg">#E8E2E2</color>
+    <color name="progress">#FDCD82</color>
+
 </resources>
