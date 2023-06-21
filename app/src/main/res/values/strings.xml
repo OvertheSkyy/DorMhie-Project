@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">HOBBITS</string>
+
+    <string name="clickable_text"><u>Click here</u></string>
 </resources>

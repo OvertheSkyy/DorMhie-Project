@@ -44,7 +44,7 @@ class GetStarted : AppCompatActivity() {
                 }
             }
             else -> {
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, Log_In::class.java)
                 startActivity(intent)
                 finish()
             }

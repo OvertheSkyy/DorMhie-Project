@@ -7,7 +7,9 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/getstarted_logo">
+        android:src="@drawable/getstarted_logo"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp">
     </ImageView>
 
     <TextView
@@ -18,20 +20,20 @@
         android:textAlignment="center"
         android:textColor="@color/blueish"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="410dp">
+        android:layout_marginTop="420dp">
     </TextView>
 
     <Button
         android:layout_width="120dp"
         android:layout_height="48dp"
         android:id="@+id/GetStartedbutton"
-        android:text="Next"
+        android:text="Get Started!"
         android:textSize="12sp"
         android:textColor="@color/white"
         android:backgroundTint="@color/brownish"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="85dp"
+        android:layout_marginBottom="150dp"
         android:padding="4dp">
     </Button>
 
@@ -51,7 +53,7 @@
         android:src="@drawable/dot_inactive"
         android:layout_alignParentStart="true"
         android:layout_marginTop="560dp"
-        android:layout_marginStart="170dp">
+        android:layout_marginStart="150dp">
     </ImageView>
 
     <ImageView
@@ -69,7 +71,7 @@
         android:src="@drawable/dot_active"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="560dp"
-        android:layout_marginEnd="170dp">
+        android:layout_marginEnd="150dp">
     </ImageView>
 
 </RelativeLayout>

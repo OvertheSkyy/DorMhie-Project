@@ -30,8 +30,7 @@
         android:textColor="@color/blueish"
         android:textAlignment="center"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="750dp">
-
+        android:layout_marginTop="700dp">
     </TextView>
 
 </RelativeLayout>
