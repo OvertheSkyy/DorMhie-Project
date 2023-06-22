@@ -5,14 +5,14 @@
     android:background="@color/bgcolor">
     
     <ImageView
+        android:id="@+id/BacktoLogInpage"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@drawable/left"
         android:layout_marginStart="20dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="40dp"
-        android:clickable="true"
-        android:onClick="RedirecttoLogInpage">
+        android:clickable="true">
     </ImageView>
     
     <TextView
@@ -209,6 +209,5 @@
         android:layout_marginLeft="242dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="513dp"
-        android:clickable="true"
-        android:onClick="redirectToLogIn"/>
+        android:clickable="true" />
 </RelativeLayout>

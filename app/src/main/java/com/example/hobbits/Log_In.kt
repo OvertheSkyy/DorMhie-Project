@@ -13,6 +13,7 @@ class Log_In : AppCompatActivity() {
         val CreateAccountButton = findViewById<Button>(R.id.CreateAccButton)
         CreateAccountButton.setOnClickListener {
             startActivity(Intent(this, Create_Account::class.java)) //this will start Create Account Activity
+
         }
     }
 }
