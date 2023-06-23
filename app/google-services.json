@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:488924509181:android:60d81e17aa8ad0e75c1f94",
+        "mobilesdk_app_id": "1:488924509181:android:086c58eb604abe075c1f94",
         "android_client_info": {
-          "package_name": "com.example.hobbits"
+          "package_name": "com.shiretech.hobbits"
         }
       },
       "oauth_client": [

@@ -5,27 +5,56 @@ import android.os.Bundle
 import android.widget.TextView
 import android.content.Intent
 import android.widget.ImageView
+import android.widget.Toast
 import com.shiretech.hobbits.R
+import com.google.firebase.auth.FirebaseAuth
+import com.shiretech.hobbits.databinding.CreateAccountBinding
 
 class Create_Account : AppCompatActivity() {
+    private lateinit var binding: CreateAccountBinding
+    private lateinit var firebaseAuth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.create_account)
+        binding = CreateAccountBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val backtoLogInImageView = findViewById<ImageView>(R.id.BacktoLogInpage)
-        backtoLogInImageView.setOnClickListener {
+        firebaseAuth = FirebaseAuth.getInstance()
 
-            val intent = Intent(this, Log_In::class.java)
-            startActivity(intent)
-            finish()
+        binding.redirecttoLogIn.setOnClickListener{
+            val loginIntent = Intent(this, Log_In::class.java)
+            startActivity(loginIntent)
         }
 
-        val TextViewredirecttoLogIn = findViewById<TextView>(R.id.redirecttoLogIn)
-        TextViewredirecttoLogIn.setOnClickListener {
+        binding.BacktoLogInpage.setOnClickListener{
+            val backtologinIntent = Intent(this, Log_In::class.java)
+            startActivity(backtologinIntent)
+        }
 
-            val intent = Intent(this, Log_In::class.java)
-            startActivity(intent)
-            finish()
+        binding.CreateAccButton.setOnClickListener {
+            val name = binding.EditTxtName.text.toString()
+            val email = binding.EditTxtEmailAccCreate.text.toString()
+            val password = binding.EditTxtPasswordAccCreate.text.toString()
+            val confirmpassword = binding.EditTxtConfirmPassword.text.toString()
+
+            if (email.isNotEmpty() && password.isNotEmpty() && confirmpassword.isNotEmpty()) {
+                if (password == confirmpassword) {
+
+                    firebaseAuth.createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener {
+                            if (it.isSuccessful) {
+                                val intent = Intent(this, Log_In::class.java)
+                                startActivity(intent)
+                            } else {
+                                Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                } else {
+                    Toast.makeText(this, "Passwords do not match.", Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                Toast.makeText(this, "Fields cannot be empty.", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }
