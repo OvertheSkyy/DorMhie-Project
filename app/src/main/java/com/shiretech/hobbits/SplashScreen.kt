@@ -1,4 +1,4 @@
-package com.example.hobbits
+package com.shiretech.hobbits
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.widget.ProgressBar
+import com.shiretech.hobbits.R
 
 class SplashScreen : AppCompatActivity() {
 

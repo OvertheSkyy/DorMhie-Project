@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.hobbits'
+    namespace 'com.shiretech.hobbits'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.hobbits"
+        applicationId "com.shiretech.hobbits"
         minSdk 24
         targetSdk 33
         versionCode 1

@@ -1,10 +1,11 @@
-package com.example.hobbits
+package com.shiretech.hobbits
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import android.content.Intent
 import android.widget.ImageView
+import com.shiretech.hobbits.R
 
 class Create_Account : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

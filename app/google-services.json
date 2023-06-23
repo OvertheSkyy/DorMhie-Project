@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "488924509181",
+    "project_id": "hobbits-5fa50",
+    "storage_bucket": "hobbits-5fa50.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:488924509181:android:60d81e17aa8ad0e75c1f94",
+        "android_client_info": {
+          "package_name": "com.example.hobbits"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "488924509181-jvfprph6v9f1msnunfts8nvm9vd4aa24.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWExFUl5BjdHG70pCxaOERFnP28JGR1Lk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "488924509181-jvfprph6v9f1msnunfts8nvm9vd4aa24.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

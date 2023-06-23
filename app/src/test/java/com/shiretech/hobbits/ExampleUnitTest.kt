@@ -1,4 +1,4 @@
-package com.example.hobbits
+package com.shiretech.hobbits
 
 import org.junit.Test
 
