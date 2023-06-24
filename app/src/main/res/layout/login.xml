@@ -121,7 +121,7 @@
         android:layout_marginTop="349dp">
     </TextView>
     <TextView
-        android:id="@+id/redirectpasswordchange"
+        android:id="@+id/redirectforgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/clickable_text"
@@ -131,8 +131,7 @@
         android:layout_marginLeft="212dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="349dp"
-        android:clickable="true"
-        android:onClick="onTextClicked">
+        android:clickable="true">
     </TextView>
     
     <Button

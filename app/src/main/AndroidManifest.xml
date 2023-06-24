@@ -13,16 +13,19 @@
         android:theme="@style/Theme.HOBBITS"
         tools:targetApi="31">
         <activity
-            android:name="com.shiretech.hobbits.Create_Account"
+            android:name=".Forgot_Passwrod"
             android:exported="false" />
         <activity
-            android:name="com.shiretech.hobbits.Log_In"
+            android:name=".Create_Account"
             android:exported="false" />
         <activity
-            android:name="com.shiretech.hobbits.GetStarted"
+            android:name=".Log_In"
             android:exported="false" />
         <activity
-            android:name="com.shiretech.hobbits.SplashScreen"
+            android:name=".GetStarted"
+            android:exported="false" />
+        <activity
+            android:name=".SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,7 +34,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.shiretech.hobbits.MainActivity"
+            android:name=".MainActivity"
             android:exported="true" />
     </application>
 
