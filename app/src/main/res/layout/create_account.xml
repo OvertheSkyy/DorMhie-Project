@@ -1,81 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/bgcolor">
-    
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_end"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
     <ImageView
         android:id="@+id/BacktoLogInpage"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@drawable/left"
-        android:layout_marginStart="20dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="40dp"
-        android:clickable="true">
+        android:clickable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="37dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="306dp">
     </ImageView>
     
     <TextView
+        android:id="@+id/createacctxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Create Account"
         android:textSize="32sp"
         android:textColor="#205375"
         android:fontFamily="@font/inter_bold"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="57dp"
-        android:layout_alignParentTop="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="118dp">
     </TextView>
 
     <View
+        android:id="@+id/firstdot"
         android:layout_width="26dp"
         android:layout_height="26dp"
         android:background="@drawable/dot_active"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/createacctxt"
+        android:layout_marginTop="32dp"
         android:layout_marginStart="82dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="189dp"/>
+        android:layout_marginEnd="252dp"/>
     <View
         android:layout_width="26dp"
         android:layout_height="26dp"
         android:background="@drawable/dot_inactive"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/createacctxt"
+        android:layout_marginTop="32dp"
         android:layout_marginStart="167dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="189dp"/>
+        android:layout_marginEnd="167dp"/>
     <View
         android:layout_width="26dp"
         android:layout_height="26dp"
         android:background="@drawable/dot_inactive"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/createacctxt"
+        android:layout_marginTop="32dp"
         android:layout_marginStart="252dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="189dp"/>
+        android:layout_marginEnd="82dp"/>
     <View
         android:layout_width="59.01dp"
         android:layout_height="2dp"
         android:background="@drawable/line_inactive"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/createacctxt"
+        android:layout_marginTop="45.45dp"
         android:layout_marginStart="108dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="203dp"/>
+        android:layout_marginEnd="193dp"/>
     <View
         android:layout_width="59.01dp"
         android:layout_height="2dp"
         android:background="@drawable/line_inactive"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/createacctxt"
+        android:layout_marginTop="45.45dp"
         android:layout_marginStart="193dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="203dp"/>
+        android:layout_marginEnd="107.99dp"/>
     
     <RelativeLayout
+        android:id="@+id/Namefill"
         android:layout_width="295dp"
         android:layout_height="36dp"
         android:background="@drawable/createaccount_bg"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="33dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="239dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/firstdot"
+        android:layout_marginTop="48dp">
         <ImageView
             android:layout_width="35dp"
             android:layout_height="30dp"
             android:src="@drawable/name"
+            android:scaleType="centerCrop"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:paddingStart="12dp"/>
@@ -92,15 +128,16 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/emailfill"
         android:layout_width="295dp"
         android:layout_height="36dp"
         android:background="@drawable/createaccount_bg"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="33dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="283dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Namefill"
+        android:layout_marginTop="8dp">
         <ImageView
-            android:layout_width="35dp"
+            android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@drawable/email_pic"
             android:layout_alignParentStart="true"
@@ -119,17 +156,19 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/passfill"
         android:layout_width="295dp"
         android:layout_height="36dp"
         android:background="@drawable/createaccount_bg"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="33dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="327dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/emailfill"
+        android:layout_marginTop="8dp">
         <ImageView
-            android:layout_width="35dp"
-            android:layout_height="30dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:src="@drawable/password"
+            android:scaleType="centerCrop"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:paddingStart="12dp"/>
@@ -146,17 +185,19 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/confirmfill"
         android:layout_width="295dp"
         android:layout_height="36dp"
         android:background="@drawable/createaccount_bg"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="33dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="371dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/passfill"
+        android:layout_marginTop="8dp">
         <ImageView
-            android:layout_width="35dp"
-            android:layout_height="30dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:src="@drawable/password"
+            android:scaleType="centerCrop"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:paddingStart="12dp"/>
@@ -173,31 +214,33 @@
     </RelativeLayout>
 
     <Button
+        android:id="@+id/CreateAccButton"
         android:layout_width="295dp"
         android:layout_height="41dp"
-        android:id="@+id/CreateAccButton"
         android:backgroundTint="@color/Splashbg"
         android:text="Create Account"
         android:textSize="14sp"
-        android:textColor="@color/white"
+        android:textColor="#FFF"
         android:fontFamily="@font/inter_bold"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="33dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="442dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/confirmfill"
+        android:layout_marginTop="46dp">
     </Button>
     
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Already have an account?"
         android:textSize="12sp"
         android:textColor="@color/black"
         android:fontFamily="@font/inter_light"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="89dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="513dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/CreateAccButton"
+        android:layout_marginTop="35dp"
+        android:layout_marginStart="89dp"
+        android:layout_marginEnd="126dp"/>
     <TextView
         android:id="@+id/redirecttoLogIn"
         android:layout_width="wrap_content"
@@ -205,9 +248,12 @@
         android:text="@string/clickable_text1"
         android:textSize="12sp"
         android:textColor="#205375"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="242dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="513dp"
-        android:clickable="true" />
-</RelativeLayout>
+        android:clickable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/CreateAccButton"
+        android:layout_marginTop="35dp"
+        android:layout_marginStart="242dp"
+        android:layout_marginEnd="82dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

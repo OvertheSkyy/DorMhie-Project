@@ -1,28 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/Splashbg">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_end"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
     <ImageView
-        android:layout_width="424dp"
-        android:layout_height="431dp"
+        android:id="@+id/logo"
+        android:layout_width="500dp"
+        android:layout_height="0dp"
         android:src="@drawable/new_logo"
-        android:layout_marginTop="134dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/Progress_Bar"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintVertical_bias="0.3">
     </ImageView>
+
     <ProgressBar
         android:id="@+id/Progress_Bar"
         android:layout_width="227dp"
         android:layout_height="10dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="598dp"
         android:backgroundTint="@color/progressbg"
         android:progressTint="@color/progress"
-        style="@android:style/Widget.ProgressBar.Horizontal">
-
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        app:layout_constraintStart_toStartOf="@id/guide_start"
+        app:layout_constraintEnd_toEndOf="@id/guide_end"
+        app:layout_constraintTop_toBottomOf="@id/logo"
+        app:layout_constraintBottom_toTopOf="@id/TextShiretech"
+        app:layout_constraintVertical_bias="0.3"
+        android:layout_marginBottom="72dp">
     </ProgressBar>
 
     <TextView
+        android:id="@+id/TextShiretech"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SHIRETECH"
@@ -30,7 +56,12 @@
         android:textColor="@color/blueish"
         android:textAlignment="center"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="700dp">
+        app:layout_constraintStart_toStartOf="@id/guide_start"
+        app:layout_constraintEnd_toEndOf="@id/guide_end"
+        app:layout_constraintTop_toBottomOf="@id/Progress_Bar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.6"
+        android:layout_marginBottom="50dp">
     </TextView>
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
