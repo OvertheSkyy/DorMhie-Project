@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/bgcolor">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_end"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <ImageView
+        android:id="@+id/BacktoAuthentication"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/left"
+        android:clickable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="37dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="306dp">
+    </ImageView>
+
+    <TextView
+        android:id="@+id/Verifytxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email Verification"
+        android:textSize="32sp"
+        android:textColor="#205375"
+        android:fontFamily="@font/inter_bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="118dp">
+    </TextView>
+
+    <View
+        android:id="@+id/firstdot"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:background="@drawable/dot_active"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Verifytxt"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="82dp"
+        android:layout_marginEnd="252dp"/>
+    <View
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:background="@drawable/dot_active"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Verifytxt"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="167dp"
+        android:layout_marginEnd="167dp"/>
+    <View
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:background="@drawable/dot_active"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Verifytxt"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="252dp"
+        android:layout_marginEnd="82dp"/>
+    <View
+        android:layout_width="59.01dp"
+        android:layout_height="2dp"
+        android:background="@drawable/line_active"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Verifytxt"
+        android:layout_marginTop="45.45dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginEnd="193dp"/>
+    <View
+        android:layout_width="59.01dp"
+        android:layout_height="2dp"
+        android:background="@drawable/line_active"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Verifytxt"
+        android:layout_marginTop="45.45dp"
+        android:layout_marginStart="193dp"
+        android:layout_marginEnd="107.99dp"/>
+
+    <TextView
+        android:id="@+id/TxtNextInstruction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please check your email and enter the code\nbelow to confirm your email address."
+        android:textColor="#1F2122"
+        android:textSize="11sp"
+        android:textAlignment="center"
+        android:fontFamily="@font/inter_light"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/firstdot"
+        android:layout_marginTop="44dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginEnd="63dp"/>
+
+    <RelativeLayout
+        android:id="@+id/EnterCode"
+        android:layout_width="295dp"
+        android:layout_height="36dp"
+        android:background="@drawable/createaccount_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/TxtNextInstruction"
+        android:layout_marginTop="54dp">
+        <EditText
+            android:layout_width="295dp"
+            android:layout_height="36dp"
+            android:id="@+id/EditTxtName"
+            android:hint="Enter code"
+            android:textColor="#1F2122"
+            android:inputType="text"
+            android:textSize="12sp"
+            android:fontFamily="@font/inter_light"
+            style="@style/FixEditText"
+            android:gravity="center_vertical"
+            android:paddingStart="43dp"/>
+    </RelativeLayout>
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Didn't receive code?"
+        android:textSize="12sp"
+        android:textColor="#1F2122"
+        android:fontFamily="@font/inter_light"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/EnterCode"
+        android:layout_marginTop="21dp"
+        android:layout_marginStart="69dp"
+        android:layout_marginEnd="168dp"/>
+
+    <TextView
+        android:id="@+id/ClickableResendCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/clickable_text2"
+        android:textSize="12sp"
+        android:textColor="#205375"
+        android:fontFamily="@font/inter_light"
+        android:clickable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/EnterCode"
+        android:layout_marginTop="21dp"
+        android:layout_marginStart="192dp"
+        android:layout_marginEnd="74dp"/>
+    <Button
+        android:id="@+id/Continue"
+        android:layout_width="295dp"
+        android:layout_height="41dp"
+        android:backgroundTint="#D7942E"
+        android:text="Continue"
+        android:textSize="14sp"
+        android:textColor="#FFF"
+        android:fontFamily="@font/inter_bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ClickableResendCode"
+        android:layout_marginTop="48dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginEnd="31dp">
+    </Button>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

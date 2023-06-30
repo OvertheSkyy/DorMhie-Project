@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/bgcolor">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_end"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <ImageView
+        android:id="@+id/BacktoCreateAcc"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/left"
+        android:clickable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="37dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="306dp">
+    </ImageView>
+
+    <TextView
+        android:id="@+id/authenticationtxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Authentication"
+        android:textSize="32sp"
+        android:textColor="#205375"
+        android:fontFamily="@font/inter_bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="118dp">
+    </TextView>
+
+    <View
+        android:id="@+id/firstdot"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:background="@drawable/dot_active"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/authenticationtxt"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="82dp"
+        android:layout_marginEnd="252dp"/>
+    <View
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:background="@drawable/dot_active"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/authenticationtxt"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="167dp"
+        android:layout_marginEnd="167dp"/>
+    <View
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:background="@drawable/dot_inactive"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/authenticationtxt"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="252dp"
+        android:layout_marginEnd="82dp"/>
+    <View
+        android:layout_width="59.01dp"
+        android:layout_height="2dp"
+        android:background="@drawable/line_active"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/authenticationtxt"
+        android:layout_marginTop="45.45dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginEnd="193dp"/>
+    <View
+        android:layout_width="59.01dp"
+        android:layout_height="2dp"
+        android:background="@drawable/line_inactive"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/authenticationtxt"
+        android:layout_marginTop="45.45dp"
+        android:layout_marginStart="193dp"
+        android:layout_marginEnd="107.99dp"/>
+
+   <TextView
+       android:id="@+id/txtInstruct"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="To complete your profile and continue using\nthe application you'll need to verify your email\naddress."
+       android:textColor="#1F2122"
+       android:textSize="11sp"
+       android:textAlignment="center"
+       android:fontFamily="@font/inter_light"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintTop_toBottomOf="@id/firstdot"
+       android:layout_marginTop="44dp"
+       android:layout_marginStart="55dp"
+       android:layout_marginEnd="63dp"/>
+
+    <TextView
+        android:id="@+id/txtMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="We will send verification code to your email\n***********@gmail.com"
+        android:textSize="11sp"
+        android:textColor="#1F2122"
+        android:textAlignment="center"
+        android:fontFamily="@font/inter_light"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtInstruct"
+        android:layout_marginTop="22dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginEnd="63dp"/>
+    
+    <Button
+        android:id="@+id/ButtonUseanotheemail"
+        android:layout_width="295dp"
+        android:layout_height="41dp"
+        android:backgroundTint="#E8E2E2"
+        android:text="Use another email"
+        android:textColor="#545454"
+        android:textSize="14sp"
+        android:fontFamily="@font/inter_light"
+        android:textFontWeight="500"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtMessage"
+        android:layout_marginTop="68dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginEnd="31dp"/>
+
+    <Button
+        android:id="@+id/Sendcode"
+        android:layout_width="295dp"
+        android:layout_height="41dp"
+        android:backgroundTint="#D7942E"
+        android:text="Send Verification code"
+        android:textSize="14sp"
+        android:textColor="#FFF"
+        android:fontFamily="@font/inter_bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ButtonUseanotheemail"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginEnd="31dp">
+    </Button>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
