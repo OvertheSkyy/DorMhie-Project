@@ -39,7 +39,7 @@
         android:textAlignment="center"
         android:textColor="#205375"
         android:fontFamily="@font/inter_light"
-        android:textFontWeight="5000"
+        android:textFontWeight="1000"
         android:layout_centerHorizontal="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
