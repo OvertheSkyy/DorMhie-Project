@@ -44,7 +44,7 @@ class Log_In : AppCompatActivity() {
             startActivity(createAccountIntent)
         }
         binding.redirectforgotPassword.setOnClickListener {
-            val intent = Intent(this, Forgot_Passwrod::class.java)
+            val intent = Intent(this, Forgot_Password::class.java)
             startActivity(intent)
         }
     }

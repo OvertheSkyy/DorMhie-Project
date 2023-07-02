@@ -22,7 +22,7 @@
             android:name=".User_Profile"
             android:exported="false" />
         <activity
-            android:name=".Forgot_Passwrod"
+            android:name=".Forgot_Password"
             android:exported="false" />
         <activity
             android:name=".Create_Account"
