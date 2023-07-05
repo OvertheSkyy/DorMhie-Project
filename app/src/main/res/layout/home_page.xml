@@ -79,6 +79,18 @@
             android:layout_marginStart="35dp"
             android:layout_marginEnd="128dp"
             android:layout_marginTop="27dp"/>
+    <ImageView
+        android:id="@+id/ClickSearchIcon"
+        android:layout_width="19dp"
+        android:layout_height="19dp"
+        android:src="@drawable/search"
+        android:clickable="true"
+        app:layout_constraintTop_toTopOf="@id/rectanglebg"
+        app:layout_constraintStart_toEndOf="@id/EditTxtSearch"
+        app:layout_constraintEnd_toStartOf="@id/ClickNotification"
+        android:layout_marginTop="27dp"
+        android:layout_marginStart="81dp"
+        android:layout_marginEnd="28dp"/>
     <TextView
         android:id="@+id/TextViewWelcome"
         android:layout_width="wrap_content"

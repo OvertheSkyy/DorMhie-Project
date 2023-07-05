@@ -21,5 +21,10 @@ class User_Profile : AppCompatActivity() {
             val intent = Intent(this, Progress::class.java)
             startActivity(intent)
         }
+        val UnselectedCategoriesImageClick = findViewById<ImageView>(R.id.ClickUnselectedCategories)
+        UnselectedCategoriesImageClick.setOnClickListener {
+            val intent = Intent(this, Categories::class.java)
+            startActivity(intent)
+        }
     }
 }
