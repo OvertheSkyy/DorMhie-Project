@@ -1,62 +1,33 @@
 {
   "project_info": {
-    "project_number": "488924509181",
-    "project_id": "hobbits-5fa50",
-    "storage_bucket": "hobbits-5fa50.appspot.com"
+    "project_number": "732039550142",
+    "project_id": "hobbits-database",
+    "storage_bucket": "hobbits-database.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:488924509181:android:461901bea7255fec5c1f94",
-        "android_client_info": {
-          "package_name": "com.example.hobbits"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "488924509181-jvfprph6v9f1msnunfts8nvm9vd4aa24.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCWExFUl5BjdHG70pCxaOERFnP28JGR1Lk"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "488924509181-jvfprph6v9f1msnunfts8nvm9vd4aa24.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:488924509181:android:086c58eb604abe075c1f94",
+        "mobilesdk_app_id": "1:732039550142:android:15133750fe8c99abcc7aef",
         "android_client_info": {
           "package_name": "com.shiretech.hobbits"
         }
       },
       "oauth_client": [
         {
-          "client_id": "488924509181-jvfprph6v9f1msnunfts8nvm9vd4aa24.apps.googleusercontent.com",
+          "client_id": "732039550142-i83cbq00d47k15j2bt40jqqot1f4ccgn.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCWExFUl5BjdHG70pCxaOERFnP28JGR1Lk"
+          "current_key": "AIzaSyACSMUQYj9YRSa7IIGv1lNgx7dONd3eGy4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "488924509181-jvfprph6v9f1msnunfts8nvm9vd4aa24.apps.googleusercontent.com",
+              "client_id": "732039550142-i83cbq00d47k15j2bt40jqqot1f4ccgn.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
