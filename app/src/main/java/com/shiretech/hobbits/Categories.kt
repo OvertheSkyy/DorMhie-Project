@@ -8,7 +8,7 @@ import android.widget.ImageView
 class Categories : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.categories_page)
+        setContentView(R.layout.categories_subpage)
 
         val UnselectedHomeImageClick = findViewById<ImageView>(R.id.ClickHome)
         UnselectedHomeImageClick.setOnClickListener {

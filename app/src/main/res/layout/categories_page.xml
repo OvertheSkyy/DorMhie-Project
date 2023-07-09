@@ -459,4 +459,5 @@
         app:layout_constraintBottom_toBottomOf="@id/botrectangle"
         android:layout_marginEnd="40dp"
         app:layout_constraintHorizontal_chainStyle="spread_inside"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
