@@ -42,10 +42,18 @@ class Create_Account : AppCompatActivity() {
                 if (password == confirmpassword) {
 
                     firebaseAuth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener {
+                        .addOnCompleteListener(this) {
                             if (it.isSuccessful) {
-                                val intent = Intent(this, Log_In::class.java)
-                                startActivity(intent)
+
+                                firebaseAuth.currentUser?.sendEmailVerification()
+                                    ?.addOnSuccessListener {
+                                        val intent = Intent(this, Log_In::class.java)
+                                        Toast.makeText(this, "Please Verify your Email", Toast.LENGTH_SHORT).show()
+                                        startActivity(intent)
+                                    }
+                                    ?.addOnFailureListener{
+                                        Toast.makeText( this, it.toString(), Toast.LENGTH_SHORT).show()
+                                    }
                             } else {
                                 Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
                             }
