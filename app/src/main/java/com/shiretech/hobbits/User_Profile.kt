@@ -34,7 +34,7 @@ class User_Profile : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val textViewWelcome = findViewById<TextView>(R.id.UserName)
+        val username = findViewById<TextView>(R.id.UserName)
 
         val currentUser: FirebaseUser? = FirebaseAuth.getInstance().currentUser
 
@@ -48,7 +48,7 @@ class User_Profile : AppCompatActivity() {
 
                     if (user != null) {
                         val welcomeMessage = "$user"
-                        textViewWelcome.text = welcomeMessage
+                        username.text = welcomeMessage
                     }
 
                 }
