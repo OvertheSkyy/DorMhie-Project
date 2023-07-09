@@ -4,6 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.TextView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 
 class User_Profile : AppCompatActivity() {
@@ -25,6 +32,31 @@ class User_Profile : AppCompatActivity() {
         UnselectedCategoriesImageClick.setOnClickListener {
             val intent = Intent(this, Categories::class.java)
             startActivity(intent)
+        }
+
+        val textViewWelcome = findViewById<TextView>(R.id.UserName)
+
+        val currentUser: FirebaseUser? = FirebaseAuth.getInstance().currentUser
+
+        if (currentUser != null) {
+            val uid = currentUser.uid
+            val usersRef = FirebaseDatabase.getInstance().reference.child("users").child(uid)
+
+            usersRef.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    val user = dataSnapshot.child("name").getValue(String::class.java)
+
+                    if (user != null) {
+                        val welcomeMessage = "$user"
+                        textViewWelcome.text = welcomeMessage
+                    }
+
+                }
+
+                override fun onCancelled(databaseError: DatabaseError) {
+                    // Handle the error
+                }
+            })
         }
     }
 }
