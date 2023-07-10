@@ -7,7 +7,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.RelativeLayout
 import android.widget.TextView
+import androidx.core.view.setMargins
 
 class Categories : AppCompatActivity() {
 
@@ -20,6 +23,22 @@ class Categories : AppCompatActivity() {
         database = FirebaseDatabase.getInstance().reference
 
         fetchCategories()
+
+        val cookingCategoryDropdown = findViewById<ImageView>(R.id.CookingCategorydropdown)
+        val cookingHobbiesContainer = findViewById<RelativeLayout>(R.id.CookinghobbiesContainer)
+        val layoutParams = cookingHobbiesContainer.layoutParams as LinearLayout.LayoutParams
+
+        cookingCategoryDropdown.setOnClickListener {
+            if (cookingHobbiesContainer.visibility == View.GONE){
+                cookingHobbiesContainer.visibility = View.VISIBLE
+                layoutParams.setMargins(0,-55.dpToPx(),0,0)
+            }
+            else{
+                cookingHobbiesContainer.visibility = View.GONE
+                layoutParams.setMargins(0,0,0,0)
+            }
+        }
+
 
         val UnselectedHomeImageClick = findViewById<ImageView>(R.id.ClickHome)
         UnselectedHomeImageClick.setOnClickListener {
@@ -36,6 +55,11 @@ class Categories : AppCompatActivity() {
             val intent = Intent(this, User_Profile::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun Int.dpToPx(): Int {
+        val scale = resources.displayMetrics.density
+        return (this * scale + 0.5f).toInt()
     }
 
     private fun fetchCategories() {

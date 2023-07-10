@@ -100,11 +100,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rectanglebg"
         android:layout_marginTop="28dp">
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            >
-
+            android:orientation="vertical">
             <TextView
                 android:id="@+id/CATEGORIEStxt"
                 android:layout_width="match_parent"
@@ -115,13 +114,19 @@
                 android:fontFamily="@font/inter_bold"
                 android:layout_marginTop="0dp"
                 android:layout_marginStart="0dp"/>
+
+            <RelativeLayout
+                android:id="@+id/CookingCategoryContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp">
+
             <ImageView
                 android:id="@+id/CookingCategorydropdown"
                 android:layout_width="21dp"
                 android:layout_height="21dp"
                 android:src="@drawable/down"
-                android:layout_marginTop="34dp"
-                android:layout_marginStart="12dp"
+                android:layout_marginStart="18dp"
                 android:clickable="true"/>
             <TextView
                 android:id="@+id/FirstCategory"
@@ -132,8 +137,16 @@
                 android:textColor="#1F2122"
                 android:fontFamily="@font/inter_light"
                 android:textFontWeight="600"
-                android:layout_marginTop="32dp"
-                android:layout_marginStart="37dp"/>
+                android:layout_marginTop="-3dp"
+                android:layout_marginStart="45dp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/CookinghobbiesContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="-55dp"
+                android:visibility="gone">
             <View
                 android:id="@+id/subCooking1"
                 android:layout_width="275dp"
@@ -368,15 +381,20 @@
                 android:layout_marginTop="300dp"
                 android:layout_marginStart="242dp"
                 android:clickable="true"/>
+            </RelativeLayout>
 
-
+            <RelativeLayout
+                android:id="@+id/CreativeArtsCategoryContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp">
             <ImageView
                 android:id="@+id/CreativeArtsDropdown"
                 android:layout_width="21dp"
                 android:layout_height="21dp"
                 android:src="@drawable/down"
                 android:layout_marginStart="18dp"
-                android:layout_marginTop="369dp"/>
+                />
             <TextView
                 android:id="@+id/SecondCategory"
                 android:layout_width="wrap_content"
@@ -385,17 +403,22 @@
                 android:textSize="16sp"
                 android:textColor="#1F2122"
                 android:fontFamily="@font/inter_light"
-                android:textFontWeight="600"
-                android:layout_marginTop="366dp"
+                android:textFontWeight="400"
+                android:layout_marginTop="-3dp"
                 android:layout_marginStart="45dp"/>
+            </RelativeLayout>
 
+            <RelativeLayout
+                android:id="@+id/HealthandWellnessCategoryContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp">
             <ImageView
                 android:id="@+id/HealthandWellnessDropdown"
                 android:layout_width="21dp"
                 android:layout_height="21dp"
                 android:src="@drawable/down"
-                android:layout_marginTop="405dp"
-                android:layout_marginStart="18dp" />
+                android:layout_marginStart="18dp"/>
             <TextView
                 android:id="@+id/ThirdCategory"
                 android:layout_width="wrap_content"
@@ -404,16 +427,21 @@
                 android:textSize="16sp"
                 android:textColor="#1F2122"
                 android:fontFamily="@font/inter_light"
-                android:textFontWeight="600"
-                android:layout_marginTop="403dp"
-                android:layout_marginStart="45dp"/>
+                android:textFontWeight="400"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="-3dp"/>
+            </RelativeLayout>
 
+            <RelativeLayout
+                android:id="@+id/MusicPerformanceCategoryContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp">
             <ImageView
                 android:id="@+id/MusicandperformingDropdown"
                 android:layout_width="21dp"
                 android:layout_height="21dp"
                 android:src="@drawable/down"
-                android:layout_marginTop="439dp"
                 android:layout_marginStart="18dp" />
             <TextView
                 android:id="@+id/FourthCategory"
@@ -423,16 +451,21 @@
                 android:textSize="16sp"
                 android:textColor="#1F2122"
                 android:fontFamily="@font/inter_light"
-                android:textFontWeight="600"
-                android:layout_marginTop="437dp"
+                android:textFontWeight="400"
+                android:layout_marginTop="-3dp"
                 android:layout_marginStart="45dp"/>
+            </RelativeLayout>
 
+            <RelativeLayout
+                android:id="@+id/readingWritingCategoryContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp">
             <ImageView
                 android:id="@+id/ReadingandWritingDropdown"
                 android:layout_width="21dp"
                 android:layout_height="21dp"
                 android:src="@drawable/down"
-                android:layout_marginTop="475dp"
                 android:layout_marginStart="18dp" />
             <TextView
                 android:id="@+id/FifthCategory"
@@ -442,16 +475,21 @@
                 android:textSize="16sp"
                 android:textColor="#1F2122"
                 android:fontFamily="@font/inter_light"
-                android:textFontWeight="600"
-                android:layout_marginTop="472dp"
+                android:textFontWeight="400"
+                android:layout_marginTop="-3dp"
                 android:layout_marginStart="45dp"/>
+            </RelativeLayout>
 
+            <RelativeLayout
+                android:id="@+id/SciencetechCategoryContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp">
             <ImageView
                 android:id="@+id/ScienceandTechDropdown"
                 android:layout_width="21dp"
                 android:layout_height="21dp"
                 android:src="@drawable/down"
-                android:layout_marginTop="510dp"
                 android:layout_marginStart="18dp"/>
             <TextView
                 android:id="@+id/SixthCategory"
@@ -461,11 +499,12 @@
                 android:textSize="16sp"
                 android:textColor="#1F2122"
                 android:fontFamily="@font/inter_light"
-                android:textFontWeight="600"
-                android:layout_marginTop="509dp"
+                android:textFontWeight="400"
+                android:layout_marginTop="-3dp"
                 android:layout_marginStart="45dp"/>
+            </RelativeLayout>
 
-        </RelativeLayout>
+        </LinearLayout>
 
     </ScrollView>
 
@@ -498,12 +537,12 @@
         android:contentDescription="Progress page"
         android:clickable="true"
         app:layout_constraintStart_toEndOf="@id/ClickHome"
-        app:layout_constraintEnd_toStartOf="@id/ClickUnselectedCategories"
+        app:layout_constraintEnd_toStartOf="@id/ClickselectedCategories"
         app:layout_constraintTop_toTopOf="@id/botrectangle"
         app:layout_constraintBottom_toBottomOf="@id/botrectangle"
         app:layout_constraintHorizontal_chainStyle="spread_inside"/>
     <ImageView
-        android:id="@+id/ClickUnselectedCategories"
+        android:id="@+id/ClickselectedCategories"
         android:layout_width="38dp"
         android:layout_height="38dp"
         android:src="@drawable/categories_selected"
@@ -521,7 +560,7 @@
         android:src="@drawable/calendar_unselected"
         android:contentDescription="Calendar Page"
         android:clickable="true"
-        app:layout_constraintStart_toEndOf="@id/ClickUnselectedCategories"
+        app:layout_constraintStart_toEndOf="@id/ClickselectedCategories"
         app:layout_constraintEnd_toStartOf="@id/ClickUnselectedUser"
         app:layout_constraintTop_toTopOf="@id/botrectangle"
         app:layout_constraintBottom_toBottomOf="@id/botrectangle"
