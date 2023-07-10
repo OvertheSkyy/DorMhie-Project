@@ -24,20 +24,102 @@ class Categories : AppCompatActivity() {
 
         fetchCategories()
 
+        //Cooking Category
         val cookingCategoryDropdown = findViewById<ImageView>(R.id.CookingCategorydropdown)
         val cookingHobbiesContainer = findViewById<RelativeLayout>(R.id.CookinghobbiesContainer)
-        val layoutParams = cookingHobbiesContainer.layoutParams as LinearLayout.LayoutParams
+        val cookinglayoutParams = cookingHobbiesContainer.layoutParams as LinearLayout.LayoutParams
 
         cookingCategoryDropdown.setOnClickListener {
             if (cookingHobbiesContainer.visibility == View.GONE){
                 cookingHobbiesContainer.visibility = View.VISIBLE
-                layoutParams.setMargins(0,-55.dpToPx(),0,0)
+                cookinglayoutParams.setMargins(0,-55.dpToPx(),0,0)
             }
             else{
                 cookingHobbiesContainer.visibility = View.GONE
-                layoutParams.setMargins(0,0,0,0)
+                cookinglayoutParams.setMargins(0,0,0,0)
             }
         }
+
+        //Creative Arts
+        val creativeartsCategoryDropdown = findViewById<ImageView>(R.id.CreativeArtsDropdown)
+        val creativeArtsHobbiesContainer = findViewById<RelativeLayout>(R.id.CreativeArtshobbiesContainer)
+        val creativelayoutParams = creativeArtsHobbiesContainer.layoutParams as LinearLayout.LayoutParams
+
+        creativeartsCategoryDropdown.setOnClickListener {
+            if (creativeArtsHobbiesContainer.visibility == View.GONE){
+                creativeArtsHobbiesContainer.visibility = View.VISIBLE
+                creativelayoutParams.setMargins(0,-55.dpToPx(),0,0)
+            }
+            else{
+                creativeArtsHobbiesContainer.visibility = View.GONE
+                creativelayoutParams.setMargins(0,0,0,0)
+            }
+        }
+
+        //Health and Wellness
+        val healthAndwellnessCategoryDropdown = findViewById<ImageView>(R.id.HealthandWellnessDropdown)
+        val healthandwellnessHobbiesContainer = findViewById<RelativeLayout>(R.id.HealthandWellnesshobbiesContainer)
+        val HealthandWellnesslayoutParams = creativeArtsHobbiesContainer.layoutParams as LinearLayout.LayoutParams
+
+        healthAndwellnessCategoryDropdown.setOnClickListener {
+            if (healthandwellnessHobbiesContainer.visibility == View.GONE){
+                healthandwellnessHobbiesContainer.visibility = View.VISIBLE
+                HealthandWellnesslayoutParams.setMargins(0,-55.dpToPx(),0,0)
+            }
+            else{
+                healthandwellnessHobbiesContainer.visibility = View.GONE
+                HealthandWellnesslayoutParams.setMargins(0,0,0,0)
+            }
+        }
+
+        //Music and Performing
+        val musicandperformingCategoryDropdown = findViewById<ImageView>(R.id.MusicandperformingDropdown)
+        val musicandperformingHobbiesContainer = findViewById<RelativeLayout>(R.id.MusicandPerforminghobbiesContainer)
+        val MusicandPerforminglayoutParams = creativeArtsHobbiesContainer.layoutParams as LinearLayout.LayoutParams
+
+        musicandperformingCategoryDropdown.setOnClickListener {
+            if (musicandperformingHobbiesContainer.visibility == View.GONE){
+                musicandperformingHobbiesContainer.visibility = View.VISIBLE
+                MusicandPerforminglayoutParams.setMargins(0,-55.dpToPx(),0,0)
+            }
+            else{
+                musicandperformingHobbiesContainer.visibility = View.GONE
+                MusicandPerforminglayoutParams.setMargins(0,0,0,0)
+            }
+        }
+
+        //Reading and Writing
+        val readingandwritingCategoryDropdown = findViewById<ImageView>(R.id.ReadingandWritingDropdown)
+        val readingandwritingHobbiesContainer = findViewById<RelativeLayout>(R.id.ReadingandWritinghobbiesContainer)
+        val ReadingandWritinglayoutParams = creativeArtsHobbiesContainer.layoutParams as LinearLayout.LayoutParams
+
+        readingandwritingCategoryDropdown.setOnClickListener {
+            if (readingandwritingHobbiesContainer.visibility == View.GONE){
+                readingandwritingHobbiesContainer.visibility = View.VISIBLE
+                ReadingandWritinglayoutParams.setMargins(0,-55.dpToPx(),0,0)
+            }
+            else{
+                readingandwritingHobbiesContainer.visibility = View.GONE
+                ReadingandWritinglayoutParams.setMargins(0,0,0,0)
+            }
+        }
+
+        //Science and Technology
+        val scienceandtechCategoryDropdown = findViewById<ImageView>(R.id.ScienceandTechDropdown)
+        val scienceandtechHobbiesContainer = findViewById<RelativeLayout>(R.id.ScienceandTechhobbiesContainer)
+        val ScienceandTechlayoutParams = creativeArtsHobbiesContainer.layoutParams as LinearLayout.LayoutParams
+
+        scienceandtechCategoryDropdown.setOnClickListener {
+            if (scienceandtechHobbiesContainer.visibility == View.GONE){
+                scienceandtechHobbiesContainer.visibility = View.VISIBLE
+                ScienceandTechlayoutParams.setMargins(0,-55.dpToPx(),0,0)
+            }
+            else{
+                scienceandtechHobbiesContainer.visibility = View.GONE
+                ScienceandTechlayoutParams.setMargins(0,0,0,0)
+            }
+        }
+
 
 
         val UnselectedHomeImageClick = findViewById<ImageView>(R.id.ClickHome)
