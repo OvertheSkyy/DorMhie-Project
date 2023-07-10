@@ -84,21 +84,29 @@ class Categories : AppCompatActivity() {
         })
     }
 
-    private fun fetchHobbiesForCategory(category: String, index: Int, onComplete: (List<String>, Int) -> Unit) {
-        val categoryReference = database.child("categories").child(index.toString()).child("hobbies")
+    private fun fetchHobbiesForCategory(categoryIndex: Int, onComplete: (List<String>) -> Unit) {
+        val categoryReference = database.child("categories").child("$categoryIndex").child("hobbies")
         categoryReference.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val hobbies = dataSnapshot.getValue(object : GenericTypeIndicator<List<String>>() {})
-                Log.d("Categories", "Fetched hobbies for category $category (index: $index): $hobbies")
-                onComplete(hobbies ?: emptyList(), index)
+                val hobbies = if (dataSnapshot.exists()) {
+                    val hobbyList = mutableListOf<String>()
+                    for (hobbySnapshot in dataSnapshot.children) {
+                        val hobby = hobbySnapshot.child("name").getValue(String::class.java)
+                        hobby?.let { hobbyList.add(it) }
+                    }
+                    hobbyList
+                } else {
+                    emptyList()
+                }
+                onComplete(hobbies)
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
-                Log.e("Categories", "Database error: $databaseError")
                 // Handle the error here if needed
             }
         })
     }
+
 
     private fun renderCategories(categoryList: List<String>) {
         val firstCategoryTextView = findViewById<TextView>(R.id.FirstCategory)
@@ -112,17 +120,18 @@ class Categories : AppCompatActivity() {
             val firstCategory = categoryList[0]
             firstCategoryTextView.text = firstCategory
 
-            fetchHobbiesForCategory(firstCategory, 0) { hobbies, index ->
-                val hobbyTextViews = getHobbyTextViewsForCategory(index)
+            fetchHobbiesForCategory(0) { hobbies ->
+                val hobbyTextViews = getHobbyTextViewsForCategory(0)
                 renderHobbies(hobbies, *hobbyTextViews)
             }
         }
+
         if (categoryList.size >= 2) {
             val secondCategory = categoryList[1]
             secondCategoryTextView.text = secondCategory
 
-            fetchHobbiesForCategory(secondCategory, 1) { hobbies, index ->
-                val hobbyTextViews = getHobbyTextViewsForCategory(index)
+            fetchHobbiesForCategory(1) { hobbies ->
+                val hobbyTextViews = getHobbyTextViewsForCategory(1)
                 renderHobbies(hobbies, *hobbyTextViews)
             }
         }
@@ -130,8 +139,8 @@ class Categories : AppCompatActivity() {
             val thirdCategory = categoryList[2]
             thirdCategoryTextView.text = thirdCategory
 
-            fetchHobbiesForCategory(thirdCategory, 2) { hobbies, index ->
-                val hobbyTextViews = getHobbyTextViewsForCategory(index)
+            fetchHobbiesForCategory(2) { hobbies ->
+                val hobbyTextViews = getHobbyTextViewsForCategory(2)
                 renderHobbies(hobbies, *hobbyTextViews)
             }
         }
@@ -139,8 +148,8 @@ class Categories : AppCompatActivity() {
             val fourthCategory = categoryList[3]
             fourthCategoryTextView.text = fourthCategory
 
-            fetchHobbiesForCategory(fourthCategory, 3) { hobbies, index ->
-                val hobbyTextViews = getHobbyTextViewsForCategory(index)
+            fetchHobbiesForCategory(3) { hobbies ->
+                val hobbyTextViews = getHobbyTextViewsForCategory(3)
                 renderHobbies(hobbies, *hobbyTextViews)
             }
         }
@@ -148,8 +157,8 @@ class Categories : AppCompatActivity() {
             val fifthCategory = categoryList[4]
             fifthCategoryTextView.text = fifthCategory
 
-            fetchHobbiesForCategory(fifthCategory, 4) { hobbies, index ->
-                val hobbyTextViews = getHobbyTextViewsForCategory(index)
+            fetchHobbiesForCategory(4) { hobbies ->
+                val hobbyTextViews = getHobbyTextViewsForCategory(4)
                 renderHobbies(hobbies, *hobbyTextViews)
             }
         }
@@ -157,13 +166,12 @@ class Categories : AppCompatActivity() {
             val sixthCategory = categoryList[5]
             sixthCategoryTextView.text = sixthCategory
 
-            fetchHobbiesForCategory(sixthCategory, 5) { hobbies, index ->
-                val hobbyTextViews = getHobbyTextViewsForCategory(index)
+            fetchHobbiesForCategory(5) { hobbies ->
+                val hobbyTextViews = getHobbyTextViewsForCategory(5)
                 renderHobbies(hobbies, *hobbyTextViews)
             }
         }
     }
-
 
     private fun getHobbyTextViewsForCategory(index: Int): Array<TextView> {
         // Return the appropriate array of TextViews based on the category index
@@ -174,21 +182,27 @@ class Categories : AppCompatActivity() {
                 findViewById(R.id.FirstCategoryThirdHobby),
                 findViewById(R.id.FirstCategoryFourthHobby)
             )
+
             1 -> arrayOf(
                 //Add textView id for Second Category
             )
+
             2 -> arrayOf(
                 //Add textView id for Third Category
             )
+
             3 -> arrayOf(
                 //Add textView id for Fourth Category
             )
+
             4 -> arrayOf(
                 //Add textView id for Fifth Category
             )
+
             5 -> arrayOf(
                 //Add textView id for Sixth Category
             )
+
             else -> emptyArray()
         }
     }
