@@ -4,6 +4,8 @@ import com.google.firebase.database.*
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 
@@ -15,13 +17,10 @@ class Categories : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.categories_subpage)
 
-        // Initialize Firebase database reference
         database = FirebaseDatabase.getInstance().reference
 
-        // Fetch data from Firebase and render it in the text views
         fetchCategories()
 
-        // Set click listeners for other elements
         val UnselectedHomeImageClick = findViewById<ImageView>(R.id.ClickHome)
         UnselectedHomeImageClick.setOnClickListener {
             val intent = Intent(this, Home::class.java)
@@ -49,18 +48,35 @@ class Categories : AppCompatActivity() {
                         val category = categorySnapshot.child("name").getValue(String::class.java)
                         category?.let { categoryList.add(it) }
                     }
+                    Log.d("Categories", "Fetched category list: $categoryList")
                     renderCategories(categoryList)
                 }
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
+                Log.e("Categories", "Database error: $databaseError")
+                // Handle the error here if needed
+            }
+        })
+    }
+
+    private fun fetchHobbiesForCategory(category: String, index: Int, onComplete: (List<String>, Int) -> Unit) {
+        val categoryReference = database.child("categories").child(index.toString()).child("hobbies")
+        categoryReference.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val hobbies = dataSnapshot.getValue(object : GenericTypeIndicator<List<String>>() {})
+                Log.d("Categories", "Fetched hobbies for category $category (index: $index): $hobbies")
+                onComplete(hobbies ?: emptyList(), index)
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                Log.e("Categories", "Database error: $databaseError")
                 // Handle the error here if needed
             }
         })
     }
 
     private fun renderCategories(categoryList: List<String>) {
-
         val firstCategoryTextView = findViewById<TextView>(R.id.FirstCategory)
         val secondCategoryTextView = findViewById<TextView>(R.id.SecondCategory)
         val thirdCategoryTextView = findViewById<TextView>(R.id.ThirdCategory)
@@ -69,22 +85,107 @@ class Categories : AppCompatActivity() {
         val sixthCategoryTextView = findViewById<TextView>(R.id.SixthCategory)
 
         if (categoryList.size >= 1) {
-            firstCategoryTextView.text = categoryList[0]
+            val firstCategory = categoryList[0]
+            firstCategoryTextView.text = firstCategory
+
+            fetchHobbiesForCategory(firstCategory, 0) { hobbies, index ->
+                val hobbyTextViews = getHobbyTextViewsForCategory(index)
+                renderHobbies(hobbies, *hobbyTextViews)
+            }
         }
         if (categoryList.size >= 2) {
-            secondCategoryTextView.text = categoryList[1]
+            val secondCategory = categoryList[1]
+            secondCategoryTextView.text = secondCategory
+
+            fetchHobbiesForCategory(secondCategory, 1) { hobbies, index ->
+                val hobbyTextViews = getHobbyTextViewsForCategory(index)
+                renderHobbies(hobbies, *hobbyTextViews)
+            }
         }
         if (categoryList.size >= 3) {
-            thirdCategoryTextView.text = categoryList[2]
+            val thirdCategory = categoryList[2]
+            thirdCategoryTextView.text = thirdCategory
+
+            fetchHobbiesForCategory(thirdCategory, 2) { hobbies, index ->
+                val hobbyTextViews = getHobbyTextViewsForCategory(index)
+                renderHobbies(hobbies, *hobbyTextViews)
+            }
         }
         if (categoryList.size >= 4) {
-            fourthCategoryTextView.text = categoryList[3]
+            val fourthCategory = categoryList[3]
+            fourthCategoryTextView.text = fourthCategory
+
+            fetchHobbiesForCategory(fourthCategory, 3) { hobbies, index ->
+                val hobbyTextViews = getHobbyTextViewsForCategory(index)
+                renderHobbies(hobbies, *hobbyTextViews)
+            }
         }
         if (categoryList.size >= 5) {
-            fifthCategoryTextView.text = categoryList[4]
+            val fifthCategory = categoryList[4]
+            fifthCategoryTextView.text = fifthCategory
+
+            fetchHobbiesForCategory(fifthCategory, 4) { hobbies, index ->
+                val hobbyTextViews = getHobbyTextViewsForCategory(index)
+                renderHobbies(hobbies, *hobbyTextViews)
+            }
         }
         if (categoryList.size >= 6) {
-            sixthCategoryTextView.text = categoryList[5]
+            val sixthCategory = categoryList[5]
+            sixthCategoryTextView.text = sixthCategory
+
+            fetchHobbiesForCategory(sixthCategory, 5) { hobbies, index ->
+                val hobbyTextViews = getHobbyTextViewsForCategory(index)
+                renderHobbies(hobbies, *hobbyTextViews)
+            }
+        }
+    }
+
+
+    private fun getHobbyTextViewsForCategory(index: Int): Array<TextView> {
+        // Return the appropriate array of TextViews based on the category index
+        return when (index) {
+            0 -> arrayOf(
+                findViewById(R.id.FirstCategoryFirstHobby),
+                findViewById(R.id.FirstCategorySecondHobby),
+                findViewById(R.id.FirstCategoryThirdHobby),
+                findViewById(R.id.FirstCategoryFourthHobby)
+            )
+            1 -> arrayOf(
+                //Add textView id for Second Category
+            )
+            2 -> arrayOf(
+                //Add textView id for Third Category
+            )
+            3 -> arrayOf(
+                //Add textView id for Fourth Category
+            )
+            4 -> arrayOf(
+                //Add textView id for Fifth Category
+            )
+            5 -> arrayOf(
+                //Add textView id for Sixth Category
+            )
+            else -> emptyArray()
+        }
+    }
+
+    private fun renderHobbies(hobbies: List<String>?, vararg hobbyTextViews: TextView) {
+        if (hobbies != null) {
+            for (i in hobbyTextViews.indices) {
+                if (i < hobbies.size) {
+                    hobbyTextViews[i].text = hobbies[i]
+                    hobbyTextViews[i].visibility = View.VISIBLE
+                } else {
+                    hobbyTextViews[i].text = ""
+                    hobbyTextViews[i].visibility = View.GONE
+                }
+            }
+        } else {
+            // Handle the case when hobbies are null (e.g., display a default message or hide the TextViews)
+            for (hobbyTextView in hobbyTextViews) {
+                hobbyTextView.text = "No hobbies found"
+                hobbyTextView.visibility = View.GONE
+            }
         }
     }
 }

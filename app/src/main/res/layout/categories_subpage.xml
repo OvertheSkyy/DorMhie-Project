@@ -151,6 +151,7 @@
                 android:layout_marginTop="80dp"
                 android:layout_marginStart="10dp"/>
             <TextView
+                android:id="@+id/FirstCategoryFirstHobby"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Baking"
@@ -208,6 +209,7 @@
                 android:layout_marginTop="150dp"
                 android:layout_marginStart="10dp"/>
             <TextView
+                android:id="@+id/FirstCategorySecondHobby"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Homebrewing"
@@ -267,6 +269,7 @@
                 android:layout_marginTop="220dp"
                 android:layout_marginStart="10dp"/>
             <TextView
+                android:id="@+id/FirstCategoryThirdHobby"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Healthy Cooking"
@@ -325,6 +328,7 @@
                 android:layout_marginTop="289dp"
                 android:layout_marginStart="10dp"/>
             <TextView
+                android:id="@+id/FirstCategoryFourthHobby"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Food Preservation"
