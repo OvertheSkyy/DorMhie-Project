@@ -82,7 +82,7 @@
         app:layout_constraintStart_toEndOf="@id/ClickInfo"
         android:layout_marginTop="25dp"
         android:layout_marginStart="8dp"/>
-    
+
     <ScrollView
         android:id="@+id/ScrollViewHobbits"
         android:layout_width="327dp"
@@ -478,7 +478,7 @@
             </RelativeLayout>
         </RelativeLayout>
     </ScrollView>
-    
+
     <Button
         android:id="@+id/ButtonSetSched"
         android:layout_width="156dp"

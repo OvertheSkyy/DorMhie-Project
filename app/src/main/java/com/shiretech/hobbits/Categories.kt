@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
@@ -28,6 +29,24 @@ class Categories : AppCompatActivity() {
         val cookingCategoryDropdown = findViewById<ImageView>(R.id.CookingCategorydropdown)
         val cookingHobbiesContainer = findViewById<RelativeLayout>(R.id.CookinghobbiesContainer)
         val cookinglayoutParams = cookingHobbiesContainer.layoutParams as LinearLayout.LayoutParams
+        val addFirstCategoryFirstHobbyButton = findViewById<Button>(R.id.AddFirstCategoryFirstHobby)
+
+        addFirstCategoryFirstHobbyButton.setOnClickListener {
+            val categoryIndex = 0 // Replace with the actual index of the category
+            val hobbyIndex = 0 // Replace with the actual index of the hobby within the category
+
+            fetchHobbiesAndHobbitsForCategory(categoryIndex) { hobbiesWithHobbits ->
+                if (hobbyIndex < hobbiesWithHobbits.size) {
+                    val selectedHobby = hobbiesWithHobbits[hobbyIndex].first
+                    val selectedHobbits = hobbiesWithHobbits[hobbyIndex].second
+
+                    val intent = Intent(this, EditHobby::class.java)
+                    intent.putExtra("hobbyName", selectedHobby)
+                    intent.putStringArrayListExtra("hobbits", ArrayList(selectedHobbits))
+                    startActivity(intent)
+                }
+            }
+        }
 
         cookingCategoryDropdown.setOnClickListener {
             if (cookingHobbiesContainer.visibility == View.GONE){
@@ -180,15 +199,16 @@ class Categories : AppCompatActivity() {
                 } else {
                     emptyList()
                 }
+                Log.d("Categories", "Fetched hobbies for category $categoryIndex: $hobbies")
                 onComplete(hobbies)
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
+                Log.e("Categories", "Failed to fetch hobbies for category $categoryIndex: $databaseError")
                 // Handle the error here if needed
             }
         })
     }
-
 
     private fun renderCategories(categoryList: List<String>) {
         val firstCategoryTextView = findViewById<TextView>(R.id.FirstCategory)
@@ -266,25 +286,39 @@ class Categories : AppCompatActivity() {
             )
 
             1 -> arrayOf(
-                //Add textView id for Second Category
+                findViewById(R.id.SecondCategoryFirstHobby),
+                findViewById(R.id.SecondCategorySecondHobby),
+                findViewById(R.id.SecondCategoryThirdHobby),
+                findViewById(R.id.SecondCategoryFourthHobby)
             )
 
             2 -> arrayOf(
-                //Add textView id for Third Category
+                findViewById(R.id.ThirdCategoryFirstHobby),
+                findViewById(R.id.ThirdCategorySecondHobby),
+                findViewById(R.id.ThirdCategoryThirdHobby),
+                findViewById(R.id.ThirdCategoryFourthHobby)
             )
 
             3 -> arrayOf(
-                //Add textView id for Fourth Category
+                findViewById(R.id.FourthCategoryFirstHobby),
+                findViewById(R.id.FourthCategorySecondHobby),
+                findViewById(R.id.FourthCategoryThirdHobby),
+                findViewById(R.id.FourthCategoryFourthHobby)
             )
 
             4 -> arrayOf(
-                //Add textView id for Fifth Category
+                findViewById(R.id.FifthCategoryFirstHobby),
+                findViewById(R.id.FifthCategorySecondHobby),
+                findViewById(R.id.FifthCategoryThirdHobby),
+                findViewById(R.id.FifthCategoryFourthHobby)
             )
 
             5 -> arrayOf(
-                //Add textView id for Sixth Category
+                findViewById(R.id.SixthCategoryFirstHobby),
+                findViewById(R.id.SixthCategorySecondHobby),
+                findViewById(R.id.SixthCategoryThirdHobby),
+                findViewById(R.id.SixthCategoryFourthHobby)
             )
-
             else -> emptyArray()
         }
     }
@@ -307,5 +341,40 @@ class Categories : AppCompatActivity() {
                 hobbyTextView.visibility = View.GONE
             }
         }
+    }
+    private fun fetchHobbiesAndHobbitsForCategory(categoryIndex: Int, onComplete: (List<Pair<String, List<String>>>) -> Unit) {
+        val categoryReference = database.child("categories").child("$categoryIndex").child("hobbies")
+        categoryReference.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val hobbiesWithHobbits = if (dataSnapshot.exists()) {
+                    val hobbyList = mutableListOf<Pair<String, List<String>>>()
+                    for (hobbySnapshot in dataSnapshot.children) {
+                        val hobby = hobbySnapshot.child("name").getValue(String::class.java)
+                        val hobbitsSnapshot = hobbySnapshot.child("hobbits")
+                        val hobbits = if (hobbitsSnapshot.exists()) {
+                            val hobbitList = mutableListOf<String>()
+                            for (hobbitSnapshot in hobbitsSnapshot.children) {
+                                val hobbit = hobbitSnapshot.getValue(String::class.java)
+                                hobbit?.let { hobbitList.add(it) }
+                            }
+                            hobbitList
+                        } else {
+                            emptyList()
+                        }
+                        hobby?.let { hobbyList.add(it to hobbits) }
+                    }
+                    hobbyList
+                } else {
+                    emptyList()
+                }
+                Log.d("Categories", "Fetched hobbies with hobbits for category $categoryIndex: $hobbiesWithHobbits")
+                onComplete(hobbiesWithHobbits)
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                Log.e("Categories", "Failed to fetch hobbies with hobbits for category $categoryIndex: $databaseError")
+                // Handle the error here if needed
+            }
+        })
     }
 }

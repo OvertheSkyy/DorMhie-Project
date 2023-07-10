@@ -13,6 +13,9 @@
         android:theme="@style/Theme.HOBBITS"
         tools:targetApi="31">
         <activity
+            android:name=".EditHobby"
+            android:exported="false" />
+        <activity
             android:name=".Categories"
             android:exported="false" />
         <activity
