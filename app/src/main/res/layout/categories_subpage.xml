@@ -1,98 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/bgcolor">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_start"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:background="@color/bgcolor">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_end"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guide_start"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.05" />
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guide_end"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.95" />
-
-        <View
-            android:id="@+id/rectanglebg"
-            android:layout_width="0dp"
-            android:layout_height="69dp"
-            android:background="@drawable/top_rectangle"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-        <ImageView
-            android:id="@+id/Clickmenu"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:src="@drawable/menu"
-            android:contentDescription="Menu button"
-            android:clickable="true"
-            app:layout_constraintStart_toStartOf="@id/guide_start"
-            app:layout_constraintTop_toTopOf="@id/rectanglebg"
-            app:layout_constraintBottom_toBottomOf="@id/rectanglebg"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="14dp"
-            android:layout_marginBottom="11dp"/>
-        <ImageView
-            android:id="@+id/ClickNotification"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:src="@drawable/notification"
-            android:contentDescription="Notifications"
-            android:clickable="true"
-            app:layout_constraintEnd_toEndOf="@id/guide_end"
-            app:layout_constraintTop_toTopOf="@id/rectanglebg"
-            app:layout_constraintBottom_toBottomOf="@id/rectanglebg"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="13dp"
-            android:layout_marginBottom="11dp"
-            />
-        <View
-            android:id="@+id/searchrectangle"
-            android:layout_width="0dp"
-            android:layout_height="30dp"
-            android:background="@drawable/search_rectangle"
-            app:layout_constraintTop_toTopOf="@id/rectanglebg"
-            app:layout_constraintStart_toEndOf="@id/Clickmenu"
-            app:layout_constraintEnd_toStartOf="@id/ClickNotification"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="13dp"/>
-        <EditText
-            android:id="@+id/EditTxtSearch"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="Seacrh Hobbies"
-            android:textSize="12sp"
-            android:inputType="textCapSentences"
-            style="@style/FixEditText"
-            app:layout_constraintTop_toTopOf="@id/rectanglebg"
-            app:layout_constraintStart_toEndOf="@id/Clickmenu"
-            app:layout_constraintEnd_toStartOf="@id/ClickNotification"
-            android:layout_marginStart="35dp"
-            android:layout_marginEnd="128dp"
-            android:layout_marginTop="27dp"/>
-        <ImageView
-            android:id="@+id/ClickSearchIcon"
-            android:layout_width="19dp"
-            android:layout_height="19dp"
-            android:src="@drawable/search"
-            android:clickable="true"
-            app:layout_constraintTop_toTopOf="@id/rectanglebg"
-            app:layout_constraintStart_toEndOf="@id/EditTxtSearch"
-            app:layout_constraintEnd_toStartOf="@id/ClickNotification"
-            android:layout_marginTop="27dp"
-            android:layout_marginStart="81dp"
-            android:layout_marginEnd="28dp"/>
+    <View
+        android:id="@+id/rectanglebg"
+        android:layout_width="0dp"
+        android:layout_height="69dp"
+        android:background="@drawable/top_rectangle"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <ImageView
+        android:id="@+id/Clickmenu"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:src="@drawable/menu"
+        android:contentDescription="Menu button"
+        android:clickable="true"
+        app:layout_constraintStart_toStartOf="@id/guide_start"
+        app:layout_constraintTop_toTopOf="@id/rectanglebg"
+        app:layout_constraintBottom_toBottomOf="@id/rectanglebg"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="11dp"/>
+    <ImageView
+        android:id="@+id/ClickNotification"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:src="@drawable/notification"
+        android:contentDescription="Notifications"
+        android:clickable="true"
+        app:layout_constraintEnd_toEndOf="@id/guide_end"
+        app:layout_constraintTop_toTopOf="@id/rectanglebg"
+        app:layout_constraintBottom_toBottomOf="@id/rectanglebg"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginBottom="11dp"
+        />
+    <View
+        android:id="@+id/searchrectangle"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:background="@drawable/search_rectangle"
+        app:layout_constraintTop_toTopOf="@id/rectanglebg"
+        app:layout_constraintStart_toEndOf="@id/Clickmenu"
+        app:layout_constraintEnd_toStartOf="@id/ClickNotification"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="13dp"/>
+    <EditText
+        android:id="@+id/EditTxtSearch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Seacrh Hobbies"
+        android:textSize="12sp"
+        android:inputType="textCapSentences"
+        style="@style/FixEditText"
+        app:layout_constraintTop_toTopOf="@id/rectanglebg"
+        app:layout_constraintStart_toEndOf="@id/Clickmenu"
+        app:layout_constraintEnd_toStartOf="@id/ClickNotification"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="128dp"
+        android:layout_marginTop="27dp"/>
+    <ImageView
+        android:id="@+id/ClickSearchIcon"
+        android:layout_width="19dp"
+        android:layout_height="19dp"
+        android:src="@drawable/search"
+        android:clickable="true"
+        app:layout_constraintTop_toTopOf="@id/rectanglebg"
+        app:layout_constraintStart_toEndOf="@id/EditTxtSearch"
+        app:layout_constraintEnd_toStartOf="@id/ClickNotification"
+        android:layout_marginTop="27dp"
+        android:layout_marginStart="81dp"
+        android:layout_marginEnd="28dp"/>
     <ScrollView
         android:layout_width="275dp"
         android:layout_height="610dp"
@@ -124,6 +124,7 @@
                 android:layout_marginStart="12dp"
                 android:clickable="true"/>
             <TextView
+                android:id="@+id/FirstCategory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Cooking"
@@ -373,6 +374,7 @@
                 android:layout_marginStart="18dp"
                 android:layout_marginTop="369dp"/>
             <TextView
+                android:id="@+id/SecondCategory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Creative Arts"
@@ -391,6 +393,7 @@
                 android:layout_marginTop="405dp"
                 android:layout_marginStart="18dp" />
             <TextView
+                android:id="@+id/ThirdCategory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Health and Wellness"
@@ -409,6 +412,7 @@
                 android:layout_marginTop="439dp"
                 android:layout_marginStart="18dp" />
             <TextView
+                android:id="@+id/FourthCategory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Music and Performing"
@@ -427,6 +431,7 @@
                 android:layout_marginTop="475dp"
                 android:layout_marginStart="18dp" />
             <TextView
+                android:id="@+id/FifthCategory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Reading and Writing"
@@ -445,6 +450,7 @@
                 android:layout_marginTop="510dp"
                 android:layout_marginStart="18dp"/>
             <TextView
+                android:id="@+id/SixthCategory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Science and Technology"
@@ -459,76 +465,76 @@
 
     </ScrollView>
 
-        <View
-            android:id="@+id/botrectangle"
-            android:layout_width="0dp"
-            android:layout_height="69dp"
-            android:background="@drawable/rectangle_bot"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
-        <ImageView
-            android:id="@+id/ClickHome"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/home_unselected"
-            android:contentDescription="Home page"
-            android:clickable="true"
-            app:layout_constraintStart_toStartOf="@id/botrectangle"
-            app:layout_constraintEnd_toStartOf="@id/CLickUnselectedProgress"
-            app:layout_constraintTop_toTopOf="@id/botrectangle"
-            app:layout_constraintBottom_toBottomOf="@id/botrectangle"
-            android:layout_marginStart="40dp"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"/>
-        <ImageView
-            android:id="@+id/CLickUnselectedProgress"
-            android:layout_width="39dp"
-            android:layout_height="45dp"
-            android:src="@drawable/progress_unselected"
-            android:contentDescription="Progress page"
-            android:clickable="true"
-            app:layout_constraintStart_toEndOf="@id/ClickHome"
-            app:layout_constraintEnd_toStartOf="@id/ClickUnselectedCategories"
-            app:layout_constraintTop_toTopOf="@id/botrectangle"
-            app:layout_constraintBottom_toBottomOf="@id/botrectangle"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"/>
-        <ImageView
-            android:id="@+id/ClickUnselectedCategories"
-            android:layout_width="38dp"
-            android:layout_height="38dp"
-            android:src="@drawable/categories_selected"
-            android:contentDescription="Categories page"
-            android:clickable="true"
-            app:layout_constraintStart_toEndOf="@id/CLickUnselectedProgress"
-            app:layout_constraintEnd_toStartOf="@id/ClickUnselectedCalendar"
-            app:layout_constraintTop_toTopOf="@id/botrectangle"
-            app:layout_constraintBottom_toBottomOf="@id/botrectangle"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"/>
-        <ImageView
-            android:id="@+id/ClickUnselectedCalendar"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/calendar_unselected"
-            android:contentDescription="Calendar Page"
-            android:clickable="true"
-            app:layout_constraintStart_toEndOf="@id/ClickUnselectedCategories"
-            app:layout_constraintEnd_toStartOf="@id/ClickUnselectedUser"
-            app:layout_constraintTop_toTopOf="@id/botrectangle"
-            app:layout_constraintBottom_toBottomOf="@id/botrectangle"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"/>
-        <ImageView
-            android:id="@+id/ClickUnselectedUser"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:src="@drawable/user_unselected"
-            android:contentDescription="User page"
-            android:clickable="true"
-            app:layout_constraintStart_toEndOf="@id/ClickUnselectedCalendar"
-            app:layout_constraintEnd_toEndOf="@id/botrectangle"
-            app:layout_constraintTop_toTopOf="@id/botrectangle"
-            app:layout_constraintBottom_toBottomOf="@id/botrectangle"
-            android:layout_marginEnd="40dp"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"/>
+    <View
+        android:id="@+id/botrectangle"
+        android:layout_width="0dp"
+        android:layout_height="69dp"
+        android:background="@drawable/rectangle_bot"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+    <ImageView
+        android:id="@+id/ClickHome"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/home_unselected"
+        android:contentDescription="Home page"
+        android:clickable="true"
+        app:layout_constraintStart_toStartOf="@id/botrectangle"
+        app:layout_constraintEnd_toStartOf="@id/CLickUnselectedProgress"
+        app:layout_constraintTop_toTopOf="@id/botrectangle"
+        app:layout_constraintBottom_toBottomOf="@id/botrectangle"
+        android:layout_marginStart="40dp"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"/>
+    <ImageView
+        android:id="@+id/CLickUnselectedProgress"
+        android:layout_width="39dp"
+        android:layout_height="45dp"
+        android:src="@drawable/progress_unselected"
+        android:contentDescription="Progress page"
+        android:clickable="true"
+        app:layout_constraintStart_toEndOf="@id/ClickHome"
+        app:layout_constraintEnd_toStartOf="@id/ClickUnselectedCategories"
+        app:layout_constraintTop_toTopOf="@id/botrectangle"
+        app:layout_constraintBottom_toBottomOf="@id/botrectangle"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"/>
+    <ImageView
+        android:id="@+id/ClickUnselectedCategories"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:src="@drawable/categories_selected"
+        android:contentDescription="Categories page"
+        android:clickable="true"
+        app:layout_constraintStart_toEndOf="@id/CLickUnselectedProgress"
+        app:layout_constraintEnd_toStartOf="@id/ClickUnselectedCalendar"
+        app:layout_constraintTop_toTopOf="@id/botrectangle"
+        app:layout_constraintBottom_toBottomOf="@id/botrectangle"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"/>
+    <ImageView
+        android:id="@+id/ClickUnselectedCalendar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/calendar_unselected"
+        android:contentDescription="Calendar Page"
+        android:clickable="true"
+        app:layout_constraintStart_toEndOf="@id/ClickUnselectedCategories"
+        app:layout_constraintEnd_toStartOf="@id/ClickUnselectedUser"
+        app:layout_constraintTop_toTopOf="@id/botrectangle"
+        app:layout_constraintBottom_toBottomOf="@id/botrectangle"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"/>
+    <ImageView
+        android:id="@+id/ClickUnselectedUser"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:src="@drawable/user_unselected"
+        android:contentDescription="User page"
+        android:clickable="true"
+        app:layout_constraintStart_toEndOf="@id/ClickUnselectedCalendar"
+        app:layout_constraintEnd_toEndOf="@id/botrectangle"
+        app:layout_constraintTop_toTopOf="@id/botrectangle"
+        app:layout_constraintBottom_toBottomOf="@id/botrectangle"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
