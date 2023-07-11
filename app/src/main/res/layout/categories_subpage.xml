@@ -233,7 +233,7 @@
                     android:layout_marginTop="158dp"
                     android:layout_marginStart="56dp"/>
                 <Button
-                    android:id="@+id/AddHomebrewingbttn"
+                    android:id="@+id/AddFirstCategorySecondHobby"
                     android:layout_width="48dp"
                     android:layout_height="24dp"
                     android:text="Add"
@@ -293,7 +293,7 @@
                     android:layout_marginTop="228dp"
                     android:layout_marginStart="50dp"/>
                 <Button
-                    android:id="@+id/AddHealthyCookingbttn"
+                    android:id="@+id/AddFirstCategoryThirdHobby"
                     android:layout_width="48dp"
                     android:layout_height="24dp"
                     android:text="Add"
@@ -352,7 +352,7 @@
                     android:layout_marginTop="297dp"
                     android:layout_marginStart="50dp"/>
                 <Button
-                    android:id="@+id/AddFoodPreservationbttn"
+                    android:id="@+id/AddFirstCategoryFourthHobby"
                     android:layout_width="48dp"
                     android:layout_height="24dp"
                     android:text="Add"
