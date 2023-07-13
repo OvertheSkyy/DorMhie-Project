@@ -33,6 +33,11 @@ class User_Profile : AppCompatActivity() {
             val intent = Intent(this, Categories::class.java)
             startActivity(intent)
         }
+        val UnselectedCalendarImageClick = findViewById<ImageView>(R.id.ClickUnselectedCalendar)
+        UnselectedCalendarImageClick.setOnClickListener{
+            val intent = Intent(this,Calendar::class.java)
+            startActivity(intent)
+        }
 
         val username = findViewById<TextView>(R.id.UserName)
 

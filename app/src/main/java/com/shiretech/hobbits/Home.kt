@@ -34,6 +34,11 @@ class Home : AppCompatActivity() {
             val intent = Intent(this, Categories::class.java)
             startActivity(intent)
         }
+        val UnselectedCalendarImageClick = findViewById<ImageView>(R.id.ClickUnselectedCalendar)
+        UnselectedCalendarImageClick.setOnClickListener{
+            val intent = Intent(this,Calendar::class.java)
+            startActivity(intent)
+        }
 
         val textViewWelcome = findViewById<TextView>(R.id.TextViewWelcome)
 

@@ -210,6 +210,11 @@ class Categories : AppCompatActivity() {
             val intent = Intent(this, User_Profile::class.java)
             startActivity(intent)
         }
+        val UnselectedCalendarImageClick = findViewById<ImageView>(R.id.ClickUnselectedCalendar)
+        UnselectedCalendarImageClick.setOnClickListener{
+            val intent = Intent(this,Calendar::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun Int.dpToPx(): Int {
