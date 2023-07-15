@@ -19,6 +19,5 @@
         <item name="android:calendarTextColor">@drawable/selecteddate</item>
     </style>
 
-
     
 </resources>

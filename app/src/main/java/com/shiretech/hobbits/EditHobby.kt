@@ -1,8 +1,10 @@
 package com.shiretech.hobbits
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.TextView
 import com.google.firebase.database.*
 
@@ -14,8 +16,15 @@ class EditHobby : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.edit_hobby)
 
+        val ButtonSetSchedule = findViewById<Button>(R.id.ButtonSetSched)
+        ButtonSetSchedule.setOnClickListener{
+            val intent = Intent(this, SetUpSchedule::class.java)
+            startActivity(intent)
+        }
+
         val hobbyName = intent.getStringExtra("hobbyName")
         val hobbits = intent.getStringArrayListExtra("hobbits")
+
 
         val hobbyNameTextView = findViewById<TextView>(R.id.ChangeableHobbyName)
         val hobbit1TextView = findViewById<TextView>(R.id.FirstHobbits)

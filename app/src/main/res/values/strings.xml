@@ -4,4 +4,9 @@
     <string name="clickable_text"><u>Click here</u></string>
     <string name="clickable_text1"><u>Log In</u></string>
     <string name="clickable_text2"><u>Resend code</u></string>
+    
+    <string-array name="am_pm_options">
+        <item>AM</item>
+        <item>PM</item>
+    </string-array>
 </resources>
