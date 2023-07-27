@@ -6,19 +6,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/bgcolor">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guide_start"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.05" />
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guide_end"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.95" />
-
     <View
         android:id="@+id/rectanglebg"
         android:layout_width="0dp"
@@ -34,7 +21,7 @@
         android:src="@drawable/menu"
         android:contentDescription="Menu button"
         android:clickable="true"
-        app:layout_constraintStart_toStartOf="@id/guide_start"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/rectanglebg"
         app:layout_constraintBottom_toBottomOf="@id/rectanglebg"
         android:layout_marginStart="16dp"
@@ -47,7 +34,7 @@
         android:src="@drawable/notification"
         android:contentDescription="Notifications"
         android:clickable="true"
-        app:layout_constraintEnd_toEndOf="@id/guide_end"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/rectanglebg"
         app:layout_constraintBottom_toBottomOf="@id/rectanglebg"
         android:layout_marginEnd="16dp"
@@ -94,13 +81,15 @@
         android:layout_marginStart="81dp"
         android:layout_marginEnd="28dp"/>
     <ScrollView
-        android:layout_width="275dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rectanglebg"
         app:layout_constraintBottom_toTopOf="@id/botrectangle"
-        android:layout_marginTop="28dp">
+        android:layout_marginTop="28dp"
+        android:layout_marginStart="42.5dp"
+        android:layout_marginEnd="42.5dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -145,12 +134,12 @@
             <RelativeLayout
                 android:id="@+id/CookinghobbiesContainer"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="-55dp"
-                android:visibility="visible">
+                android:visibility="gone">
                 <View
                     android:id="@+id/subCooking1"
-                    android:layout_width="275dp"
+                    android:layout_width="match_parent"
                     android:layout_height="59dp"
                     android:background="@drawable/subcategorybg"
                     android:layout_alignParentStart="true"
@@ -173,8 +162,9 @@
                     android:textColor="#000000"
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="400"
+                    android:layout_toEndOf="@id/ImageBaking"
                     android:layout_marginTop="88dp"
-                    android:layout_marginStart="56dp" />
+                    android:layout_marginStart="8dp" />
                 <Button
                     android:id="@+id/AddFirstCategoryFirstHobby"
                     android:layout_width="48dp"
@@ -185,30 +175,31 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/bakingInfo"
                     android:layout_marginTop="88dp"
-                    android:layout_marginStart="166dp"/>
+                    android:layout_marginEnd="7dp"/>
+
                 <ImageView
                     android:id="@+id/bakingInfo"
                     android:layout_width="18dp"
                     android:layout_height="19dp"
-                    android:src="@drawable/info"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginTop="90dp"
-                    android:layout_marginStart="221dp"
-                    android:clickable="true"/>
+                    android:layout_marginTop="91dp"
+                    android:layout_marginEnd="3dp"
+                    android:layout_toStartOf="@id/ClickFavoriteBaking"
+                    android:clickable="true"
+                    android:src="@drawable/info" />
                 <ImageView
                     android:id="@+id/ClickFavoriteBaking"
                     android:layout_width="21dp"
                     android:layout_height="19dp"
                     android:src="@drawable/unselectedheart"
-                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_marginTop="91dp"
-                    android:layout_marginStart="242dp"
+                    android:layout_marginEnd="10dp"
                     android:clickable="true"/>
                 <View
                     android:id="@+id/subCooking2"
-                    android:layout_width="275dp"
+                    android:layout_width="match_parent"
                     android:layout_height="59dp"
                     android:background="@drawable/subcategorybg"
                     android:layout_alignParentStart="true"
@@ -232,7 +223,8 @@
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="400"
                     android:layout_marginTop="158dp"
-                    android:layout_marginStart="56dp"/>
+                    android:layout_marginStart="8dp"
+                    android:layout_toEndOf="@id/ImageHomebrewing"/>
                 <Button
                     android:id="@+id/AddFirstCategorySecondHobby"
                     android:layout_width="48dp"
@@ -243,31 +235,31 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/HomebrewingInfo"
                     android:layout_marginTop="158dp"
-                    android:layout_marginStart="166dp"/>
+                    android:layout_marginEnd="7dp"/>
                 <ImageView
                     android:id="@+id/HomebrewingInfo"
                     android:layout_width="18dp"
                     android:layout_height="19dp"
                     android:src="@drawable/info"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/ClickFavoriteHomebrewing"
                     android:layout_marginTop="160dp"
-                    android:layout_marginStart="221dp"
+                    android:layout_marginEnd="3dp"
                     android:clickable="true"/>
                 <ImageView
                     android:id="@+id/ClickFavoriteHomebrewing"
                     android:layout_width="21dp"
                     android:layout_height="19dp"
                     android:src="@drawable/unselectedheart"
-                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_marginTop="160dp"
-                    android:layout_marginStart="242dp"
+                    android:layout_marginEnd="10dp"
                     android:clickable="true"/>
 
                 <View
                     android:id="@+id/subCooking3"
-                    android:layout_width="275dp"
+                    android:layout_width="match_parent"
                     android:layout_height="59dp"
                     android:background="@drawable/subcategorybg"
                     android:layout_alignParentStart="true"
@@ -291,8 +283,9 @@
                     android:textColor="#000000"
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="400"
+                    android:layout_toEndOf="@id/ImageHealthyCooking"
                     android:layout_marginTop="228dp"
-                    android:layout_marginStart="50dp"/>
+                    android:layout_marginStart="8dp"/>
                 <Button
                     android:id="@+id/AddFirstCategoryThirdHobby"
                     android:layout_width="48dp"
@@ -303,31 +296,31 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/HealthyCookingInfo"
                     android:layout_marginTop="228dp"
-                    android:layout_marginStart="166dp"/>
+                    android:layout_marginEnd="7dp"/>
                 <ImageView
                     android:id="@+id/HealthyCookingInfo"
                     android:layout_width="18dp"
                     android:layout_height="19dp"
                     android:src="@drawable/info"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/ClickFavoriteHHealthyCooking"
                     android:layout_marginTop="230dp"
-                    android:layout_marginStart="221dp"
+                    android:layout_marginEnd="3dp"
                     android:clickable="true"/>
                 <ImageView
                     android:id="@+id/ClickFavoriteHHealthyCooking"
                     android:layout_width="21dp"
                     android:layout_height="19dp"
                     android:src="@drawable/unselectedheart"
-                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_marginTop="230dp"
-                    android:layout_marginStart="242dp"
+                    android:layout_marginEnd="10dp"
                     android:clickable="true"/>
 
                 <View
                     android:id="@+id/subCooking4"
-                    android:layout_width="275dp"
+                    android:layout_width="match_parent"
                     android:layout_height="59dp"
                     android:background="@drawable/subcategorybg"
                     android:layout_alignParentStart="true"
@@ -345,13 +338,14 @@
                     android:id="@+id/FirstCategoryFourthHobby"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Food Preservation"
+                    android:text="Food\nPreservation"
                     android:textSize="13sp"
                     android:textColor="#000000"
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="400"
-                    android:layout_marginTop="297dp"
-                    android:layout_marginStart="50dp"/>
+                    android:layout_marginTop="288dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_toEndOf="@id/ImageFoodpreservation"/>
                 <Button
                     android:id="@+id/AddFirstCategoryFourthHobby"
                     android:layout_width="48dp"
@@ -362,25 +356,26 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/FoodPreservationInfo"
                     android:layout_marginTop="297dp"
-                    android:layout_marginStart="166dp"/>
+                    android:layout_marginEnd="7dp"/>
                 <ImageView
                     android:id="@+id/FoodPreservationInfo"
                     android:layout_width="18dp"
                     android:layout_height="19dp"
                     android:src="@drawable/info"
+                    android:layout_toStartOf="@id/ClickFavoriteFoodPreservation"
                     android:layout_marginTop="300dp"
-                    android:layout_marginStart="221dp"
+                    android:layout_marginEnd="3dp"
                     android:clickable="true"/>
                 <ImageView
                     android:id="@+id/ClickFavoriteFoodPreservation"
                     android:layout_width="21dp"
                     android:layout_height="19dp"
                     android:src="@drawable/unselectedheart"
-                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_marginTop="300dp"
-                    android:layout_marginStart="242dp"
+                    android:layout_marginEnd="10dp"
                     android:clickable="true"/>
             </RelativeLayout>
 
@@ -414,10 +409,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="-55dp"
-                android:visibility="gone">
+                android:visibility="visible">
                 <View
                     android:id="@+id/subCreativeArts1"
-                    android:layout_width="275dp"
+                    android:layout_width="match_parent"
                     android:layout_height="59dp"
                     android:background="@drawable/subcategorybg"
                     android:layout_alignParentStart="true"
@@ -440,8 +435,9 @@
                     android:textColor="#000000"
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="400"
+                    android:layout_toEndOf="@id/artsImage"
                     android:layout_marginTop="88dp"
-                    android:layout_marginStart="56dp" />
+                    android:layout_marginStart="8dp" />
                 <Button
                     android:id="@+id/AddSecondCategoryFirstHobby"
                     android:layout_width="48dp"
@@ -452,26 +448,26 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/WritingInfo"
                     android:layout_marginTop="88dp"
-                    android:layout_marginStart="166dp"/>
+                    android:layout_marginEnd="7dp"/>
                 <ImageView
                     android:id="@+id/WritingInfo"
                     android:layout_width="18dp"
                     android:layout_height="19dp"
                     android:src="@drawable/info"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/ClickFavoriteWriting"
                     android:layout_marginTop="90dp"
-                    android:layout_marginStart="221dp"
+                    android:layout_marginEnd="3dp"
                     android:clickable="true"/>
                 <ImageView
                     android:id="@+id/ClickFavoriteWriting"
                     android:layout_width="21dp"
                     android:layout_height="19dp"
                     android:src="@drawable/unselectedheart"
-                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_marginTop="91dp"
-                    android:layout_marginStart="242dp"
+                    android:layout_marginEnd="10dp"
                     android:clickable="true"/>
                 <View
                     android:id="@+id/subCreativeArts2"
@@ -1723,30 +1719,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
     <ImageView
-        android:id="@+id/ClickHome"
+        android:id="@+id/ClickUnselectedHome"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:src="@drawable/home_unselected"
         android:contentDescription="Home page"
         android:clickable="true"
         app:layout_constraintStart_toStartOf="@id/botrectangle"
-        app:layout_constraintEnd_toStartOf="@id/CLickUnselectedProgress"
-        app:layout_constraintTop_toTopOf="@id/botrectangle"
-        app:layout_constraintBottom_toBottomOf="@id/botrectangle"
-        android:layout_marginStart="40dp"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"/>
-    <ImageView
-        android:id="@+id/CLickUnselectedProgress"
-        android:layout_width="39dp"
-        android:layout_height="45dp"
-        android:src="@drawable/progress_unselected"
-        android:contentDescription="Progress page"
-        android:clickable="true"
-        app:layout_constraintStart_toEndOf="@id/ClickHome"
         app:layout_constraintEnd_toStartOf="@id/ClickselectedCategories"
         app:layout_constraintTop_toTopOf="@id/botrectangle"
         app:layout_constraintBottom_toBottomOf="@id/botrectangle"
+        android:layout_marginStart="29dp"
         app:layout_constraintHorizontal_chainStyle="spread_inside"/>
+
     <ImageView
         android:id="@+id/ClickselectedCategories"
         android:layout_width="38dp"
@@ -1754,7 +1739,7 @@
         android:src="@drawable/categories_selected"
         android:contentDescription="Categories page"
         android:clickable="true"
-        app:layout_constraintStart_toEndOf="@id/CLickUnselectedProgress"
+        app:layout_constraintStart_toEndOf="@id/ClickUnselectedHome"
         app:layout_constraintEnd_toStartOf="@id/ClickUnselectedCalendar"
         app:layout_constraintTop_toTopOf="@id/botrectangle"
         app:layout_constraintBottom_toBottomOf="@id/botrectangle"
@@ -1782,7 +1767,7 @@
         app:layout_constraintEnd_toEndOf="@id/botrectangle"
         app:layout_constraintTop_toTopOf="@id/botrectangle"
         app:layout_constraintBottom_toBottomOf="@id/botrectangle"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="24dp"
         app:layout_constraintHorizontal_chainStyle="spread_inside"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

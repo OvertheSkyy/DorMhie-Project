@@ -5,25 +5,29 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.GridView
-import android.widget.ImageView
 import android.widget.TextView
-import androidx.annotation.RequiresApi
-import java.time.LocalDate
-import java.util.Calendar
+import android.widget.ImageView
+import java.text.SimpleDateFormat
 import java.text.DateFormatSymbols
+import java.util.Calendar
+import java.util.Locale
+import java.util.*
+
 
 class Calendar : AppCompatActivity() {
 
     private lateinit var gridView: GridView
     private lateinit var calendarAdapter: CalendarAdapter
-    private val dates: MutableList<String> = mutableListOf()
-    private lateinit var monthyearTextView: TextView
+    private lateinit var monthYearTextView: TextView
+
+    private var currentMonth: Int = 0
+    private var currentYear: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.calendar_page)
 
-        val UnselectedHomeImageClick = findViewById<ImageView>(R.id.ClickHome)
+        val UnselectedHomeImageClick = findViewById<ImageView>(R.id.ClickUnselectedHome)
         UnselectedHomeImageClick.setOnClickListener {
             val intent = Intent(this, Home::class.java)
             startActivity(intent)
@@ -33,11 +37,6 @@ class Calendar : AppCompatActivity() {
             val intent = Intent(this, Categories::class.java)
             startActivity(intent)
         }
-        val UnselectedProgressImageClick = findViewById<ImageView>(R.id.CLickUnselectedProgress)
-        UnselectedProgressImageClick.setOnClickListener {
-            val intent = Intent(this, Progress::class.java)
-            startActivity(intent)
-        }
         val UnselectedUserImageClick = findViewById<ImageView>(R.id.ClickUnselectedUser)
         UnselectedUserImageClick.setOnClickListener {
             val intent = Intent(this, User_Profile::class.java)
@@ -45,31 +44,63 @@ class Calendar : AppCompatActivity() {
         }
 
         gridView = findViewById(R.id.calendarGridView)
-        monthyearTextView = findViewById(R.id.MonthandYear)
+        monthYearTextView = findViewById(R.id.MonthandYear)
 
-        calendarAdapter = CalendarAdapter(this, dates)
+        val initialCalendar = Calendar.getInstance()
+        currentMonth = initialCalendar.get(Calendar.MONTH)
+        currentYear = initialCalendar.get(Calendar.YEAR)
+
+        calendarAdapter = CalendarAdapter(this, currentMonth, currentYear)
         gridView.adapter = calendarAdapter
 
-        populateDates()
-        setCurrentMonthandYear()
-    }
-    private fun populateDates() {
-        val calendar = Calendar.getInstance()
-        val daysInMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
+        updateMonthAndYearTextView()
 
-        for (dayOfMonth in 1..daysInMonth) {
-            dates.add(dayOfMonth.toString())
+        val dateNext: ImageView = findViewById(R.id.DateNext)
+        val dateBack: ImageView = findViewById(R.id.DateBack)
+
+        dateNext.setOnClickListener {
+            val nextCalendar = getNextMonthCalendar()
+            currentMonth = nextCalendar.get(Calendar.MONTH)
+            currentYear = nextCalendar.get(Calendar.YEAR)
+            calendarAdapter.updateCalendar(currentMonth, currentYear)
+            updateMonthAndYearTextView()
+        }
+        dateBack.setOnClickListener {
+            val previousCalendar = getPreviousMonthCalendar()
+            currentMonth = previousCalendar.get(Calendar.MONTH)
+            currentYear = previousCalendar.get(Calendar.YEAR)
+            calendarAdapter.updateCalendar(currentMonth, currentYear)
+            updateMonthAndYearTextView()
         }
 
-        calendarAdapter.notifyDataSetChanged()
-    }
-    private fun setCurrentMonthandYear(){
-        val calendar = Calendar.getInstance()
-        val month = calendar.get(Calendar.MONTH)
-        val year = calendar.get(Calendar.YEAR)
+        // Get the current month and year
+        val currentMonth = Calendar.getInstance().get(Calendar.MONTH)
+        val currentYear = Calendar.getInstance().get(Calendar.YEAR)
 
-        val monthName = DateFormatSymbols().months[month]
-        val monthYearText = "$monthName, $year"
-        monthyearTextView.text = monthYearText
+        // Create the adapter with the current month and year
+        calendarAdapter = CalendarAdapter(this, currentMonth, currentYear)
+        gridView.adapter = calendarAdapter
+    }
+    private fun updateMonthAndYearTextView() {
+        val monthName = DateFormatSymbols().months[currentMonth]
+        val monthYearText = "$monthName, $currentYear"
+        monthYearTextView.text = monthYearText
+    }
+
+    private fun getNextMonthCalendar(): Calendar {
+        val nextCalendar = Calendar.getInstance()
+        nextCalendar.set(Calendar.MONTH, currentMonth)
+        nextCalendar.set(Calendar.YEAR, currentYear)
+        nextCalendar.add(Calendar.MONTH, 1)
+        return nextCalendar
+    }
+
+    private fun getPreviousMonthCalendar(): Calendar {
+        val previousCalendar = Calendar.getInstance()
+        previousCalendar.set(Calendar.MONTH, currentMonth)
+        previousCalendar.set(Calendar.YEAR, currentYear)
+        previousCalendar.add(Calendar.MONTH, -1)
+        return previousCalendar
     }
 }
+

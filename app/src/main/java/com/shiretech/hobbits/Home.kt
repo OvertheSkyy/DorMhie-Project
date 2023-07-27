@@ -17,11 +17,6 @@ class Home : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home_page)
 
-        val UnselectedProgressImageClick = findViewById<ImageView>(R.id.CLickUnselectedProgress)
-        UnselectedProgressImageClick.setOnClickListener {
-            val intent = Intent(this, Progress::class.java)
-            startActivity(intent)
-        }
 
         val UnselectedUserImageClick = findViewById<ImageView>(R.id.ClickUnselectedUser)
         UnselectedUserImageClick.setOnClickListener {

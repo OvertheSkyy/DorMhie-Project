@@ -23,19 +23,14 @@ class User_Profile : AppCompatActivity() {
             val intent = Intent(this, Home::class.java)
             startActivity(intent)
         }
-        val UnselectedProgressImageClick = findViewById<ImageView>(R.id.CLickUnselectedProgress)
-        UnselectedProgressImageClick.setOnClickListener {
-            val intent = Intent(this, Progress::class.java)
-            startActivity(intent)
-        }
         val UnselectedCategoriesImageClick = findViewById<ImageView>(R.id.ClickUnselectedCategories)
         UnselectedCategoriesImageClick.setOnClickListener {
             val intent = Intent(this, Categories::class.java)
             startActivity(intent)
         }
         val UnselectedCalendarImageClick = findViewById<ImageView>(R.id.ClickUnselectedCalendar)
-        UnselectedCalendarImageClick.setOnClickListener{
-            val intent = Intent(this,Calendar::class.java)
+        UnselectedCalendarImageClick.setOnClickListener {
+            val intent = Intent(this, Calendar::class.java)
             startActivity(intent)
         }
 

@@ -5,19 +5,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/bgcolor">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guide_start"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.05" />
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guide_end"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.95" />
-
     <View
         android:id="@+id/rectanglebg"
         android:layout_width="0dp"
@@ -33,10 +20,12 @@
         android:src="@drawable/menu"
         android:contentDescription="Menu button"
         android:clickable="true"
-        app:layout_constraintStart_toStartOf="@id/guide_start"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/rectanglebg"
         app:layout_constraintBottom_toBottomOf="@id/rectanglebg"
-        android:layout_marginStart="16dp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="11dp"/>
     <ImageView
         android:id="@+id/ClickNotification"
         android:layout_width="36dp"
@@ -44,10 +33,13 @@
         android:src="@drawable/notification"
         android:contentDescription="Notifications"
         android:clickable="true"
-        app:layout_constraintEnd_toEndOf="@id/guide_end"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/rectanglebg"
         app:layout_constraintBottom_toBottomOf="@id/rectanglebg"
-        android:layout_marginEnd="16dp"/>
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginBottom="11dp"
+        />
     <TextView
         android:id="@+id/CalendarTxt"
         android:layout_width="0dp"
@@ -63,278 +55,286 @@
         android:layout_marginStart="33dp"
         android:layout_marginEnd="33dp"
         android:layout_marginTop="20dp"/>
-    
-    <ImageView
-        android:id="@+id/DateBack"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:src="@drawable/left"
-        android:clickable="true"
-        app:layout_constraintEnd_toStartOf="@id/MonthandYear"
-        app:layout_constraintTop_toBottomOf="@id/rectanglebg"
-        android:layout_marginTop="30dp"/>
-    <TextView
-        android:id="@+id/MonthandYear"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Month, Year"
-        android:textSize="22sp"
-        android:textColor="#205375"
-        android:fontFamily="@font/inter_black"
-        android:clickable="true"
-        app:layout_constraintTop_toBottomOf="@id/rectanglebg"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="28dp"/>
-    <ImageView
-        android:id="@+id/DateNext"
-        android:layout_width="25dp"
-        android:layout_height="28dp"
-        android:src="@drawable/right"
-        android:clickable="true"
-        app:layout_constraintStart_toEndOf="@id/MonthandYear"
-        app:layout_constraintTop_toBottomOf="@id/rectanglebg"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="-2dp"/>
-    <View
-        android:id="@+id/CalendarBackground"
-        android:layout_width="320dp"
-        android:layout_height="270dp"
-        android:background="@drawable/premiumbg"
-        android:backgroundTint="#E8E2E2"
-        app:layout_constraintTop_toBottomOf="@id/MonthandYear"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"/>
-    
-    <LinearLayout
-        android:id="@+id/CalendarDays"
-        android:layout_width="310dp"
-        android:layout_height="30dp"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toTopOf="@id/CalendarBackground"
-        app:layout_constraintStart_toStartOf="@id/CalendarBackground"
-        app:layout_constraintEnd_toEndOf="@id/CalendarBackground"
-        android:layout_marginTop="15dp">
-        
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sun"
-            android:textColor="#205375"
-            android:textSize="13sp"
-            android:fontFamily="@font/inter_bold"
-            android:layout_gravity="center"
-            android:layout_marginStart="14dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Mon"
-            android:textColor="#205375"
-            android:textSize="13sp"
-            android:fontFamily="@font/inter_bold"
-            android:layout_gravity="center"
-            android:layout_marginStart="15dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tues"
-            android:textColor="#205375"
-            android:textSize="13sp"
-            android:fontFamily="@font/inter_bold"
-            android:layout_gravity="center"
-            android:layout_marginStart="15dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Wed"
-            android:textColor="#205375"
-            android:textSize="13sp"
-            android:fontFamily="@font/inter_bold"
-            android:layout_gravity="center"
-            android:layout_marginStart="15dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Thur"
-            android:textColor="#205375"
-            android:textSize="13sp"
-            android:fontFamily="@font/inter_bold"
-            android:layout_gravity="center"
-            android:layout_marginStart="15dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Fri"
-            android:textColor="#205375"
-            android:textSize="13sp"
-            android:fontFamily="@font/inter_bold"
-            android:layout_gravity="center"
-            android:layout_marginStart="17dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sat"
-            android:textColor="#205375"
-            android:textSize="13sp"
-            android:fontFamily="@font/inter_bold"
-            android:layout_gravity="center"
-            android:layout_marginStart="17dp"/>
-    </LinearLayout>
-    
-    <LinearLayout
-        android:layout_width="310dp"
-        android:layout_height="200dp"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/CalendarDays"
-        app:layout_constraintStart_toStartOf="@id/CalendarBackground"
-        app:layout_constraintEnd_toEndOf="@id/CalendarBackground"
-        android:layout_marginTop="12dp">
 
-        <GridView
-            android:id="@+id/calendarGridView"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rectanglebg"
+        app:layout_constraintBottom_toTopOf="@id/botrectangle"
+        android:layout_marginTop="28dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginEnd="17dp">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/CalendarDays"
-            android:numColumns="6"
-            android:verticalSpacing="10dp"
-            android:horizontalSpacing="10dp"
-            android:padding="10dp"
-           />
+            android:orientation="vertical">
 
- <!--
-        <View
-            android:id="@+id/circleforcurrentdate"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:background="@drawable/selecteddate"
-            android:visibility="g"/>
-            -->
-    </LinearLayout>
-    
-    <View
-        android:id="@+id/belowCalendar"
-        android:layout_width="40dp"
-        android:layout_height="10dp"
-        android:background="@drawable/rectangle_bot"
-        android:backgroundTint="#C07A35"
-        app:layout_constraintTop_toBottomOf="@id/CalendarBackground"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp"/>
-    <View
-        android:id="@+id/Schedbg"
-        android:layout_width="310dp"
-        android:layout_height="210dp"
-        android:background="@drawable/premiumbg"
-        android:backgroundTint="#F5DDB7"
-        app:layout_constraintTop_toBottomOf="@id/belowCalendar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="34dp"/>
-    <TextView
-        android:id="@+id/DAYtxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Day"
-        android:textSize="20sp"
-        android:textColor="#205375"
-        android:fontFamily="@font/inter_light"
-        android:textFontWeight="700"
-        app:layout_constraintTop_toTopOf="@id/Schedbg"
-        app:layout_constraintStart_toStartOf="@id/Schedbg"
-        app:layout_constraintEnd_toEndOf="@id/Schedbg"
-        android:layout_marginTop="21dp"/>
-    <TextView
-        android:id="@+id/DayMonthYear"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Day, Month, Year"
-        android:textSize="14sp"
-        android:textColor="#545454"
-        android:fontFamily="@font/inter_light"
-        android:textFontWeight="500"
-        app:layout_constraintTop_toBottomOf="@id/DAYtxt"
-        app:layout_constraintStart_toStartOf="@id/Schedbg"
-        app:layout_constraintEnd_toEndOf="@id/Schedbg"
-        android:layout_marginTop="1dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/DateBack"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/left"
+                    android:clickable="true"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginStart="70dp"/>
+                <TextView
+                    android:id="@+id/MonthandYear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Month, Year"
+                    android:textSize="22sp"
+                    android:textColor="#205375"
+                    android:fontFamily="@font/inter_black"
+                    android:clickable="true" />
+                <ImageView
+                    android:id="@+id/DateNext"
+                    android:layout_width="25dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/right"
+                    android:clickable="true"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginStart="-2dp"/>
+            </LinearLayout>
 
-    <ImageView
-        android:id="@+id/Hobby1pic"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:src="@drawable/premiumpic"
-        app:layout_constraintTop_toBottomOf="@id/DayMonthYear"
-        app:layout_constraintStart_toStartOf="@id/Schedbg"
-        app:layout_constraintEnd_toEndOf="@id/Schedbg"
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="253dp"/>
-    <TextView
-        android:id="@+id/Hobby1txt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hobby1"
-        android:textSize="14sp"
-        android:textColor="#1F2122"
-        android:fontFamily="@font/inter_light"
-        android:textFontWeight="500"
-        app:layout_constraintTop_toBottomOf="@id/DayMonthYear"
-        app:layout_constraintStart_toEndOf="@id/Hobby1pic"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="194dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TIME"
-        android:textSize="12sp"
-        android:textColor="#545454"
-        android:fontFamily="@font/inter_light"
-        android:textFontWeight="300"
-        app:layout_constraintTop_toBottomOf="@id/Hobby1txt"
-        app:layout_constraintStart_toEndOf="@id/Hobby1pic"
-        android:layout_marginStart="18dp"
-        android:layout_marginEnd="210dp"/>
+            <View
+                android:id="@+id/CalendarBackground"
+                android:layout_width="match_parent"
+                android:layout_height="270dp"
+                android:background="@drawable/premiumbg"
+                android:backgroundTint="#E8E2E2"
+                android:layout_marginTop="30dp"/>
 
-    <ImageView
-        android:id="@+id/Hobby2pic"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:src="@drawable/premiumpic"
-        app:layout_constraintTop_toBottomOf="@id/Hobby1pic"
-        app:layout_constraintStart_toStartOf="@id/Schedbg"
-        app:layout_constraintEnd_toEndOf="@id/Schedbg"
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="253dp"/>
-    <TextView
-        android:id="@+id/Hobby2txt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hobby1"
-        android:textSize="14sp"
-        android:textColor="#1F2122"
-        android:fontFamily="@font/inter_light"
-        android:textFontWeight="500"
-        app:layout_constraintTop_toBottomOf="@id/Hobby1txt"
-        app:layout_constraintStart_toEndOf="@id/Hobby1pic"
-        android:layout_marginTop="40dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="194dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TIME"
-        android:textSize="12sp"
-        android:textColor="#545454"
-        android:fontFamily="@font/inter_light"
-        android:textFontWeight="300"
-        app:layout_constraintTop_toBottomOf="@id/Hobby2txt"
-        app:layout_constraintStart_toEndOf="@id/Hobby2pic"
-        android:layout_marginStart="18dp"
-        android:layout_marginEnd="210dp"/>
+            <LinearLayout
+                android:id="@+id/CalendarDays"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="-270dp">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sun"
+                    android:textColor="#205375"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/inter_bold"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="13dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mon"
+                    android:textColor="#205375"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/inter_bold"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="17dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tues"
+                    android:textColor="#205375"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/inter_bold"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="17dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wed"
+                    android:textColor="#205375"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/inter_bold"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="15dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Thur"
+                    android:textColor="#205375"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/inter_bold"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="19dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fri"
+                    android:textColor="#205375"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/inter_bold"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="23dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sat"
+                    android:textColor="#205375"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/inter_bold"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="23dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/CalendarDays"
+                app:layout_constraintStart_toStartOf="@id/CalendarBackground"
+                app:layout_constraintEnd_toEndOf="@id/CalendarBackground"
+                android:layout_marginTop="14dp">
+
+                <GridView
+                    android:id="@+id/calendarGridView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/CalendarDays"
+                    android:numColumns="7"
+                    android:verticalSpacing="10dp"
+                    android:horizontalSpacing="2dp"
+                    android:padding="0dp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/belowCalendar"
+                android:layout_width="40dp"
+                android:layout_height="10dp"
+                android:background="@drawable/rectangle_bot"
+                android:backgroundTint="#C07A35"
+                android:layout_marginTop="33dp"
+                android:layout_marginStart="143dp"/>
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/ScrollViewProgress"
+                android:layout_width="310dp"
+                android:layout_height="210dp"
+                android:background="@drawable/premiumbg"
+                android:layout_marginTop="34dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/CalendarProgress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/DAYtxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Day"
+                        android:textSize="20sp"
+                        android:textColor="#205375"
+                        android:fontFamily="@font/inter_light"
+                        android:textFontWeight="700"
+                        app:layout_constraintTop_toTopOf="@id/CalendarProgress"
+                        app:layout_constraintStart_toStartOf="@id/CalendarProgress"
+                        app:layout_constraintEnd_toEndOf="@id/CalendarProgress"
+                        android:layout_marginTop="21dp"/>
+                    <TextView
+                        android:id="@+id/DayMonthYear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Day, Month, Year"
+                        android:textSize="14sp"
+                        android:textColor="#545454"
+                        android:fontFamily="@font/inter_light"
+                        android:textFontWeight="500"
+                        app:layout_constraintTop_toBottomOf="@id/DAYtxt"
+                        app:layout_constraintStart_toStartOf="@id/CalendarProgress"
+                        app:layout_constraintEnd_toEndOf="@id/CalendarProgress"
+                        android:layout_marginTop="1dp"/>
+
+                    <ImageView
+                        android:id="@+id/Hobby1pic"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:src="@drawable/premium"
+                        app:layout_constraintTop_toBottomOf="@id/DayMonthYear"
+                        app:layout_constraintStart_toStartOf="@id/CalendarProgress"
+                        app:layout_constraintEnd_toEndOf="@id/CalendarProgress"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginEnd="253dp"/>
+                    <TextView
+                        android:id="@+id/Hobby1txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hobby1"
+                        android:textSize="14sp"
+                        android:textColor="#1F2122"
+                        android:fontFamily="@font/inter_light"
+                        android:textFontWeight="500"
+                        app:layout_constraintTop_toBottomOf="@id/DayMonthYear"
+                        app:layout_constraintStart_toEndOf="@id/Hobby1pic"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="194dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TIME"
+                        android:textSize="12sp"
+                        android:textColor="#545454"
+                        android:fontFamily="@font/inter_light"
+                        android:textFontWeight="300"
+                        app:layout_constraintTop_toBottomOf="@id/Hobby1txt"
+                        app:layout_constraintStart_toEndOf="@id/Hobby1pic"
+                        android:layout_marginStart="18dp"
+                        android:layout_marginEnd="210dp"/>
+
+                    <ImageView
+                        android:id="@+id/Hobby2pic"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:src="@drawable/premium"
+                        app:layout_constraintTop_toBottomOf="@id/Hobby1pic"
+                        app:layout_constraintStart_toStartOf="@id/CalendarProgress"
+                        app:layout_constraintEnd_toEndOf="@id/CalendarProgress"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginEnd="253dp"/>
+                    <TextView
+                        android:id="@+id/Hobby2txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hobby1"
+                        android:textSize="14sp"
+                        android:textColor="#1F2122"
+                        android:fontFamily="@font/inter_light"
+                        android:textFontWeight="500"
+                        app:layout_constraintTop_toBottomOf="@id/Hobby1txt"
+                        app:layout_constraintStart_toEndOf="@id/Hobby1pic"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="194dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TIME"
+                        android:textSize="12sp"
+                        android:textColor="#545454"
+                        android:fontFamily="@font/inter_light"
+                        android:textFontWeight="300"
+                        app:layout_constraintTop_toBottomOf="@id/Hobby2txt"
+                        app:layout_constraintStart_toEndOf="@id/Hobby2pic"
+                        android:layout_marginStart="18dp"
+                        android:layout_marginEnd="210dp"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+        </LinearLayout>
+
+    </ScrollView>
 
     <View
         android:id="@+id/botrectangle"
@@ -345,30 +345,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
     <ImageView
-        android:id="@+id/ClickHome"
+        android:id="@+id/ClickUnselectedHome"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:src="@drawable/home_unselected"
         android:contentDescription="Home page"
         android:clickable="true"
         app:layout_constraintStart_toStartOf="@id/botrectangle"
-        app:layout_constraintEnd_toStartOf="@id/CLickUnselectedProgress"
-        app:layout_constraintTop_toTopOf="@id/botrectangle"
-        app:layout_constraintBottom_toBottomOf="@id/botrectangle"
-        android:layout_marginStart="40dp"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"/>
-    <ImageView
-        android:id="@+id/CLickUnselectedProgress"
-        android:layout_width="39dp"
-        android:layout_height="45dp"
-        android:src="@drawable/progress_unselected"
-        android:contentDescription="Progress page"
-        android:clickable="true"
-        app:layout_constraintStart_toEndOf="@id/ClickHome"
         app:layout_constraintEnd_toStartOf="@id/ClickUnselectedCategories"
         app:layout_constraintTop_toTopOf="@id/botrectangle"
         app:layout_constraintBottom_toBottomOf="@id/botrectangle"
+        android:layout_marginStart="29dp"
         app:layout_constraintHorizontal_chainStyle="spread_inside"/>
+
     <ImageView
         android:id="@+id/ClickUnselectedCategories"
         android:layout_width="38dp"
@@ -376,13 +365,13 @@
         android:src="@drawable/categories_unselected"
         android:contentDescription="Categories page"
         android:clickable="true"
-        app:layout_constraintStart_toEndOf="@id/CLickUnselectedProgress"
-        app:layout_constraintEnd_toStartOf="@id/ClickUnselectedCalendar"
+        app:layout_constraintStart_toEndOf="@id/ClickUnselectedHome"
+        app:layout_constraintEnd_toStartOf="@id/ClickSelectedCalendar"
         app:layout_constraintTop_toTopOf="@id/botrectangle"
         app:layout_constraintBottom_toBottomOf="@id/botrectangle"
         app:layout_constraintHorizontal_chainStyle="spread_inside"/>
     <ImageView
-        android:id="@+id/ClickUnselectedCalendar"
+        android:id="@+id/ClickSelectedCalendar"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:src="@drawable/calendar_selected"
@@ -400,11 +389,11 @@
         android:src="@drawable/user_unselected"
         android:contentDescription="User page"
         android:clickable="true"
-        app:layout_constraintStart_toEndOf="@id/ClickUnselectedCalendar"
+        app:layout_constraintStart_toEndOf="@id/ClickSelectedCalendar"
         app:layout_constraintEnd_toEndOf="@id/botrectangle"
         app:layout_constraintTop_toTopOf="@id/botrectangle"
         app:layout_constraintBottom_toBottomOf="@id/botrectangle"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="24dp"
         app:layout_constraintHorizontal_chainStyle="spread_inside"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

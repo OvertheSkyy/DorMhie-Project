@@ -4,6 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
+import android.content.Context;
+import android.util.AttributeSet;
+import android.view.MotionEvent;
+import android.widget.HorizontalScrollView;
 
 class Progress : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

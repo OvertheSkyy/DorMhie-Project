@@ -19,4 +19,6 @@
     <color name="progressbg">#E8E2E2</color>
     <color name="progress">#FDCD82</color>
 
+    <color name="faded">#B6B6B6</color>
+    <color name="date">#1F2122</color>
 </resources>
