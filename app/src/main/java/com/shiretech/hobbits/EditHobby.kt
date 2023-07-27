@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import com.google.firebase.database.*
+import kotlin.math.min
 
 class EditHobby : AppCompatActivity() {
 
@@ -16,8 +19,35 @@ class EditHobby : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.edit_hobby)
 
+        val hobbitEditTextMap = HashMap<Int, Array<EditText>>()
+
+        hobbitEditTextMap[1] = arrayOf(
+            findViewById(R.id.hobbits1_1),
+            findViewById(R.id.hobbits1_2),
+            findViewById(R.id.hobbits1_3)
+        )
+
+        hobbitEditTextMap[2] = arrayOf(
+            findViewById(R.id.hobbits2_1),
+            findViewById(R.id.hobbits2_2),
+            findViewById(R.id.hobbits2_3)
+        )
+
+        hobbitEditTextMap[3] = arrayOf(
+            findViewById(R.id.hobbits3_1),
+            findViewById(R.id.hobbits3_2),
+            findViewById(R.id.hobbits3_3)
+        )
+
         val ButtonSetSchedule = findViewById<Button>(R.id.ButtonSetSched)
-        ButtonSetSchedule.setOnClickListener{
+        ButtonSetSchedule.setOnClickListener {
+            val hobbyName = intent.getStringExtra("hobbyName")
+            val hobbits = intent.getStringArrayListExtra("hobbits")
+
+            // Update the database with the edited hobbit data
+            updateHobbitsInDatabase(hobbyName.toString(), hobbits, hobbitEditTextMap)
+
+            // Start the activity for schedule_setup.xml
             val intent = Intent(this, SetUpSchedule::class.java)
             startActivity(intent)
         }
@@ -25,11 +55,10 @@ class EditHobby : AppCompatActivity() {
         val hobbyName = intent.getStringExtra("hobbyName")
         val hobbits = intent.getStringArrayListExtra("hobbits")
 
-
         val hobbyNameTextView = findViewById<TextView>(R.id.ChangeableHobbyName)
-        val hobbit1TextView = findViewById<TextView>(R.id.FirstHobbits)
-        val hobbit2TextView = findViewById<TextView>(R.id.SecondHobbits)
-        val hobbit3TextView = findViewById<TextView>(R.id.ThirdHobbits)
+        val hobbit1EditText = findViewById<EditText>(R.id.FirstHobbits)
+        val hobbit2EditText = findViewById<EditText>(R.id.SecondHobbits)
+        val hobbit3EditText = findViewById<EditText>(R.id.ThirdHobbits)
 
         hobbyNameTextView.text = hobbyName
 
@@ -37,42 +66,47 @@ class EditHobby : AppCompatActivity() {
 
         if (hobbits != null) {
             if (hobbits.size >= 1) {
-                hobbit1TextView.text = "1. " + hobbits[0]
-                fetchBitsForHobbit(hobbyName.toString(), hobbits[0], getHobbitTextViews(1))
+                hobbit1EditText.setText("1. " + hobbits[0])
+                fetchHobbitDataFromDatabase(hobbyName.toString(), hobbits[0], getHobbitEditText(1))
             }
             if (hobbits.size >= 2) {
-                hobbit2TextView.text = "2. " + hobbits[1]
-                fetchBitsForHobbit(hobbyName.toString(), hobbits[1], getHobbitTextViews(2))
+                hobbit2EditText.setText("2. " + hobbits[1])
+                fetchHobbitDataFromDatabase(hobbyName.toString(), hobbits[1], getHobbitEditText(2))
             }
             if (hobbits.size >= 3) {
-                hobbit3TextView.text = "3. " + hobbits[2]
-                fetchBitsForHobbit(hobbyName.toString(), hobbits[2], getHobbitTextViews(3))
+                hobbit3EditText.setText("3. " + hobbits[2])
+                fetchHobbitDataFromDatabase(hobbyName.toString(), hobbits[2], getHobbitEditText(3))
             }
         }
     }
-
-    private fun getHobbitTextViews(hobbitIndex: Int): Array<TextView> {
+    private fun getHobbitEditText(hobbitIndex: Int): Array<EditText> {
         return when (hobbitIndex) {
             1 -> arrayOf(
                 findViewById(R.id.hobbits1_1),
                 findViewById(R.id.hobbits1_2),
                 findViewById(R.id.hobbits1_3)
             )
+
             2 -> arrayOf(
                 findViewById(R.id.hobbits2_1),
                 findViewById(R.id.hobbits2_2),
                 findViewById(R.id.hobbits2_3)
             )
+
             3 -> arrayOf(
                 findViewById(R.id.hobbits3_1),
                 findViewById(R.id.hobbits3_2),
                 findViewById(R.id.hobbits3_3)
             )
+
             else -> emptyArray()
         }
     }
-
-    private fun fetchBitsForHobbit(hobbyName: String, hobbitName: String, hobbitTextViews: Array<TextView>) {
+    private fun fetchHobbitDataFromDatabase(
+        hobbyName: String,
+        hobbitName: String,
+        hobbitEditTexts: Array<EditText>
+    ) {
         database.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val categories = dataSnapshot.children
@@ -85,16 +119,23 @@ class EditHobby : AppCompatActivity() {
                             for (hobbitSnapshot in hobbits) {
                                 val hobbit = hobbitSnapshot.child("name").value as String
                                 if (hobbit == hobbitName) {
+                                    // Assuming the data you want to set is in 'bits' node
                                     val bits = hobbitSnapshot.child("bits").value as List<String>?
-                                    if (bits != null && bits.size >= hobbitTextViews.size) {
-                                        for (i in 0 until hobbitTextViews.size) {
-                                            val bitTextView = hobbitTextViews[i]
-                                            bitTextView.text = "${i + 1}. ${bits[i]}"
+                                    if (bits != null && bits.isNotEmpty()) {
+                                        for (i in 0 until min(hobbitEditTexts.size, bits.size)) {
+                                            val bitNumber = i + 1
+                                            val bitWithNumber = "$bitNumber. ${bits[i]}"
+                                            val editText = hobbitEditTexts[i]
+                                            editText.setText(bitWithNumber)
+                                        }
+                                        // Clear remaining EditTexts if there are fewer bits than EditTexts
+                                        for (i in bits.size until hobbitEditTexts.size) {
+                                            hobbitEditTexts[i].setText("")
                                         }
                                     } else {
-                                        for (i in 0 until hobbitTextViews.size) {
-                                            val bitTextView = hobbitTextViews[i]
-                                            bitTextView.text = "No bits available for $hobbitName"
+                                        // Clear all EditTexts if no bits available
+                                        for (editText in hobbitEditTexts) {
+                                            editText.setText("")
                                         }
                                     }
                                     break
@@ -107,8 +148,44 @@ class EditHobby : AppCompatActivity() {
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
-                Log.e("EditHobby", "Failed to fetch bits: ${databaseError.message}")
+                Log.e("EditHobby", "Failed to fetch hobbit data: ${databaseError.message}")
             }
         })
+    }
+    private fun updateHobbitsInDatabase(hobbyName: String, hobbits: ArrayList<String>?, hobbitEditTextMap: HashMap<Int, Array<EditText>>) {
+        val databaseRef = database.child("categories").child(hobbyName).child("hobbits")
+
+        val updatedHobbits = hobbits?.toMutableList() ?: mutableListOf()
+
+        // Update the hobbits list in the database
+        databaseRef.setValue(updatedHobbits)
+            .addOnSuccessListener {
+                Log.d("EditHobby", "Hobbits updated in the database")
+                Toast.makeText(this, "Hobbits updated successfully!", Toast.LENGTH_SHORT).show()
+
+                // Update the bits for each hobbit in the database
+                for ((currentHobbitIndex, hobbitEditTexts) in hobbitEditTextMap) {
+                    for (hobbitEditText in hobbitEditTexts) {
+                        val bitText = hobbitEditText.text.toString().trim()
+                        val hobbitName = hobbits?.get(currentHobbitIndex - 1)
+                        if (hobbitName != null && bitText.isNotEmpty()) {
+                            val bitsRef = databaseRef.child(hobbitName).child("bits")
+                            bitsRef.setValue(bitText)
+                                .addOnSuccessListener {
+                                    Log.d("EditHobby", "Bits updated for hobbit $hobbitName in the database")
+                                    Toast.makeText(this, "Bits updated for hobbit $hobbitName successfully!", Toast.LENGTH_SHORT).show()
+                                }
+                                .addOnFailureListener {
+                                    Log.e("EditHobby", "Failed to update bits for hobbit $hobbitName in the database: $it")
+                                    Toast.makeText(this, "Failed to update bits for hobbit $hobbitName!", Toast.LENGTH_SHORT).show()
+                                }
+                        }
+                    }
+                }
+            }
+            .addOnFailureListener {
+                Log.e("EditHobby", "Failed to update hobbits in the database: $it")
+                Toast.makeText(this, "Failed to update hobbits!", Toast.LENGTH_SHORT).show()
+            }
     }
 }

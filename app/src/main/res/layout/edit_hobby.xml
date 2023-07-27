@@ -100,38 +100,30 @@
                 android:layout_width="321dp"
                 android:layout_height="37dp"
                 android:background="@drawable/hobbitsbg"/>
-            <TextView
+            <EditText
                 android:id="@+id/FirstHobbits"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1. Hobbits 1.0"
+                android:backgroundTint="@android:color/transparent"
+                android:background="@null"
                 android:textSize="14sp"
                 android:textColor="#205375"
                 android:fontFamily="@font/inter_light"
                 android:textFontWeight="700"
                 android:layout_marginTop="9dp"
                 android:layout_marginStart="18dp"/>
-            <Button
-                android:layout_width="57dp"
-                android:layout_height="24dp"
-                android:text="Delete"
-                android:textSize="10sp"
-                android:textColor="#FDF8F0"
-                android:fontFamily="@font/inter_light"
-                android:textFontWeight="300"
-                android:padding="0dp"
-                android:backgroundTint="#205375"
-                android:layout_marginTop="9dp"
-                android:layout_marginStart="248dp"/>
             <View
                 android:layout_width="321dp"
                 android:layout_height="110dp"
                 android:background="@drawable/underhobbitsbg"
                 android:layout_marginTop="37dp"/>
-            <TextView
-                android:id="@+id/hobbits1.1"
+            <EditText
+                android:id="@+id/hobbits1_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/transparent"
+                android:background="@null"
                 android:text="Hobbits 1.1"
                 android:textSize="11sp"
                 android:textColor="#000"
@@ -140,18 +132,12 @@
                 android:layout_marginTop="49dp"
                 android:layout_marginStart="38dp"
                 android:clickable="true"/>
-            <ImageView
-                android:id="@+id/x1.1"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/x"
-                android:layout_marginTop="49dp"
-                android:layout_marginStart="267dp"
-                android:clickable="true"/>
-            <TextView
-                android:id="@+id/hobbits1.2"
+            <EditText
+                android:id="@+id/hobbits1_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/transparent"
+                android:background="@null"
                 android:text="Hobbits 1.2"
                 android:textSize="11sp"
                 android:textColor="#000"
@@ -160,18 +146,12 @@
                 android:layout_marginTop="74dp"
                 android:layout_marginStart="38dp"
                 android:clickable="true"/>
-            <ImageView
-                android:id="@+id/x1.2"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/x"
-                android:layout_marginTop="74dp"
-                android:layout_marginStart="267dp"
-                android:clickable="true"/>
-            <TextView
-                android:id="@+id/hobbits1.3"
+            <EditText
+                android:id="@+id/hobbits1_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/transparent"
+                android:background="@null"
                 android:text="Hobbits 1.3"
                 android:textSize="11sp"
                 android:textColor="#000"
@@ -179,34 +159,6 @@
                 android:textFontWeight="300"
                 android:layout_marginTop="99dp"
                 android:layout_marginStart="38dp"
-                android:clickable="true"/>
-            <ImageView
-                android:id="@+id/x1.3"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/x"
-                android:layout_marginTop="99dp"
-                android:layout_marginStart="267dp"
-                android:clickable="true"/>
-            <TextView
-                android:id="@+id/AddHobbies1.0"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Add Hobbies"
-                android:textSize="11sp"
-                android:textColor="#000"
-                android:fontFamily="@font/inter_light"
-                android:textFontWeight="300"
-                android:layout_marginTop="123dp"
-                android:layout_marginStart="38dp"
-                android:clickable="true"/>
-            <ImageView
-                android:id="@+id/add1.0"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/plus"
-                android:layout_marginTop="121dp"
-                android:layout_marginStart="10dp"
                 android:clickable="true"/>
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -217,10 +169,12 @@
                     android:layout_height="37dp"
                     android:background="@drawable/hobbitsbg"
                     android:layout_marginTop="162dp"/>
-                <TextView
+                <EditText
                     android:id="@+id/SecondHobbits"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/transparent"
+                    android:background="@null"
                     android:text="2. Hobbits 2.0"
                     android:textSize="14sp"
                     android:textColor="#205375"
@@ -228,28 +182,17 @@
                     android:textFontWeight="700"
                     android:layout_marginTop="171dp"
                     android:layout_marginStart="18dp"/>
-                <Button
-                    android:id="@+id/SecondHobbitsDelete"
-                    android:layout_width="57dp"
-                    android:layout_height="24dp"
-                    android:text="Delete"
-                    android:textSize="10sp"
-                    android:textColor="#FDF8F0"
-                    android:fontFamily="@font/inter_light"
-                    android:textFontWeight="300"
-                    android:padding="0dp"
-                    android:backgroundTint="#205375"
-                    android:layout_marginTop="171dp"
-                    android:layout_marginStart="248dp"/>
                 <View
                     android:layout_width="321dp"
                     android:layout_height="110dp"
                     android:background="@drawable/underhobbitsbg"
                     android:layout_marginTop="199dp"/>
-                <TextView
-                    android:id="@+id/hobbits2.1"
+                <EditText
+                    android:id="@+id/hobbits2_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/transparent"
+                    android:background="@null"
                     android:text="Hobbits 2.1"
                     android:textSize="11sp"
                     android:textColor="#000"
@@ -258,18 +201,12 @@
                     android:layout_marginTop="211dp"
                     android:layout_marginStart="38dp"
                     android:clickable="true"/>
-                <ImageView
-                    android:id="@+id/x2.1"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/x"
-                    android:layout_marginTop="211dp"
-                    android:layout_marginStart="267dp"
-                    android:clickable="true"/>
-                <TextView
-                    android:id="@+id/hobbits2.2"
+                <EditText
+                    android:id="@+id/hobbits2_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/transparent"
+                    android:background="@null"
                     android:text="Hobbits 2.2"
                     android:textSize="11sp"
                     android:textColor="#000"
@@ -278,18 +215,12 @@
                     android:layout_marginTop="236dp"
                     android:layout_marginStart="38dp"
                     android:clickable="true"/>
-                <ImageView
-                    android:id="@+id/x2.2"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/x"
-                    android:layout_marginTop="236dp"
-                    android:layout_marginStart="267dp"
-                    android:clickable="true"/>
-                <TextView
-                    android:id="@+id/hobbits2.3"
+                <EditText
+                    android:id="@+id/hobbits2_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/transparent"
+                    android:background="@null"
                     android:text="Hobbits 2.3"
                     android:textSize="11sp"
                     android:textColor="#000"
@@ -297,34 +228,6 @@
                     android:textFontWeight="300"
                     android:layout_marginTop="261dp"
                     android:layout_marginStart="38dp"
-                    android:clickable="true"/>
-                <ImageView
-                    android:id="@+id/x2.3"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/x"
-                    android:layout_marginTop="261dp"
-                    android:layout_marginStart="267dp"
-                    android:clickable="true"/>
-                <TextView
-                    android:id="@+id/AddHobbies2.0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Add Hobbies"
-                    android:textSize="11sp"
-                    android:textColor="#000"
-                    android:fontFamily="@font/inter_light"
-                    android:textFontWeight="300"
-                    android:layout_marginTop="285dp"
-                    android:layout_marginStart="38dp"
-                    android:clickable="true"/>
-                <ImageView
-                    android:id="@+id/add2.0"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/plus"
-                    android:layout_marginTop="283dp"
-                    android:layout_marginStart="10dp"
                     android:clickable="true"/>
             </RelativeLayout>
 
@@ -336,10 +239,12 @@
                     android:layout_height="37dp"
                     android:background="@drawable/hobbitsbg"
                     android:layout_marginTop="324dp"/>
-                <TextView
+                <EditText
                     android:id="@+id/ThirdHobbits"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/transparent"
+                    android:background="@null"
                     android:text="3. Hobbits 3.0"
                     android:textSize="14sp"
                     android:textColor="#205375"
@@ -347,28 +252,17 @@
                     android:textFontWeight="700"
                     android:layout_marginTop="333dp"
                     android:layout_marginStart="18dp"/>
-                <Button
-                    android:id="@+id/ThirdHobbitsDelete"
-                    android:layout_width="57dp"
-                    android:layout_height="24dp"
-                    android:text="Delete"
-                    android:textSize="10sp"
-                    android:textColor="#FDF8F0"
-                    android:fontFamily="@font/inter_light"
-                    android:textFontWeight="300"
-                    android:padding="0dp"
-                    android:backgroundTint="#205375"
-                    android:layout_marginTop="333dp"
-                    android:layout_marginStart="248dp"/>
                 <View
                     android:layout_width="321dp"
                     android:layout_height="110dp"
                     android:background="@drawable/underhobbitsbg"
                     android:layout_marginTop="361dp"/>
-                <TextView
-                    android:id="@+id/hobbits3.1"
+                <EditText
+                    android:id="@+id/hobbits3_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/transparent"
+                    android:background="@null"
                     android:text="Hobbits 3.1"
                     android:textSize="11sp"
                     android:textColor="#000"
@@ -377,18 +271,12 @@
                     android:layout_marginTop="373dp"
                     android:layout_marginStart="38dp"
                     android:clickable="true"/>
-                <ImageView
-                    android:id="@+id/x3.1"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/x"
-                    android:layout_marginTop="373dp"
-                    android:layout_marginStart="267dp"
-                    android:clickable="true"/>
-                <TextView
-                    android:id="@+id/hobbits3.2"
+                <EditText
+                    android:id="@+id/hobbits3_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/transparent"
+                    android:background="@null"
                     android:text="Hobbits 2.2"
                     android:textSize="11sp"
                     android:textColor="#000"
@@ -397,18 +285,12 @@
                     android:layout_marginTop="398dp"
                     android:layout_marginStart="38dp"
                     android:clickable="true"/>
-                <ImageView
-                    android:id="@+id/x3.2"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/x"
-                    android:layout_marginTop="398dp"
-                    android:layout_marginStart="267dp"
-                    android:clickable="true"/>
-                <TextView
-                    android:id="@+id/hobbits3.3"
+                <EditText
+                    android:id="@+id/hobbits3_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/transparent"
+                    android:background="@null"
                     android:text="Hobbits 2.3"
                     android:textSize="11sp"
                     android:textColor="#000"
@@ -417,81 +299,22 @@
                     android:layout_marginTop="423dp"
                     android:layout_marginStart="38dp"
                     android:clickable="true"/>
-                <ImageView
-                    android:id="@+id/x3.3"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/x"
-                    android:layout_marginTop="423dp"
-                    android:layout_marginStart="267dp"
-                    android:clickable="true"/>
-                <TextView
-                    android:id="@+id/AddHobbies3.0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Add Hobbies"
-                    android:textSize="11sp"
-                    android:textColor="#000"
-                    android:fontFamily="@font/inter_light"
-                    android:textFontWeight="300"
-                    android:layout_marginTop="447dp"
-                    android:layout_marginStart="38dp"
-                    android:clickable="true"/>
-                <ImageView
-                    android:id="@+id/add3.0"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/plus"
-                    android:layout_marginTop="445dp"
-                    android:layout_marginStart="10dp"
-                    android:clickable="true"/>
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <View
-                    android:layout_width="321dp"
-                    android:layout_height="37dp"
-                    android:background="@drawable/hobbitsbg"
-                    android:layout_marginTop="486dp"/>
-                <TextView
-                    android:id="@+id/AddNewHobbits"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Add new Hobbits"
-                    android:textSize="11sp"
-                    android:textColor="#545454"
-                    android:fontFamily="@font/inter_light"
-                    android:textFontWeight="300"
-                    android:layout_marginTop="498dp"
-                    android:layout_marginStart="41dp"/>
-                <ImageView
-                    android:id="@+id/ClickAddNewHobbits"
-                    android:layout_width="23dp"
-                    android:layout_height="23dp"
-                    android:src="@drawable/addnewhobbits"
-                    android:layout_marginTop="494dp"
-                    android:layout_marginStart="10dp"
-                    android:clickable="true"/>
             </RelativeLayout>
         </RelativeLayout>
     </ScrollView>
-
     <Button
         android:id="@+id/ButtonSetSched"
         android:layout_width="156dp"
         android:layout_height="32dp"
-        android:text="Set up Schedule"
-        android:textSize="14sp"
-        android:textColor="#FDF8F0"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#D7942E"
         android:fontFamily="@font/inter_bold"
         android:padding="0dp"
-        android:backgroundTint="#D7942E"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="Set up Schedule"
+        android:textColor="#FDF8F0"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ScrollViewHobbits"
-        android:layout_marginTop="51dp"/>
-
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ScrollViewHobbits" />
 </androidx.constraintlayout.widget.ConstraintLayout>
