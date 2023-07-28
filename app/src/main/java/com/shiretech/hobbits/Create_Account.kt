@@ -45,12 +45,13 @@ class Create_Account : AppCompatActivity() {
                                 val user = FirebaseAuth.getInstance().currentUser
                                 val usersRef = FirebaseDatabase.getInstance().getReference("users")
                                 usersRef.child(user?.uid?:"").child("name").setValue(name)
+                                usersRef.child(user?.uid?:"").child("email").setValue(email)
 
                                 firebaseAuth.currentUser?.sendEmailVerification()?.addOnSuccessListener {
-                                        val intent = Intent(this, Log_In::class.java)
-                                        Toast.makeText(this, "Please Verify your Email", Toast.LENGTH_SHORT).show()
-                                        startActivity(intent)
-                                    }
+                                    val intent = Intent(this, Log_In::class.java)
+                                    Toast.makeText(this, "Please Verify your Email", Toast.LENGTH_SHORT).show()
+                                    startActivity(intent)
+                                }
                                     ?.addOnFailureListener{
                                         Toast.makeText( this, it.toString(), Toast.LENGTH_SHORT).show()
                                     }
