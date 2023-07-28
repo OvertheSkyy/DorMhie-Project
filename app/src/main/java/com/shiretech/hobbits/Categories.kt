@@ -113,10 +113,84 @@ class Categories : AppCompatActivity() {
             }
         }
 
-        //Creative Arts
+        //Second Hobby
         val creativeartsCategoryDropdown = findViewById<ImageView>(R.id.CreativeArtsDropdown)
         val creativeArtsHobbiesContainer = findViewById<RelativeLayout>(R.id.CreativeArtshobbiesContainer)
         val creativelayoutParams = creativeArtsHobbiesContainer.layoutParams as LinearLayout.LayoutParams
+        val addSecondCategoryFirstHobbyButton = findViewById<Button>(R.id.AddSecondCategoryFirstHobby)
+        val addSecondCategorySecondHobbyButton = findViewById<Button>(R.id.AddSecondCategorySecondHobby)
+        val addSecondCategoryThirdHobbyButton = findViewById<Button>(R.id.AddSecondCategoryThirdHobby)
+        val addSecondCategoryFourthHobbyButton = findViewById<Button>(R.id.AddSecondCategoryFourthHobby)
+
+
+
+        addSecondCategoryFirstHobbyButton.setOnClickListener {
+            val categoryIndex = 1
+            val hobbyIndex = 0
+
+            fetchHobbiesAndHobbitsForCategory(categoryIndex) { hobbiesWithHobbits ->
+                if (hobbyIndex < hobbiesWithHobbits.size) {
+                    val selectedHobby = hobbiesWithHobbits[hobbyIndex].first
+                    val selectedHobbits = hobbiesWithHobbits[hobbyIndex].second
+
+                    val intent = Intent(this, EditHobby::class.java)
+                    intent.putExtra("hobbyName", selectedHobby)
+                    intent.putStringArrayListExtra("hobbits", ArrayList(selectedHobbits))
+                    startActivity(intent)
+                }
+            }
+        }
+
+        addSecondCategorySecondHobbyButton.setOnClickListener {
+            val categoryIndex = 1
+            val hobbyIndex = 1
+
+            fetchHobbiesAndHobbitsForCategory(categoryIndex) { hobbiesWithHobbits ->
+                if (hobbyIndex < hobbiesWithHobbits.size) {
+                    val selectedHobby = hobbiesWithHobbits[hobbyIndex].first
+                    val selectedHobbits = hobbiesWithHobbits[hobbyIndex].second
+
+                    val intent = Intent(this, EditHobby::class.java)
+                    intent.putExtra("hobbyName", selectedHobby)
+                    intent.putStringArrayListExtra("hobbits", ArrayList(selectedHobbits))
+                    startActivity(intent)
+                }
+            }
+        }
+
+        addSecondCategoryThirdHobbyButton.setOnClickListener {
+            val categoryIndex = 1
+            val hobbyIndex = 2
+
+            fetchHobbiesAndHobbitsForCategory(categoryIndex) { hobbiesWithHobbits ->
+                if (hobbyIndex < hobbiesWithHobbits.size) {
+                    val selectedHobby = hobbiesWithHobbits[hobbyIndex].first
+                    val selectedHobbits = hobbiesWithHobbits[hobbyIndex].second
+
+                    val intent = Intent(this, EditHobby::class.java)
+                    intent.putExtra("hobbyName", selectedHobby)
+                    intent.putStringArrayListExtra("hobbits", ArrayList(selectedHobbits))
+                    startActivity(intent)
+                }
+            }
+        }
+
+        addSecondCategoryFourthHobbyButton.setOnClickListener {
+            val categoryIndex = 1
+            val hobbyIndex = 3
+
+            fetchHobbiesAndHobbitsForCategory(categoryIndex) { hobbiesWithHobbits ->
+                if (hobbyIndex < hobbiesWithHobbits.size) {
+                    val selectedHobby = hobbiesWithHobbits[hobbyIndex].first
+                    val selectedHobbits = hobbiesWithHobbits[hobbyIndex].second
+
+                    val intent = Intent(this, EditHobby::class.java)
+                    intent.putExtra("hobbyName", selectedHobby)
+                    intent.putStringArrayListExtra("hobbits", ArrayList(selectedHobbits))
+                    startActivity(intent)
+                }
+            }
+        }
 
         creativeartsCategoryDropdown.setOnClickListener {
             if (creativeArtsHobbiesContainer.visibility == View.GONE){
@@ -129,10 +203,83 @@ class Categories : AppCompatActivity() {
             }
         }
 
-        //Health and Wellness
+        //Third Hobby
         val healthAndwellnessCategoryDropdown = findViewById<ImageView>(R.id.HealthandWellnessDropdown)
         val healthandwellnessHobbiesContainer = findViewById<RelativeLayout>(R.id.HealthandWellnesshobbiesContainer)
         val HealthandWellnesslayoutParams = creativeArtsHobbiesContainer.layoutParams as LinearLayout.LayoutParams
+        val addThirdCategoryFirstHobbyButton = findViewById<Button>(R.id.AddThirdCategoryFirstHobby)
+        val addThirdCategorySecondHobbyButton = findViewById<Button>(R.id.AddThirdCategorySecondHobby)
+        val addThirdCategoryThirdHobbyButton = findViewById<Button>(R.id.AddThirdCategoryThirdHobby)
+        val addThirdCategoryFourthHobbyButton = findViewById<Button>(R.id.AddThirdCategoryFourthHobby)
+
+        addFirstCategoryFirstHobbyButton.setOnClickListener {
+            val categoryIndex = 2
+            val hobbyIndex = 0
+
+            fetchHobbiesAndHobbitsForCategory(categoryIndex) { hobbiesWithHobbits ->
+                if (hobbyIndex < hobbiesWithHobbits.size) {
+                    val selectedHobby = hobbiesWithHobbits[hobbyIndex].first
+                    val selectedHobbits = hobbiesWithHobbits[hobbyIndex].second
+
+                    val intent = Intent(this, EditHobby::class.java)
+                    intent.putExtra("hobbyName", selectedHobby)
+                    intent.putStringArrayListExtra("hobbits", ArrayList(selectedHobbits))
+                    startActivity(intent)
+                }
+            }
+        }
+
+        addThirdCategorySecondHobbyButton.setOnClickListener {
+            val categoryIndex = 2
+            val hobbyIndex = 1
+
+            fetchHobbiesAndHobbitsForCategory(categoryIndex) { hobbiesWithHobbits ->
+                if (hobbyIndex < hobbiesWithHobbits.size) {
+                    val selectedHobby = hobbiesWithHobbits[hobbyIndex].first
+                    val selectedHobbits = hobbiesWithHobbits[hobbyIndex].second
+
+                    val intent = Intent(this, EditHobby::class.java)
+                    intent.putExtra("hobbyName", selectedHobby)
+                    intent.putStringArrayListExtra("hobbits", ArrayList(selectedHobbits))
+                    startActivity(intent)
+                }
+            }
+        }
+
+        addThirdCategoryThirdHobbyButton.setOnClickListener {
+            val categoryIndex = 2
+            val hobbyIndex = 2
+
+            fetchHobbiesAndHobbitsForCategory(categoryIndex) { hobbiesWithHobbits ->
+                if (hobbyIndex < hobbiesWithHobbits.size) {
+                    val selectedHobby = hobbiesWithHobbits[hobbyIndex].first
+                    val selectedHobbits = hobbiesWithHobbits[hobbyIndex].second
+
+                    val intent = Intent(this, EditHobby::class.java)
+                    intent.putExtra("hobbyName", selectedHobby)
+                    intent.putStringArrayListExtra("hobbits", ArrayList(selectedHobbits))
+                    startActivity(intent)
+                }
+            }
+        }
+
+        addThirdCategoryFourthHobbyButton.setOnClickListener {
+            val categoryIndex = 2
+            val hobbyIndex = 3
+
+            fetchHobbiesAndHobbitsForCategory(categoryIndex) { hobbiesWithHobbits ->
+                if (hobbyIndex < hobbiesWithHobbits.size) {
+                    val selectedHobby = hobbiesWithHobbits[hobbyIndex].first
+                    val selectedHobbits = hobbiesWithHobbits[hobbyIndex].second
+
+                    val intent = Intent(this, EditHobby::class.java)
+                    intent.putExtra("hobbyName", selectedHobby)
+                    intent.putStringArrayListExtra("hobbits", ArrayList(selectedHobbits))
+                    startActivity(intent)
+                }
+            }
+        }
+
 
         healthAndwellnessCategoryDropdown.setOnClickListener {
             if (healthandwellnessHobbiesContainer.visibility == View.GONE){
@@ -145,10 +292,83 @@ class Categories : AppCompatActivity() {
             }
         }
 
-        //Music and Performing
+        //Fourth Hobby
         val musicandperformingCategoryDropdown = findViewById<ImageView>(R.id.MusicandperformingDropdown)
         val musicandperformingHobbiesContainer = findViewById<RelativeLayout>(R.id.MusicandPerforminghobbiesContainer)
         val MusicandPerforminglayoutParams = creativeArtsHobbiesContainer.layoutParams as LinearLayout.LayoutParams
+        val addFourthCategoryFirstHobbyButton = findViewById<Button>(R.id.AddFourthCategoryFirstHobby)
+        val addFourthCategorySecondHobbyButton = findViewById<Button>(R.id.AddFourthCategorySecondHobby)
+        val addFourthCategoryThirdHobbyButton = findViewById<Button>(R.id.AddFourthCategoryThirdHobby)
+        val addFourthCategoryFourthHobbyButton = findViewById<Button>(R.id.AddFourthCategoryFourthHobby)
+
+
+        addFourthCategoryFirstHobbyButton.setOnClickListener {
+            val categoryIndex = 3
+            val hobbyIndex = 0
+
+            fetchHobbiesAndHobbitsForCategory(categoryIndex) { hobbiesWithHobbits ->
+                if (hobbyIndex < hobbiesWithHobbits.size) {
+                    val selectedHobby = hobbiesWithHobbits[hobbyIndex].first
+                    val selectedHobbits = hobbiesWithHobbits[hobbyIndex].second
+
+                    val intent = Intent(this, EditHobby::class.java)
+                    intent.putExtra("hobbyName", selectedHobby)
+                    intent.putStringArrayListExtra("hobbits", ArrayList(selectedHobbits))
+                    startActivity(intent)
+                }
+            }
+        }
+
+        addFourthCategorySecondHobbyButton.setOnClickListener {
+            val categoryIndex = 3
+            val hobbyIndex = 1
+
+            fetchHobbiesAndHobbitsForCategory(categoryIndex) { hobbiesWithHobbits ->
+                if (hobbyIndex < hobbiesWithHobbits.size) {
+                    val selectedHobby = hobbiesWithHobbits[hobbyIndex].first
+                    val selectedHobbits = hobbiesWithHobbits[hobbyIndex].second
+
+                    val intent = Intent(this, EditHobby::class.java)
+                    intent.putExtra("hobbyName", selectedHobby)
+                    intent.putStringArrayListExtra("hobbits", ArrayList(selectedHobbits))
+                    startActivity(intent)
+                }
+            }
+        }
+
+        addFourthCategoryThirdHobbyButton.setOnClickListener {
+            val categoryIndex = 3
+            val hobbyIndex = 2
+
+            fetchHobbiesAndHobbitsForCategory(categoryIndex) { hobbiesWithHobbits ->
+                if (hobbyIndex < hobbiesWithHobbits.size) {
+                    val selectedHobby = hobbiesWithHobbits[hobbyIndex].first
+                    val selectedHobbits = hobbiesWithHobbits[hobbyIndex].second
+
+                    val intent = Intent(this, EditHobby::class.java)
+                    intent.putExtra("hobbyName", selectedHobby)
+                    intent.putStringArrayListExtra("hobbits", ArrayList(selectedHobbits))
+                    startActivity(intent)
+                }
+            }
+        }
+
+        addFourthCategoryFourthHobbyButton.setOnClickListener {
+            val categoryIndex = 3
+            val hobbyIndex = 3
+
+            fetchHobbiesAndHobbitsForCategory(categoryIndex) { hobbiesWithHobbits ->
+                if (hobbyIndex < hobbiesWithHobbits.size) {
+                    val selectedHobby = hobbiesWithHobbits[hobbyIndex].first
+                    val selectedHobbits = hobbiesWithHobbits[hobbyIndex].second
+
+                    val intent = Intent(this, EditHobby::class.java)
+                    intent.putExtra("hobbyName", selectedHobby)
+                    intent.putStringArrayListExtra("hobbits", ArrayList(selectedHobbits))
+                    startActivity(intent)
+                }
+            }
+        }
 
         musicandperformingCategoryDropdown.setOnClickListener {
             if (musicandperformingHobbiesContainer.visibility == View.GONE){
@@ -161,10 +381,82 @@ class Categories : AppCompatActivity() {
             }
         }
 
-        //Reading and Writing
+        //Fifth
         val readingandwritingCategoryDropdown = findViewById<ImageView>(R.id.ReadingandWritingDropdown)
         val readingandwritingHobbiesContainer = findViewById<RelativeLayout>(R.id.ReadingandWritinghobbiesContainer)
         val ReadingandWritinglayoutParams = creativeArtsHobbiesContainer.layoutParams as LinearLayout.LayoutParams
+        val addFifthCategoryFirstHobbyButton = findViewById<Button>(R.id.AddFifthCategoryFirstHobby)
+        val addFifthCategorySecondHobbyButton = findViewById<Button>(R.id.AddFifthCategorySecondHobby)
+        val addFifthCategoryThirdHobbyButton = findViewById<Button>(R.id.AddFifthCategoryThirdHobby)
+        val addFifthCategoryFourthHobbyButton = findViewById<Button>(R.id.AddFifthCategoryFourthHobby)
+
+        addFifthCategoryFirstHobbyButton.setOnClickListener {
+            val categoryIndex = 4
+            val hobbyIndex = 0
+
+            fetchHobbiesAndHobbitsForCategory(categoryIndex) { hobbiesWithHobbits ->
+                if (hobbyIndex < hobbiesWithHobbits.size) {
+                    val selectedHobby = hobbiesWithHobbits[hobbyIndex].first
+                    val selectedHobbits = hobbiesWithHobbits[hobbyIndex].second
+
+                    val intent = Intent(this, EditHobby::class.java)
+                    intent.putExtra("hobbyName", selectedHobby)
+                    intent.putStringArrayListExtra("hobbits", ArrayList(selectedHobbits))
+                    startActivity(intent)
+                }
+            }
+        }
+
+        addFifthCategorySecondHobbyButton.setOnClickListener {
+            val categoryIndex = 4
+            val hobbyIndex = 1
+
+            fetchHobbiesAndHobbitsForCategory(categoryIndex) { hobbiesWithHobbits ->
+                if (hobbyIndex < hobbiesWithHobbits.size) {
+                    val selectedHobby = hobbiesWithHobbits[hobbyIndex].first
+                    val selectedHobbits = hobbiesWithHobbits[hobbyIndex].second
+
+                    val intent = Intent(this, EditHobby::class.java)
+                    intent.putExtra("hobbyName", selectedHobby)
+                    intent.putStringArrayListExtra("hobbits", ArrayList(selectedHobbits))
+                    startActivity(intent)
+                }
+            }
+        }
+
+        addFifthCategoryThirdHobbyButton.setOnClickListener {
+            val categoryIndex = 4
+            val hobbyIndex = 2
+
+            fetchHobbiesAndHobbitsForCategory(categoryIndex) { hobbiesWithHobbits ->
+                if (hobbyIndex < hobbiesWithHobbits.size) {
+                    val selectedHobby = hobbiesWithHobbits[hobbyIndex].first
+                    val selectedHobbits = hobbiesWithHobbits[hobbyIndex].second
+
+                    val intent = Intent(this, EditHobby::class.java)
+                    intent.putExtra("hobbyName", selectedHobby)
+                    intent.putStringArrayListExtra("hobbits", ArrayList(selectedHobbits))
+                    startActivity(intent)
+                }
+            }
+        }
+
+        addFifthCategoryFourthHobbyButton.setOnClickListener {
+            val categoryIndex = 4
+            val hobbyIndex = 3
+
+            fetchHobbiesAndHobbitsForCategory(categoryIndex) { hobbiesWithHobbits ->
+                if (hobbyIndex < hobbiesWithHobbits.size) {
+                    val selectedHobby = hobbiesWithHobbits[hobbyIndex].first
+                    val selectedHobbits = hobbiesWithHobbits[hobbyIndex].second
+
+                    val intent = Intent(this, EditHobby::class.java)
+                    intent.putExtra("hobbyName", selectedHobby)
+                    intent.putStringArrayListExtra("hobbits", ArrayList(selectedHobbits))
+                    startActivity(intent)
+                }
+            }
+        }
 
         readingandwritingCategoryDropdown.setOnClickListener {
             if (readingandwritingHobbiesContainer.visibility == View.GONE){
@@ -177,10 +469,82 @@ class Categories : AppCompatActivity() {
             }
         }
 
-        //Science and Technology
+        //Sixth Hobby
         val scienceandtechCategoryDropdown = findViewById<ImageView>(R.id.ScienceandTechDropdown)
         val scienceandtechHobbiesContainer = findViewById<RelativeLayout>(R.id.ScienceandTechhobbiesContainer)
         val ScienceandTechlayoutParams = creativeArtsHobbiesContainer.layoutParams as LinearLayout.LayoutParams
+        val addSixthCategoryFirstHobbyButton = findViewById<Button>(R.id.AddSixthCategoryFirstHobby)
+        val addSixthCategorySecondHobbyButton = findViewById<Button>(R.id.AddSixthCategorySecondHobby)
+        val addSixthCategoryThirdHobbyButton = findViewById<Button>(R.id.AddSixthCategoryThirdHobby)
+        val addSixthCategoryFourthHobbyButton = findViewById<Button>(R.id.AddSixthCategoryFourthHobby)
+
+        addSixthCategoryFirstHobbyButton.setOnClickListener {
+            val categoryIndex = 5
+            val hobbyIndex = 0
+
+            fetchHobbiesAndHobbitsForCategory(categoryIndex) { hobbiesWithHobbits ->
+                if (hobbyIndex < hobbiesWithHobbits.size) {
+                    val selectedHobby = hobbiesWithHobbits[hobbyIndex].first
+                    val selectedHobbits = hobbiesWithHobbits[hobbyIndex].second
+
+                    val intent = Intent(this, EditHobby::class.java)
+                    intent.putExtra("hobbyName", selectedHobby)
+                    intent.putStringArrayListExtra("hobbits", ArrayList(selectedHobbits))
+                    startActivity(intent)
+                }
+            }
+        }
+
+        addSixthCategorySecondHobbyButton.setOnClickListener {
+            val categoryIndex = 5
+            val hobbyIndex = 1
+
+            fetchHobbiesAndHobbitsForCategory(categoryIndex) { hobbiesWithHobbits ->
+                if (hobbyIndex < hobbiesWithHobbits.size) {
+                    val selectedHobby = hobbiesWithHobbits[hobbyIndex].first
+                    val selectedHobbits = hobbiesWithHobbits[hobbyIndex].second
+
+                    val intent = Intent(this, EditHobby::class.java)
+                    intent.putExtra("hobbyName", selectedHobby)
+                    intent.putStringArrayListExtra("hobbits", ArrayList(selectedHobbits))
+                    startActivity(intent)
+                }
+            }
+        }
+
+        addSixthCategoryThirdHobbyButton.setOnClickListener {
+            val categoryIndex = 5
+            val hobbyIndex = 2
+
+            fetchHobbiesAndHobbitsForCategory(categoryIndex) { hobbiesWithHobbits ->
+                if (hobbyIndex < hobbiesWithHobbits.size) {
+                    val selectedHobby = hobbiesWithHobbits[hobbyIndex].first
+                    val selectedHobbits = hobbiesWithHobbits[hobbyIndex].second
+
+                    val intent = Intent(this, EditHobby::class.java)
+                    intent.putExtra("hobbyName", selectedHobby)
+                    intent.putStringArrayListExtra("hobbits", ArrayList(selectedHobbits))
+                    startActivity(intent)
+                }
+            }
+        }
+
+        addSixthCategoryFourthHobbyButton.setOnClickListener {
+            val categoryIndex = 5
+            val hobbyIndex = 3
+
+            fetchHobbiesAndHobbitsForCategory(categoryIndex) { hobbiesWithHobbits ->
+                if (hobbyIndex < hobbiesWithHobbits.size) {
+                    val selectedHobby = hobbiesWithHobbits[hobbyIndex].first
+                    val selectedHobbits = hobbiesWithHobbits[hobbyIndex].second
+
+                    val intent = Intent(this, EditHobby::class.java)
+                    intent.putExtra("hobbyName", selectedHobby)
+                    intent.putStringArrayListExtra("hobbits", ArrayList(selectedHobbits))
+                    startActivity(intent)
+                }
+            }
+        }
 
         scienceandtechCategoryDropdown.setOnClickListener {
             if (scienceandtechHobbiesContainer.visibility == View.GONE){
@@ -192,7 +556,6 @@ class Categories : AppCompatActivity() {
                 ScienceandTechlayoutParams.setMargins(0,0,0,0)
             }
         }
-
 
 
         val UnselectedHomeImageClick = findViewById<ImageView>(R.id.ClickUnselectedHome)
