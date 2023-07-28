@@ -113,7 +113,7 @@ class Categories : AppCompatActivity() {
             }
         }
 
-        //Creative Arts
+        //Second Hobby
         val creativeartsCategoryDropdown = findViewById<ImageView>(R.id.CreativeArtsDropdown)
         val creativeArtsHobbiesContainer = findViewById<RelativeLayout>(R.id.CreativeArtshobbiesContainer)
         val creativelayoutParams = creativeArtsHobbiesContainer.layoutParams as LinearLayout.LayoutParams
@@ -203,7 +203,7 @@ class Categories : AppCompatActivity() {
             }
         }
 
-        //Health and Wellness
+        //Third Hobby
         val healthAndwellnessCategoryDropdown = findViewById<ImageView>(R.id.HealthandWellnessDropdown)
         val healthandwellnessHobbiesContainer = findViewById<RelativeLayout>(R.id.HealthandWellnesshobbiesContainer)
         val HealthandWellnesslayoutParams = creativeArtsHobbiesContainer.layoutParams as LinearLayout.LayoutParams
@@ -212,7 +212,7 @@ class Categories : AppCompatActivity() {
         val addThirdCategoryThirdHobbyButton = findViewById<Button>(R.id.AddThirdCategoryThirdHobby)
         val addThirdCategoryFourthHobbyButton = findViewById<Button>(R.id.AddThirdCategoryFourthHobby)
 
-        addFirstCategoryFirstHobbyButton.setOnClickListener {
+        addThirdCategoryFirstHobbyButton.setOnClickListener {
             val categoryIndex = 2
             val hobbyIndex = 0
 
@@ -292,7 +292,7 @@ class Categories : AppCompatActivity() {
             }
         }
 
-        //Music and Performing
+        //Fourth Hobby
         val musicandperformingCategoryDropdown = findViewById<ImageView>(R.id.MusicandperformingDropdown)
         val musicandperformingHobbiesContainer = findViewById<RelativeLayout>(R.id.MusicandPerforminghobbiesContainer)
         val MusicandPerforminglayoutParams = creativeArtsHobbiesContainer.layoutParams as LinearLayout.LayoutParams
@@ -381,7 +381,7 @@ class Categories : AppCompatActivity() {
             }
         }
 
-        //Reading and Writing
+        //Fifth Hobby
         val readingandwritingCategoryDropdown = findViewById<ImageView>(R.id.ReadingandWritingDropdown)
         val readingandwritingHobbiesContainer = findViewById<RelativeLayout>(R.id.ReadingandWritinghobbiesContainer)
         val ReadingandWritinglayoutParams = creativeArtsHobbiesContainer.layoutParams as LinearLayout.LayoutParams
@@ -469,7 +469,7 @@ class Categories : AppCompatActivity() {
             }
         }
 
-        //Science and Technology
+        //Sixth Hobby
         val scienceandtechCategoryDropdown = findViewById<ImageView>(R.id.ScienceandTechDropdown)
         val scienceandtechHobbiesContainer = findViewById<RelativeLayout>(R.id.ScienceandTechhobbiesContainer)
         val ScienceandTechlayoutParams = creativeArtsHobbiesContainer.layoutParams as LinearLayout.LayoutParams
