@@ -29,11 +29,11 @@ class Log_In : AppCompatActivity() {
         //Check if the user have already logged in
         val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false)
+        val userEmail = sharedPreferences.getString("userEmail", "")
 
-        if (!isLoggedIn) {
-            // User is not logged in, redirect to the login page
-            val intent = Intent(this, Log_In::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+        if (isLoggedIn && !userEmail.isNullOrEmpty()) {
+            // User is already logged in, redirect to the Home activity
+            val intent = Intent(this, Home::class.java)
             startActivity(intent)
             finish()
         }

@@ -27,6 +27,8 @@ class Categories : AppCompatActivity() {
 
         //First Category
         val cookingCategoryDropdown = findViewById<ImageView>(R.id.CookingCategorydropdown)
+        val cookingCategoryText = findViewById<TextView>(R.id.FirstCategory)
+
         val cookingHobbiesContainer = findViewById<RelativeLayout>(R.id.CookinghobbiesContainer)
         val cookinglayoutParams = cookingHobbiesContainer.layoutParams as LinearLayout.LayoutParams
         val addFirstCategoryFirstHobbyButton = findViewById<Button>(R.id.AddFirstCategoryFirstHobby)
@@ -110,6 +112,15 @@ class Categories : AppCompatActivity() {
             else{
                 cookingHobbiesContainer.visibility = View.GONE
                 cookinglayoutParams.setMargins(0,0,0,0)
+            }
+        }
+        cookingCategoryDropdown.setOnClickListener {
+            if (cookingHobbiesContainer.visibility == View.GONE) {
+                cookingHobbiesContainer.visibility = View.VISIBLE
+                cookinglayoutParams.setMargins(0, -55.dpToPx(), 0, 0)
+            } else {
+                cookingHobbiesContainer.visibility = View.GONE
+                cookinglayoutParams.setMargins(0, 0, 0, 0)
             }
         }
 

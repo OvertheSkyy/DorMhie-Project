@@ -128,7 +128,8 @@
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="600"
                     android:layout_marginTop="-3dp"
-                    android:layout_marginStart="45dp"/>
+                    android:layout_marginStart="45dp"
+                    android:clickable="true"/>
             </RelativeLayout>
 
             <RelativeLayout
