@@ -3,7 +3,11 @@ package com.shiretech.hobbits
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import androidx.core.app.TaskStackBuilder
+import android.widget.Button
 import android.widget.ImageView
+import android.widget.RelativeLayout
 import android.widget.TextView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -58,5 +62,21 @@ class User_Profile : AppCompatActivity() {
                 }
             })
         }
+
+        val Logout = findViewById<View>(R.id.btnlogout)
+        Logout.setOnClickListener {
+            navigateToLogin()
+        }
+    }
+    private fun navigateToLogin() {
+        FirebaseAuth.getInstance().signOut()
+
+        val intent = Intent(this, Log_In::class.java)
+
+        val stackBuilder = TaskStackBuilder.create(this)
+        stackBuilder.addNextIntentWithParentStack(intent)
+        stackBuilder.startActivities()
+
+        finish()
     }
 }

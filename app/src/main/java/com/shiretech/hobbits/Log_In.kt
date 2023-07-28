@@ -1,5 +1,6 @@
 package com.shiretech.hobbits
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.content.Intent
@@ -25,50 +26,82 @@ class Log_In : AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
 
-        binding.LoginButton.setOnClickListener {
-            val email = binding.EditTxtEmail.text.toString()
-            val password = binding.EditTxtPassword.text.toString()
+        //Check if the user have already logged in
+        val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false)
 
-            if (email.isNotEmpty() && password.isNotEmpty()) {
-                val loginAttemptsLimit = 3
-                val loginAttemptsWindow = 60000L // 1 minute in milliseconds
+        if (!isLoggedIn) {
+            // User is not logged in, redirect to the login page
+            val intent = Intent(this, Log_In::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+            finish()
+        }
+        else{
+            binding.LoginButton.setOnClickListener {
+                val email = binding.EditTxtEmail.text.toString()
+                val password = binding.EditTxtPassword.text.toString()
 
-                getUserIdFromEmail(email) { userId ->
-                    if (userId != null) {
-                        // User found based on email
-                        val currentTime = System.currentTimeMillis()
-                        if (loginAttempts < loginAttemptsLimit || currentTime - lastLoginAttemptTime >= loginAttemptsWindow) {
-                            // Perform login
-                            firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
-                                if (task.isSuccessful) {
-                                    val verification = firebaseAuth.currentUser?.isEmailVerified
-                                    if (verification == true) {
-                                        // Login successful
-                                        val user = firebaseAuth.currentUser
-                                        val intent = Intent(this, Home::class.java)
-                                        startActivity(intent)
-                                    } else {
-                                        // Email not verified
-                                        Toast.makeText(this, "Please Verify your Email", Toast.LENGTH_SHORT).show()
+                if (email.isNotEmpty() && password.isNotEmpty()) {
+                    val loginAttemptsLimit = 3
+                    val loginAttemptsWindow = 60000L // 1 minute in milliseconds
+
+                    getUserIdFromEmail(email) { userId ->
+                        if (userId != null) {
+                            // User found based on email
+                            val currentTime = System.currentTimeMillis()
+                            if (loginAttempts < loginAttemptsLimit || currentTime - lastLoginAttemptTime >= loginAttemptsWindow) {
+                                // Perform login
+                                firebaseAuth.signInWithEmailAndPassword(email, password)
+                                    .addOnCompleteListener { task ->
+                                        if (task.isSuccessful) {
+                                            val verification =
+                                                firebaseAuth.currentUser?.isEmailVerified
+                                            if (verification == true) {
+                                                // Login successful
+                                                val user = firebaseAuth.currentUser
+                                                val intent = Intent(this, Home::class.java)
+                                                startActivity(intent)
+                                            } else {
+                                                // Email not verified
+                                                Toast.makeText(
+                                                    this,
+                                                    "Please Verify your Email",
+                                                    Toast.LENGTH_SHORT
+                                                ).show()
+                                            }
+                                        } else {
+                                            // Login failed
+                                            Toast.makeText(
+                                                this,
+                                                "Login failed. Please check your credentials.",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                            loginAttempts++
+                                            lastLoginAttemptTime = currentTime
+                                        }
                                     }
-                                } else {
-                                    // Login failed
-                                    Toast.makeText(this, "Login failed. Please check your credentials.", Toast.LENGTH_SHORT).show()
-                                    loginAttempts++
-                                    lastLoginAttemptTime = currentTime
-                                }
+                            } else {
+                                // Too many login attempts within 1 minute
+                                Toast.makeText(
+                                    this,
+                                    "Too many login attempts. Try again in 1 minute.",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                             }
                         } else {
-                            // Too many login attempts within 1 minute
-                            Toast.makeText(this, "Too many login attempts. Try again in 1 minute.", Toast.LENGTH_SHORT).show()
+                            // User not found based on email
+                            Toast.makeText(this, "User not found.", Toast.LENGTH_SHORT).show()
                         }
-                    } else {
-                        // User not found based on email
-                        Toast.makeText(this, "User not found.", Toast.LENGTH_SHORT).show()
                     }
+                    //save login status (remember me)
+                    val editor = sharedPreferences.edit()
+                    editor.putBoolean("isLoggedIn", true)
+                    editor.putString("userEmail", email)
+                    editor.apply()
+                } else {
+                    Toast.makeText(this, "Fields cannot be empty.", Toast.LENGTH_SHORT).show()
                 }
-            } else {
-                Toast.makeText(this, "Fields cannot be empty.", Toast.LENGTH_SHORT).show()
             }
         }
         binding.CreateAccButton.setOnClickListener {
@@ -103,5 +136,4 @@ class Log_In : AppCompatActivity() {
             }
         })
     }
-
 }

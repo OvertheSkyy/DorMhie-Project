@@ -102,33 +102,46 @@
                 android:textColor="#205375"
                 android:fontFamily="@font/inter_black"
                 android:layout_marginStart="10dp"/>
-            <LinearLayout
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
                 android:layout_marginTop="11dp">
-                <TextView
-                    android:id="@+id/TextViewTasks"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="You have 0 tasks today"
-                    android:textSize="20sp"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/inter_light"
-                    android:textFontWeight="1000"
-                    android:layout_marginStart="10dp"
-                    />
-                <TextView
-                    android:id="@+id/date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="22 June 2023"
-                    android:textSize="12sp"
-                    android:textColor="#545454"
-                    android:fontFamily="@font/inter_light"
-                    android:layout_marginStart="14dp" />
 
-            </LinearLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/taskanddate"
+                    android:layout_width="312dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+                    <TextView
+                        android:id="@+id/TextViewTasks"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="You have 0 tasks today"
+                        android:textSize="20sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/inter_light"
+                        android:textFontWeight="1000"
+                        app:layout_constraintTop_toTopOf="@id/taskanddate"
+                        app:layout_constraintStart_toStartOf="@id/taskanddate"/>
+                    <TextView
+                        android:id="@+id/date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="22 June 2023"
+                        android:textSize="12sp"
+                        android:textColor="#545454"
+                        android:fontFamily="@font/inter_light"
+                        app:layout_constraintTop_toTopOf="@id/taskanddate"
+                        app:layout_constraintStart_toEndOf="@id/TextViewTasks"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginTop="6dp"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
                 android:id="@+id/myhobbiestext"
@@ -142,109 +155,117 @@
                 android:layout_marginTop="35dp"
                 android:layout_marginStart="10dp"/>
 
-            <androidx.core.widget.NestedScrollView
-                android:id="@+id/ScrollViewHobbies"
-                android:layout_width="300dp"
-                android:layout_height="280dp"
-                android:background="@drawable/overviewbg"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/myhobbiestext"
-                android:layout_marginTop="12dp"
-                android:layout_marginStart="14dp"
-                android:layout_marginEnd="15dp">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/hobiesbg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/Top"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                <androidx.core.widget.NestedScrollView
+                    android:id="@+id/ScrollViewHobbies"
+                    android:layout_width="300dp"
+                    android:layout_height="280dp"
+                    android:background="@drawable/overviewbg"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginEnd="15dp">
 
-                    <View
-                        android:id="@+id/hobbybox"
-                        android:layout_width="295dp"
-                        android:layout_height="90dp"
-                        android:background="@drawable/hobbies_rectangle"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@id/Top"
-                        android:layout_marginTop="5dp"/>
-                    <Button
-                        android:id="@+id/DayRepeatedbutton"
-                        android:layout_width="60dp"
-                        android:layout_height="25dp"
-                        android:text="Day Repeated"
-                        android:textColor="#545454"
-                        android:textSize="7sp"
-                        android:fontFamily="@font/inter_light"
-                        android:backgroundTint="#E4C99D"
-                        android:padding="0dp"
-                        app:layout_constraintEnd_toStartOf="@id/hobbybox"
-                        app:layout_constraintTop_toTopOf="@id/hobbybox"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="-75dp"/>
-                    <TextView
-                        android:id="@+id/HobbyName1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Hobby1"
-                        android:textSize="18sp"
-                        android:textColor="#205375"
-                        android:fontFamily="@font/inter_light"
-                        android:textFontWeight="1000"
-                        app:layout_constraintTop_toTopOf="@id/hobbybox"
-                        app:layout_constraintStart_toStartOf="parent"
-                        android:layout_marginTop="40dp"
-                        android:layout_marginStart="17.5dp"/>
-                    <TextView
-                        android:id="@+id/TimeAssignedForHobby1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="TIME"
-                        android:textSize="8sp"
-                        android:textColor="#545454"
-                        android:fontFamily="@font/inter_light"
-                        app:layout_constraintTop_toTopOf="@id/hobbybox"
-                        app:layout_constraintStart_toEndOf="@id/HobbyName1"
-                        android:layout_marginTop="47.5dp"
-                        android:layout_marginStart="15dp"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Hobbits on Hobby1"
-                        android:textSize="8sp"
-                        android:textColor="#545454"
-                        app:layout_constraintTop_toTopOf="@id/hobbybox"
-                        app:layout_constraintStart_toStartOf="parent"
-                        android:layout_marginTop="65dp"
-                        android:layout_marginStart="22.5dp"/>
-                    <Button
-                        android:id="@+id/ButtonViewProgress"
-                        android:layout_width="63dp"
-                        android:layout_height="27dp"
-                        android:text="View Progress"
-                        android:textSize="7sp"
-                        android:textColor="#FDF8F0"
-                        android:fontFamily="@font/inter_light"
-                        android:padding="0dp"
-                        android:backgroundTint="#205375"
-                        app:layout_constraintTop_toTopOf="@id/hobbybox"
-                        app:layout_constraintStart_toEndOf="@id/TimeAssignedForHobby1"
-                        android:layout_marginTop="38dp"
-                        android:layout_marginStart="78dp"/>
-                    <ImageView
-                        android:id="@+id/dropdownbutton"
-                        android:layout_width="26dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/down"
-                        android:clickable="true"
-                        app:layout_constraintTop_toTopOf="@id/hobbybox"
-                        app:layout_constraintStart_toEndOf="@id/ButtonViewProgress"
-                        android:layout_marginTop="42dp"
-                        android:layout_marginStart="7dp"/>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/Top"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        <View
+                            android:id="@+id/hobbybox"
+                            android:layout_width="295dp"
+                            android:layout_height="90dp"
+                            android:background="@drawable/hobbies_rectangle"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/Top"
+                            android:layout_marginTop="5dp"/>
+                        <Button
+                            android:id="@+id/DayRepeatedbutton"
+                            android:layout_width="60dp"
+                            android:layout_height="25dp"
+                            android:text="Day Repeated"
+                            android:textColor="#545454"
+                            android:textSize="7sp"
+                            android:fontFamily="@font/inter_light"
+                            android:backgroundTint="#E4C99D"
+                            android:padding="0dp"
+                            app:layout_constraintEnd_toStartOf="@id/hobbybox"
+                            app:layout_constraintTop_toTopOf="@id/hobbybox"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="-75dp"/>
+                        <TextView
+                            android:id="@+id/HobbyName1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Hobby1"
+                            android:textSize="18sp"
+                            android:textColor="#205375"
+                            android:fontFamily="@font/inter_light"
+                            android:textFontWeight="1000"
+                            app:layout_constraintTop_toTopOf="@id/hobbybox"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginTop="40dp"
+                            android:layout_marginStart="17.5dp"/>
+                        <TextView
+                            android:id="@+id/TimeAssignedForHobby1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TIME"
+                            android:textSize="8sp"
+                            android:textColor="#545454"
+                            android:fontFamily="@font/inter_light"
+                            app:layout_constraintTop_toTopOf="@id/hobbybox"
+                            app:layout_constraintStart_toEndOf="@id/HobbyName1"
+                            android:layout_marginTop="47.5dp"
+                            android:layout_marginStart="15dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Hobbits on Hobby1"
+                            android:textSize="8sp"
+                            android:textColor="#545454"
+                            app:layout_constraintTop_toTopOf="@id/hobbybox"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginTop="65dp"
+                            android:layout_marginStart="22.5dp"/>
+                        <Button
+                            android:id="@+id/ButtonViewProgress"
+                            android:layout_width="63dp"
+                            android:layout_height="27dp"
+                            android:text="View Progress"
+                            android:textSize="7sp"
+                            android:textColor="#FDF8F0"
+                            android:fontFamily="@font/inter_light"
+                            android:padding="0dp"
+                            android:backgroundTint="#205375"
+                            app:layout_constraintTop_toTopOf="@id/hobbybox"
+                            app:layout_constraintStart_toEndOf="@id/TimeAssignedForHobby1"
+                            android:layout_marginTop="38dp"
+                            android:layout_marginStart="78dp"/>
+                        <ImageView
+                            android:id="@+id/dropdownbutton"
+                            android:layout_width="26dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/down"
+                            android:clickable="true"
+                            app:layout_constraintTop_toTopOf="@id/hobbybox"
+                            app:layout_constraintStart_toEndOf="@id/ButtonViewProgress"
+                            android:layout_marginTop="42dp"
+                            android:layout_marginStart="7dp"/>
 
-            </androidx.core.widget.NestedScrollView>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.core.widget.NestedScrollView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
             <RelativeLayout
                 android:id="@+id/progressPreviewButton"
@@ -306,16 +327,23 @@
                     android:layout_marginStart="27dp"/>
             </RelativeLayout>
 
-            <androidx.core.widget.NestedScrollView
-                android:id="@+id/ScrollViewProgress"
-                android:layout_width="300dp"
-                android:layout_height="280dp"
-                android:background="@drawable/search_rectangle"
-                android:layout_marginTop="12dp"
-                android:layout_marginStart="14dp"
-                android:layout_marginEnd="15dp">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            </androidx.core.widget.NestedScrollView>
+                <androidx.core.widget.NestedScrollView
+                    android:id="@+id/ScrollViewProgress"
+                    android:layout_width="300dp"
+                    android:layout_height="280dp"
+                    android:background="@drawable/search_rectangle"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                </androidx.core.widget.NestedScrollView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
 

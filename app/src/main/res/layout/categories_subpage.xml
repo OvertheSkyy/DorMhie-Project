@@ -471,7 +471,7 @@
                     android:clickable="true"/>
                 <View
                     android:id="@+id/subCreativeArts2"
-                    android:layout_width="275dp"
+                    android:layout_width="match_parent"
                     android:layout_height="59dp"
                     android:background="@drawable/subcategorybg"
                     android:layout_alignParentStart="true"
@@ -494,8 +494,9 @@
                     android:textColor="#000000"
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="400"
+                    android:layout_toEndOf="@id/ImageArts"
                     android:layout_marginTop="158dp"
-                    android:layout_marginStart="56dp"/>
+                    android:layout_marginStart="8dp"/>
                 <Button
                     android:id="@+id/AddSecondCategorySecondHobby"
                     android:layout_width="48dp"
@@ -506,31 +507,31 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/DrawingInfo"
                     android:layout_marginTop="158dp"
-                    android:layout_marginStart="166dp"/>
+                    android:layout_marginEnd="7dp"/>
                 <ImageView
                     android:id="@+id/DrawingInfo"
                     android:layout_width="18dp"
                     android:layout_height="19dp"
                     android:src="@drawable/info"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/ClickFavoriteDrawing"
                     android:layout_marginTop="160dp"
-                    android:layout_marginStart="221dp"
+                    android:layout_marginEnd="3dp"
                     android:clickable="true"/>
                 <ImageView
                     android:id="@+id/ClickFavoriteDrawing"
                     android:layout_width="21dp"
                     android:layout_height="19dp"
                     android:src="@drawable/unselectedheart"
-                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_marginTop="160dp"
-                    android:layout_marginStart="242dp"
+                    android:layout_marginEnd="10dp"
                     android:clickable="true"/>
 
                 <View
                     android:id="@+id/subCreativeArts3"
-                    android:layout_width="275dp"
+                    android:layout_width="match_parent"
                     android:layout_height="59dp"
                     android:background="@drawable/subcategorybg"
                     android:layout_alignParentStart="true"
@@ -553,8 +554,9 @@
                     android:textColor="#000000"
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="400"
+                    android:layout_toEndOf="@id/ImageFiberArts"
                     android:layout_marginTop="228dp"
-                    android:layout_marginStart="50dp"/>
+                    android:layout_marginStart="8dp"/>
                 <Button
                     android:id="@+id/AddSecondCategoryThirdHobby"
                     android:layout_width="48dp"
@@ -565,31 +567,31 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/FiberArtsInfo"
                     android:layout_marginTop="228dp"
-                    android:layout_marginStart="166dp"/>
+                    android:layout_marginEnd="7dp"/>
                 <ImageView
                     android:id="@+id/FiberArtsInfo"
                     android:layout_width="18dp"
                     android:layout_height="19dp"
                     android:src="@drawable/info"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/ClickFavoriteFiberArts"
                     android:layout_marginTop="230dp"
-                    android:layout_marginStart="221dp"
+                    android:layout_marginEnd="3dp"
                     android:clickable="true"/>
                 <ImageView
                     android:id="@+id/ClickFavoriteFiberArts"
                     android:layout_width="21dp"
                     android:layout_height="19dp"
                     android:src="@drawable/unselectedheart"
-                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_marginTop="230dp"
-                    android:layout_marginStart="242dp"
+                    android:layout_marginEnd="10dp"
                     android:clickable="true"/>
 
                 <View
                     android:id="@+id/subCreativeArts4"
-                    android:layout_width="275dp"
+                    android:layout_width="match_parent"
                     android:layout_height="59dp"
                     android:background="@drawable/subcategorybg"
                     android:layout_alignParentStart="true"
@@ -612,8 +614,9 @@
                     android:textColor="#000000"
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="400"
+                    android:layout_toEndOf="@id/Imagepainting"
                     android:layout_marginTop="297dp"
-                    android:layout_marginStart="50dp"/>
+                    android:layout_marginStart="8dp"/>
                 <Button
                     android:id="@+id/AddSecondCategoryFourthHobby"
                     android:layout_width="48dp"
@@ -624,25 +627,26 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/PaintingInfo"
                     android:layout_marginTop="297dp"
-                    android:layout_marginStart="166dp"/>
+                    android:layout_marginEnd="7dp"/>
                 <ImageView
                     android:id="@+id/PaintingInfo"
                     android:layout_width="18dp"
                     android:layout_height="19dp"
                     android:src="@drawable/info"
+                    android:layout_toStartOf="@id/ClickFavoritePainting"
                     android:layout_marginTop="300dp"
-                    android:layout_marginStart="221dp"
+                    android:layout_marginEnd="3dp"
                     android:clickable="true"/>
                 <ImageView
                     android:id="@+id/ClickFavoritePainting"
                     android:layout_width="21dp"
                     android:layout_height="19dp"
                     android:src="@drawable/unselectedheart"
-                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_marginTop="300dp"
-                    android:layout_marginStart="242dp"
+                    android:layout_marginEnd="10dp"
                     android:clickable="true"/>
             </RelativeLayout>
 
@@ -678,7 +682,7 @@
                 android:visibility="gone">
                 <View
                     android:id="@+id/subHealthandWellness1"
-                    android:layout_width="275dp"
+                    android:layout_width="match_parent"
                     android:layout_height="59dp"
                     android:background="@drawable/subcategorybg"
                     android:layout_alignParentStart="true"
@@ -701,8 +705,9 @@
                     android:textColor="#000000"
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="400"
+                    android:layout_toEndOf="@id/Imagegardening"
                     android:layout_marginTop="88dp"
-                    android:layout_marginStart="56dp" />
+                    android:layout_marginStart="8dp" />
                 <Button
                     android:id="@+id/AddThirdCategoryFirstHobby"
                     android:layout_width="48dp"
@@ -713,30 +718,30 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/GardeningInfo"
                     android:layout_marginTop="88dp"
-                    android:layout_marginStart="166dp"/>
+                    android:layout_marginEnd="7dp"/>
                 <ImageView
                     android:id="@+id/GardeningInfo"
                     android:layout_width="18dp"
                     android:layout_height="19dp"
                     android:src="@drawable/info"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/ClickFavoriteGardening"
                     android:layout_marginTop="90dp"
-                    android:layout_marginStart="221dp"
+                    android:layout_marginEnd="3dp"
                     android:clickable="true"/>
                 <ImageView
                     android:id="@+id/ClickFavoriteGardening"
                     android:layout_width="21dp"
                     android:layout_height="19dp"
                     android:src="@drawable/unselectedheart"
-                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_marginTop="91dp"
-                    android:layout_marginStart="242dp"
+                    android:layout_marginEnd="10dp"
                     android:clickable="true"/>
                 <View
                     android:id="@+id/subHealthandWellness2"
-                    android:layout_width="275dp"
+                    android:layout_width="match_parent"
                     android:layout_height="59dp"
                     android:background="@drawable/subcategorybg"
                     android:layout_alignParentStart="true"
@@ -759,8 +764,9 @@
                     android:textColor="#000000"
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="400"
+                    android:layout_toEndOf="@id/ImageMartialArts"
                     android:layout_marginTop="158dp"
-                    android:layout_marginStart="56dp"/>
+                    android:layout_marginStart="8dp"/>
                 <Button
                     android:id="@+id/AddThirdCategorySecondHobby"
                     android:layout_width="48dp"
@@ -771,31 +777,31 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/MartialArtsInfo"
                     android:layout_marginTop="158dp"
-                    android:layout_marginStart="166dp"/>
+                    android:layout_marginEnd="7dp"/>
                 <ImageView
                     android:id="@+id/MartialArtsInfo"
                     android:layout_width="18dp"
                     android:layout_height="19dp"
                     android:src="@drawable/info"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/ClickFavoriteMartialArts"
                     android:layout_marginTop="160dp"
-                    android:layout_marginStart="221dp"
+                    android:layout_marginEnd="3dp"
                     android:clickable="true"/>
                 <ImageView
                     android:id="@+id/ClickFavoriteMartialArts"
                     android:layout_width="21dp"
                     android:layout_height="19dp"
                     android:src="@drawable/unselectedheart"
-                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_marginTop="160dp"
-                    android:layout_marginStart="242dp"
+                    android:layout_marginEnd="10dp"
                     android:clickable="true"/>
 
                 <View
                     android:id="@+id/subHealthandWellness3"
-                    android:layout_width="275dp"
+                    android:layout_width="match_parent"
                     android:layout_height="59dp"
                     android:background="@drawable/subcategorybg"
                     android:layout_alignParentStart="true"
@@ -818,8 +824,9 @@
                     android:textColor="#000000"
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="400"
+                    android:layout_toEndOf="@id/ImageRunning"
                     android:layout_marginTop="228dp"
-                    android:layout_marginStart="50dp"/>
+                    android:layout_marginStart="8dp"/>
                 <Button
                     android:id="@+id/AddThirdCategoryThirdHobby"
                     android:layout_width="48dp"
@@ -830,31 +837,31 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/RunningInfo"
                     android:layout_marginTop="228dp"
-                    android:layout_marginStart="166dp"/>
+                    android:layout_marginEnd="7dp"/>
                 <ImageView
                     android:id="@+id/RunningInfo"
                     android:layout_width="18dp"
                     android:layout_height="19dp"
                     android:src="@drawable/info"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/ClickFavoriteRunning"
                     android:layout_marginTop="230dp"
-                    android:layout_marginStart="221dp"
+                    android:layout_marginEnd="3dp"
                     android:clickable="true"/>
                 <ImageView
                     android:id="@+id/ClickFavoriteRunning"
                     android:layout_width="21dp"
                     android:layout_height="19dp"
                     android:src="@drawable/unselectedheart"
-                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_marginTop="230dp"
-                    android:layout_marginStart="242dp"
+                    android:layout_marginEnd="10dp"
                     android:clickable="true"/>
 
                 <View
                     android:id="@+id/subHealthandWellness4"
-                    android:layout_width="275dp"
+                    android:layout_width="match_parent"
                     android:layout_height="59dp"
                     android:background="@drawable/subcategorybg"
                     android:layout_alignParentStart="true"
@@ -877,8 +884,9 @@
                     android:textColor="#000000"
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="400"
+                    android:layout_toEndOf="@id/ImageSwimming"
                     android:layout_marginTop="297dp"
-                    android:layout_marginStart="50dp"/>
+                    android:layout_marginStart="8dp"/>
                 <Button
                     android:id="@+id/AddThirdCategoryFourthHobby"
                     android:layout_width="48dp"
@@ -889,25 +897,26 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/SwimmingInfo"
                     android:layout_marginTop="297dp"
-                    android:layout_marginStart="166dp"/>
+                    android:layout_marginEnd="7dp"/>
                 <ImageView
                     android:id="@+id/SwimmingInfo"
                     android:layout_width="18dp"
                     android:layout_height="19dp"
                     android:src="@drawable/info"
+                    android:layout_toStartOf="@id/ClickFavoriteSwimming"
                     android:layout_marginTop="300dp"
-                    android:layout_marginStart="221dp"
+                    android:layout_marginEnd="3dp"
                     android:clickable="true"/>
                 <ImageView
                     android:id="@+id/ClickFavoriteSwimming"
                     android:layout_width="21dp"
                     android:layout_height="19dp"
                     android:src="@drawable/unselectedheart"
-                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_marginTop="300dp"
-                    android:layout_marginStart="242dp"
+                    android:layout_marginEnd="10dp"
                     android:clickable="true"/>
             </RelativeLayout>
 
@@ -943,7 +952,7 @@
                 android:visibility="gone">
                 <View
                     android:id="@+id/subMusicandPerforming1"
-                    android:layout_width="275dp"
+                    android:layout_width="match_parent"
                     android:layout_height="59dp"
                     android:background="@drawable/subcategorybg"
                     android:layout_alignParentStart="true"
@@ -966,8 +975,9 @@
                     android:textColor="#000000"
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="400"
+                    android:layout_toEndOf="@id/ImageGuitar"
                     android:layout_marginTop="88dp"
-                    android:layout_marginStart="56dp" />
+                    android:layout_marginStart="8dp" />
                 <Button
                     android:id="@+id/AddFourthCategoryFirstHobby"
                     android:layout_width="48dp"
@@ -978,30 +988,31 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/GuitarInfo"
                     android:layout_marginTop="88dp"
-                    android:layout_marginStart="166dp"/>
+                    android:layout_marginEnd="7dp"/>
                 <ImageView
                     android:id="@+id/GuitarInfo"
                     android:layout_width="18dp"
                     android:layout_height="19dp"
                     android:src="@drawable/info"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/ClickFavoriteGuitar"
                     android:layout_marginTop="90dp"
-                    android:layout_marginStart="221dp"
+                    android:layout_marginEnd="3dp"
                     android:clickable="true"/>
                 <ImageView
                     android:id="@+id/ClickFavoriteGuitar"
                     android:layout_width="21dp"
                     android:layout_height="19dp"
                     android:src="@drawable/unselectedheart"
-                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_marginTop="91dp"
-                    android:layout_marginStart="242dp"
+                    android:layout_marginEnd="10dp"
                     android:clickable="true"/>
+
                 <View
                     android:id="@+id/subMusicandPerforming2"
-                    android:layout_width="275dp"
+                    android:layout_width="match_parent"
                     android:layout_height="59dp"
                     android:background="@drawable/subcategorybg"
                     android:layout_alignParentStart="true"
@@ -1024,8 +1035,9 @@
                     android:textColor="#000000"
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="400"
+                    android:layout_toEndOf="@id/ImageSinging"
                     android:layout_marginTop="158dp"
-                    android:layout_marginStart="56dp"/>
+                    android:layout_marginStart="8dp"/>
                 <Button
                     android:id="@+id/AddFourthCategorySecondHobby"
                     android:layout_width="48dp"
@@ -1036,31 +1048,31 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/SingingInfo"
                     android:layout_marginTop="158dp"
-                    android:layout_marginStart="166dp"/>
+                    android:layout_marginEnd="7dp"/>
                 <ImageView
                     android:id="@+id/SingingInfo"
                     android:layout_width="18dp"
                     android:layout_height="19dp"
                     android:src="@drawable/info"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/ClickFavoriteSinging"
                     android:layout_marginTop="160dp"
-                    android:layout_marginStart="221dp"
+                    android:layout_marginEnd="3dp"
                     android:clickable="true"/>
                 <ImageView
                     android:id="@+id/ClickFavoriteSinging"
                     android:layout_width="21dp"
                     android:layout_height="19dp"
                     android:src="@drawable/unselectedheart"
-                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_marginTop="160dp"
-                    android:layout_marginStart="242dp"
+                    android:layout_marginEnd="10dp"
                     android:clickable="true"/>
 
                 <View
                     android:id="@+id/subMusicandPerforming3"
-                    android:layout_width="275dp"
+                    android:layout_width="match_parent"
                     android:layout_height="59dp"
                     android:background="@drawable/subcategorybg"
                     android:layout_alignParentStart="true"
@@ -1083,8 +1095,9 @@
                     android:textColor="#000000"
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="400"
+                    android:layout_toEndOf="@id/ImageSongwriting"
                     android:layout_marginTop="228dp"
-                    android:layout_marginStart="50dp"/>
+                    android:layout_marginStart="8dp"/>
                 <Button
                     android:id="@+id/AddFourthCategoryThirdHobby"
                     android:layout_width="48dp"
@@ -1095,31 +1108,31 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/SongwritingInfo"
                     android:layout_marginTop="228dp"
-                    android:layout_marginStart="166dp"/>
+                    android:layout_marginEnd="7dp"/>
                 <ImageView
                     android:id="@+id/SongwritingInfo"
                     android:layout_width="18dp"
                     android:layout_height="19dp"
                     android:src="@drawable/info"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/ClickFavoriteSongwriting"
                     android:layout_marginTop="230dp"
-                    android:layout_marginStart="221dp"
+                    android:layout_marginEnd="3dp"
                     android:clickable="true"/>
                 <ImageView
                     android:id="@+id/ClickFavoriteSongwriting"
                     android:layout_width="21dp"
                     android:layout_height="19dp"
                     android:src="@drawable/unselectedheart"
-                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_marginTop="230dp"
-                    android:layout_marginStart="242dp"
+                    android:layout_marginEnd="10dp"
                     android:clickable="true"/>
 
                 <View
                     android:id="@+id/subMusicandPerforming4"
-                    android:layout_width="275dp"
+                    android:layout_width="match_parent"
                     android:layout_height="59dp"
                     android:background="@drawable/subcategorybg"
                     android:layout_alignParentStart="true"
@@ -1142,8 +1155,9 @@
                     android:textColor="#000000"
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="400"
+                    android:layout_toEndOf="@id/ImageDancing"
                     android:layout_marginTop="297dp"
-                    android:layout_marginStart="50dp"/>
+                    android:layout_marginStart="8dp"/>
                 <Button
                     android:id="@+id/AddFourthCategoryFourthHobby"
                     android:layout_width="48dp"
@@ -1154,25 +1168,26 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/DancingInfo"
                     android:layout_marginTop="297dp"
-                    android:layout_marginStart="166dp"/>
+                    android:layout_marginEnd="7dp"/>
                 <ImageView
                     android:id="@+id/DancingInfo"
                     android:layout_width="18dp"
                     android:layout_height="19dp"
                     android:src="@drawable/info"
+                    android:layout_toStartOf="@id/ClickFavoriteDancing"
                     android:layout_marginTop="300dp"
-                    android:layout_marginStart="221dp"
+                    android:layout_marginEnd="3dp"
                     android:clickable="true"/>
                 <ImageView
                     android:id="@+id/ClickFavoriteDancing"
                     android:layout_width="21dp"
                     android:layout_height="19dp"
                     android:src="@drawable/unselectedheart"
-                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_marginTop="300dp"
-                    android:layout_marginStart="242dp"
+                    android:layout_marginEnd="10dp"
                     android:clickable="true"/>
             </RelativeLayout>
 
@@ -1208,7 +1223,7 @@
                 android:visibility="gone">
                 <View
                     android:id="@+id/subReadingandWriting1"
-                    android:layout_width="275dp"
+                    android:layout_width="match_parent"
                     android:layout_height="59dp"
                     android:background="@drawable/subcategorybg"
                     android:layout_alignParentStart="true"
@@ -1231,8 +1246,9 @@
                     android:textColor="#000000"
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="400"
+                    android:layout_toEndOf="@id/ImageBlogging"
                     android:layout_marginTop="88dp"
-                    android:layout_marginStart="56dp" />
+                    android:layout_marginStart="8dp" />
                 <Button
                     android:id="@+id/AddFifthCategoryFirstHobby"
                     android:layout_width="48dp"
@@ -1243,30 +1259,31 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/BloggingInfo"
                     android:layout_marginTop="88dp"
-                    android:layout_marginStart="166dp"/>
+                    android:layout_marginEnd="7dp"/>
                 <ImageView
                     android:id="@+id/BloggingInfo"
                     android:layout_width="18dp"
                     android:layout_height="19dp"
                     android:src="@drawable/info"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/ClickFavoriteBlogging"
                     android:layout_marginTop="90dp"
-                    android:layout_marginStart="221dp"
+                    android:layout_marginEnd="3dp"
                     android:clickable="true"/>
                 <ImageView
                     android:id="@+id/ClickFavoriteBlogging"
                     android:layout_width="21dp"
                     android:layout_height="19dp"
                     android:src="@drawable/unselectedheart"
-                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_marginTop="91dp"
-                    android:layout_marginStart="242dp"
+                    android:layout_marginEnd="10dp"
                     android:clickable="true"/>
+
                 <View
                     android:id="@+id/subReadingandWriting2"
-                    android:layout_width="275dp"
+                    android:layout_width="match_parent"
                     android:layout_height="59dp"
                     android:background="@drawable/subcategorybg"
                     android:layout_alignParentStart="true"
@@ -1289,8 +1306,9 @@
                     android:textColor="#000000"
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="400"
+                    android:layout_toEndOf="@id/ImageFictionWriting"
                     android:layout_marginTop="158dp"
-                    android:layout_marginStart="56dp"/>
+                    android:layout_marginStart="8dp"/>
                 <Button
                     android:id="@+id/AddFifthCategorySecondHobby"
                     android:layout_width="48dp"
@@ -1301,31 +1319,31 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/FictionWritingInfo"
                     android:layout_marginTop="158dp"
-                    android:layout_marginStart="166dp"/>
+                    android:layout_marginEnd="7dp"/>
                 <ImageView
                     android:id="@+id/FictionWritingInfo"
                     android:layout_width="18dp"
                     android:layout_height="19dp"
                     android:src="@drawable/info"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/ClickFavoriteFictionWriting"
                     android:layout_marginTop="160dp"
-                    android:layout_marginStart="221dp"
+                    android:layout_marginEnd="3dp"
                     android:clickable="true"/>
                 <ImageView
                     android:id="@+id/ClickFavoriteFictionWriting"
                     android:layout_width="21dp"
                     android:layout_height="19dp"
                     android:src="@drawable/unselectedheart"
-                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_marginTop="160dp"
-                    android:layout_marginStart="242dp"
+                    android:layout_marginEnd="10dp"
                     android:clickable="true"/>
 
                 <View
                     android:id="@+id/subReadingandWriting3"
-                    android:layout_width="275dp"
+                    android:layout_width="match_parent"
                     android:layout_height="59dp"
                     android:background="@drawable/subcategorybg"
                     android:layout_alignParentStart="true"
@@ -1348,8 +1366,9 @@
                     android:textColor="#000000"
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="400"
+                    android:layout_toEndOf="@id/ImageJournaling"
                     android:layout_marginTop="228dp"
-                    android:layout_marginStart="50dp"/>
+                    android:layout_marginStart="8dp"/>
                 <Button
                     android:id="@+id/AddFifthCategoryThirdHobby"
                     android:layout_width="48dp"
@@ -1360,31 +1379,31 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/journalingInfo"
                     android:layout_marginTop="228dp"
-                    android:layout_marginStart="166dp"/>
+                    android:layout_marginEnd="7dp"/>
                 <ImageView
                     android:id="@+id/journalingInfo"
                     android:layout_width="18dp"
                     android:layout_height="19dp"
                     android:src="@drawable/info"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/ClickFavoriteJournaling"
                     android:layout_marginTop="230dp"
-                    android:layout_marginStart="221dp"
+                    android:layout_marginEnd="3dp"
                     android:clickable="true"/>
                 <ImageView
                     android:id="@+id/ClickFavoriteJournaling"
                     android:layout_width="21dp"
                     android:layout_height="19dp"
                     android:src="@drawable/unselectedheart"
-                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_marginTop="230dp"
-                    android:layout_marginStart="242dp"
+                    android:layout_marginEnd="10dp"
                     android:clickable="true"/>
 
                 <View
                     android:id="@+id/subReadingandWriting4"
-                    android:layout_width="275dp"
+                    android:layout_width="match_parent"
                     android:layout_height="59dp"
                     android:background="@drawable/subcategorybg"
                     android:layout_alignParentStart="true"
@@ -1407,8 +1426,9 @@
                     android:textColor="#000000"
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="400"
+                    android:layout_toEndOf="@id/ImageLanguageLearning"
                     android:layout_marginTop="289dp"
-                    android:layout_marginStart="50dp"/>
+                    android:layout_marginStart="8dp"/>
                 <Button
                     android:id="@+id/AddFifthCategoryFourthHobby"
                     android:layout_width="48dp"
@@ -1419,25 +1439,26 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/LanguageLearningInfo"
                     android:layout_marginTop="297dp"
-                    android:layout_marginStart="166dp"/>
+                    android:layout_marginEnd="7dp"/>
                 <ImageView
                     android:id="@+id/LanguageLearningInfo"
                     android:layout_width="18dp"
                     android:layout_height="19dp"
                     android:src="@drawable/info"
+                    android:layout_toStartOf="@id/ClickFavoriteLanguageLearning"
                     android:layout_marginTop="300dp"
-                    android:layout_marginStart="221dp"
+                    android:layout_marginEnd="3dp"
                     android:clickable="true"/>
                 <ImageView
                     android:id="@+id/ClickFavoriteLanguageLearning"
                     android:layout_width="21dp"
                     android:layout_height="19dp"
                     android:src="@drawable/unselectedheart"
-                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_marginTop="300dp"
-                    android:layout_marginStart="242dp"
+                    android:layout_marginEnd="10dp"
                     android:clickable="true"/>
             </RelativeLayout>
 
@@ -1473,7 +1494,7 @@
                 android:visibility="gone">
                 <View
                     android:id="@+id/subScienceandTech1"
-                    android:layout_width="275dp"
+                    android:layout_width="match_parent"
                     android:layout_height="59dp"
                     android:background="@drawable/subcategorybg"
                     android:layout_alignParentStart="true"
@@ -1496,8 +1517,9 @@
                     android:textColor="#000000"
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="400"
+                    android:layout_toEndOf="@id/ImageAstronomy"
                     android:layout_marginTop="88dp"
-                    android:layout_marginStart="56dp" />
+                    android:layout_marginStart="8dp" />
                 <Button
                     android:id="@+id/AddSixthCategoryFirstHobby"
                     android:layout_width="48dp"
@@ -1508,30 +1530,31 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/AstronomyInfo"
                     android:layout_marginTop="88dp"
-                    android:layout_marginStart="166dp"/>
+                    android:layout_marginEnd="7dp"/>
                 <ImageView
                     android:id="@+id/AstronomyInfo"
                     android:layout_width="18dp"
                     android:layout_height="19dp"
                     android:src="@drawable/info"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/ClickFavoriteAstronomy"
                     android:layout_marginTop="90dp"
-                    android:layout_marginStart="221dp"
+                    android:layout_marginEnd="3dp"
                     android:clickable="true"/>
                 <ImageView
                     android:id="@+id/ClickFavoriteAstronomy"
                     android:layout_width="21dp"
                     android:layout_height="19dp"
                     android:src="@drawable/unselectedheart"
-                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_marginTop="91dp"
-                    android:layout_marginStart="242dp"
+                    android:layout_marginEnd="10dp"
                     android:clickable="true"/>
+
                 <View
                     android:id="@+id/subScienceandTech2"
-                    android:layout_width="275dp"
+                    android:layout_width="match_parent"
                     android:layout_height="59dp"
                     android:background="@drawable/subcategorybg"
                     android:layout_alignParentStart="true"
@@ -1554,8 +1577,9 @@
                     android:textColor="#000000"
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="400"
+                    android:layout_toEndOf="@id/ImageCoding"
                     android:layout_marginTop="148dp"
-                    android:layout_marginStart="56dp"/>
+                    android:layout_marginStart="8dp"/>
                 <Button
                     android:id="@+id/AddSixthCategorySecondHobby"
                     android:layout_width="48dp"
@@ -1566,31 +1590,31 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/CodingInfo"
                     android:layout_marginTop="158dp"
-                    android:layout_marginStart="166dp"/>
+                    android:layout_marginEnd="7dp"/>
                 <ImageView
                     android:id="@+id/CodingInfo"
                     android:layout_width="18dp"
                     android:layout_height="19dp"
                     android:src="@drawable/info"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/ClickFavoriteCoding"
                     android:layout_marginTop="160dp"
-                    android:layout_marginStart="221dp"
+                    android:layout_marginEnd="3dp"
                     android:clickable="true"/>
                 <ImageView
                     android:id="@+id/ClickFavoriteCoding"
                     android:layout_width="21dp"
                     android:layout_height="19dp"
                     android:src="@drawable/unselectedheart"
-                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_marginTop="160dp"
-                    android:layout_marginStart="242dp"
+                    android:layout_marginEnd="10dp"
                     android:clickable="true"/>
 
                 <View
                     android:id="@+id/subScienceandTech3"
-                    android:layout_width="275dp"
+                    android:layout_width="match_parent"
                     android:layout_height="59dp"
                     android:background="@drawable/subcategorybg"
                     android:layout_alignParentStart="true"
@@ -1613,8 +1637,9 @@
                     android:textColor="#000000"
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="400"
+                    android:layout_toEndOf="@id/ImageElectronics"
                     android:layout_marginTop="228dp"
-                    android:layout_marginStart="50dp"/>
+                    android:layout_marginStart="8dp"/>
                 <Button
                     android:id="@+id/AddSixthCategoryThirdHobby"
                     android:layout_width="48dp"
@@ -1625,31 +1650,31 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/ElectronicsInfo"
                     android:layout_marginTop="228dp"
-                    android:layout_marginStart="166dp"/>
+                    android:layout_marginEnd="7dp"/>
                 <ImageView
                     android:id="@+id/ElectronicsInfo"
                     android:layout_width="18dp"
                     android:layout_height="19dp"
                     android:src="@drawable/info"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/ClickFavoriteElectronics"
                     android:layout_marginTop="230dp"
-                    android:layout_marginStart="221dp"
+                    android:layout_marginEnd="3dp"
                     android:clickable="true"/>
                 <ImageView
                     android:id="@+id/ClickFavoriteElectronics"
                     android:layout_width="21dp"
                     android:layout_height="19dp"
                     android:src="@drawable/unselectedheart"
-                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_marginTop="230dp"
-                    android:layout_marginStart="242dp"
+                    android:layout_marginEnd="10dp"
                     android:clickable="true"/>
 
                 <View
                     android:id="@+id/subScienceandTech4"
-                    android:layout_width="275dp"
+                    android:layout_width="match_parent"
                     android:layout_height="59dp"
                     android:background="@drawable/subcategorybg"
                     android:layout_alignParentStart="true"
@@ -1672,8 +1697,9 @@
                     android:textColor="#000000"
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="400"
+                    android:layout_toEndOf="@id/ImageVideoGaming"
                     android:layout_marginTop="297dp"
-                    android:layout_marginStart="50dp"/>
+                    android:layout_marginStart="8dp"/>
                 <Button
                     android:id="@+id/AddSixthCategoryFourthHobby"
                     android:layout_width="48dp"
@@ -1684,25 +1710,26 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/VideoGamingInfo"
                     android:layout_marginTop="297dp"
-                    android:layout_marginStart="166dp"/>
+                    android:layout_marginEnd="7dp"/>
                 <ImageView
                     android:id="@+id/VideoGamingInfo"
                     android:layout_width="18dp"
                     android:layout_height="19dp"
                     android:src="@drawable/info"
+                    android:layout_toStartOf="@id/ClickFavoriteVideoGaming"
                     android:layout_marginTop="300dp"
-                    android:layout_marginStart="221dp"
+                    android:layout_marginEnd="3dp"
                     android:clickable="true"/>
                 <ImageView
                     android:id="@+id/ClickFavoriteVideoGaming"
                     android:layout_width="21dp"
                     android:layout_height="19dp"
                     android:src="@drawable/unselectedheart"
-                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_marginTop="300dp"
-                    android:layout_marginStart="242dp"
+                    android:layout_marginEnd="10dp"
                     android:clickable="true"/>
             </RelativeLayout>
 
