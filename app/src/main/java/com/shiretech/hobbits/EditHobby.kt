@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlin.math.min
 
@@ -18,6 +19,9 @@ class EditHobby : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.edit_hobby)
+
+        val user = FirebaseAuth.getInstance().currentUser
+        val userId = user?.uid ?: ""
 
         val hobbitEditTextMap = HashMap<Int, Array<EditText>>()
 
@@ -45,7 +49,7 @@ class EditHobby : AppCompatActivity() {
             val hobbits = intent.getStringArrayListExtra("hobbits")
 
             // Update the database with the edited hobbit data
-            updateHobbitsInDatabase(hobbyName.toString(), hobbits, hobbitEditTextMap)
+            updateUserHobbyData(userId, hobbyName.toString(), hobbits, hobbitEditTextMap)
 
             // Start the activity for schedule_setup.xml
             val intent = Intent(this, SetUpSchedule::class.java)
@@ -152,25 +156,28 @@ class EditHobby : AppCompatActivity() {
             }
         })
     }
-    private fun updateHobbitsInDatabase(hobbyName: String, hobbits: ArrayList<String>?, hobbitEditTextMap: HashMap<Int, Array<EditText>>) {
-        val databaseRef = database.child("categories").child(hobbyName).child("hobbits")
+    private fun updateUserHobbyData(userId: String, hobbyName: String, hobbits: ArrayList<String>?, hobbitEditTextMap: HashMap<Int, Array<EditText>>) {
+        val usersRef = FirebaseDatabase.getInstance().getReference("users")
+        val userRef = usersRef.child(userId)
 
-        val updatedHobbits = hobbits?.toMutableList() ?: mutableListOf()
-
-        // Update the hobbits list in the database
-        databaseRef.setValue(updatedHobbits)
+        // Create the "categories" node under the user's node
+        val categoriesRef = userRef.child("categories")
+        categoriesRef.child(hobbyName).child("hobbits").setValue(hobbits)
             .addOnSuccessListener {
                 Log.d("EditHobby", "Hobbits updated in the database")
                 Toast.makeText(this, "Hobbits updated successfully!", Toast.LENGTH_SHORT).show()
 
                 // Update the bits for each hobbit in the database
-                for ((currentHobbitIndex, hobbitEditTexts) in hobbitEditTextMap) {
-                    for (hobbitEditText in hobbitEditTexts) {
-                        val bitText = hobbitEditText.text.toString().trim()
+                for (currentHobbitIndex in hobbitEditTextMap.keys) {
+                    val hobbitEditTexts = hobbitEditTextMap[currentHobbitIndex]
+                    if (hobbitEditTexts != null) {
                         val hobbitName = hobbits?.get(currentHobbitIndex - 1)
-                        if (hobbitName != null && bitText.isNotEmpty()) {
-                            val bitsRef = databaseRef.child(hobbitName).child("bits")
-                            bitsRef.setValue(bitText)
+                        if (hobbitName != null) {
+                            val bitsRef = categoriesRef.child(hobbyName).child("hobbits").child(hobbitName).child("bits")
+
+                            val bitTextList = hobbitEditTexts.map { it.text.toString().trim() }.filter { it.isNotEmpty() }
+                            val updatedBits = bitTextList.joinToString("\n")
+                            bitsRef.setValue(updatedBits)
                                 .addOnSuccessListener {
                                     Log.d("EditHobby", "Bits updated for hobbit $hobbitName in the database")
                                     Toast.makeText(this, "Bits updated for hobbit $hobbitName successfully!", Toast.LENGTH_SHORT).show()
