@@ -11,7 +11,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
-import androidx.core.view.setMargins
+import android.graphics.Typeface
 
 class Categories : AppCompatActivity() {
 
@@ -30,6 +30,20 @@ class Categories : AppCompatActivity() {
         val cookingHobbiesContainer = findViewById<RelativeLayout>(R.id.CookinghobbiesContainer)
         val cookinglayoutParams = cookingHobbiesContainer.layoutParams as LinearLayout.LayoutParams
         val cookingCategoryTextView = findViewById<TextView>(R.id.FirstCategory)
+        val firstcategory = findViewById<TextView>(R.id.FirstCategory)
+        handleCategoryClick(
+            cookingCategoryDropdown,
+            cookingHobbiesContainer,
+            cookinglayoutParams,
+            cookingCategoryTextView,
+            firstcategory)
+        handleCategoryClick(
+            cookingCategoryDropdown,
+            cookingHobbiesContainer,
+            cookinglayoutParams,
+            cookingCategoryTextView,
+            firstcategory)
+
         val addFirstCategoryFirstHobbyButton = findViewById<Button>(R.id.AddFirstCategoryFirstHobby)
         val addFirstCategorySecondHobbyButton = findViewById<Button>(R.id.AddFirstCategorySecondHobby)
         val addFirstCategoryThirdHobbyButton = findViewById<Button>(R.id.AddFirstCategoryThirdHobby)
@@ -103,33 +117,25 @@ class Categories : AppCompatActivity() {
             }
         }
 
-        cookingCategoryDropdown.setOnClickListener {
-            if (cookingHobbiesContainer.visibility == View.GONE){
-                cookingHobbiesContainer.visibility = View.VISIBLE
-                cookinglayoutParams.setMargins(0,-55.dpToPx(),0,0)
-            }
-            else{
-                cookingHobbiesContainer.visibility = View.GONE
-                cookinglayoutParams.setMargins(0,0,0,0)
-            }
-        }
-
-        cookingCategoryTextView.setOnClickListener {
-            if (cookingHobbiesContainer.visibility == View.GONE){
-                cookingHobbiesContainer.visibility = View.VISIBLE
-                cookinglayoutParams.setMargins(0,-55.dpToPx(),0,0)
-            }
-            else{
-                cookingHobbiesContainer.visibility = View.GONE
-                cookinglayoutParams.setMargins(0,0,0,0)
-            }
-        }
-
         //Second Hobby
         val creativeartsCategoryDropdown = findViewById<ImageView>(R.id.CreativeArtsDropdown)
         val creativeArtsHobbiesContainer = findViewById<RelativeLayout>(R.id.CreativeArtshobbiesContainer)
         val creativelayoutParams = creativeArtsHobbiesContainer.layoutParams as LinearLayout.LayoutParams
         val creativeartsCategoryTextView = findViewById<TextView>(R.id.SecondCategory)
+        val secondcategory = findViewById<TextView>(R.id.SecondCategory)
+        handleCategoryClick(
+            creativeartsCategoryDropdown,
+            creativeArtsHobbiesContainer,
+            creativelayoutParams,
+            creativeartsCategoryTextView,
+            secondcategory)
+        handleCategoryClick(
+            creativeartsCategoryDropdown,
+            creativeArtsHobbiesContainer,
+            creativelayoutParams,
+            creativeartsCategoryTextView,
+            secondcategory)
+
         val addSecondCategoryFirstHobbyButton = findViewById<Button>(R.id.AddSecondCategoryFirstHobby)
         val addSecondCategorySecondHobbyButton = findViewById<Button>(R.id.AddSecondCategorySecondHobby)
         val addSecondCategoryThirdHobbyButton = findViewById<Button>(R.id.AddSecondCategoryThirdHobby)
@@ -205,33 +211,25 @@ class Categories : AppCompatActivity() {
             }
         }
 
-        creativeartsCategoryDropdown.setOnClickListener {
-            if (creativeArtsHobbiesContainer.visibility == View.GONE){
-                creativeArtsHobbiesContainer.visibility = View.VISIBLE
-                creativelayoutParams.setMargins(0,-55.dpToPx(),0,0)
-            }
-            else{
-                creativeArtsHobbiesContainer.visibility = View.GONE
-                creativelayoutParams.setMargins(0,0,0,0)
-            }
-        }
-
-        creativeartsCategoryTextView.setOnClickListener {
-            if (creativeArtsHobbiesContainer.visibility == View.GONE){
-                creativeArtsHobbiesContainer.visibility = View.VISIBLE
-                creativelayoutParams.setMargins(0,-55.dpToPx(),0,0)
-            }
-            else{
-                creativeArtsHobbiesContainer.visibility = View.GONE
-                creativelayoutParams.setMargins(0,0,0,0)
-            }
-        }
-
         //Third Hobby
         val healthAndwellnessCategoryDropdown = findViewById<ImageView>(R.id.HealthandWellnessDropdown)
         val healthandwellnessHobbiesContainer = findViewById<RelativeLayout>(R.id.HealthandWellnesshobbiesContainer)
         val HealthandWellnesslayoutParams = creativeArtsHobbiesContainer.layoutParams as LinearLayout.LayoutParams
         val healthAndwellnessCategoryTextView = findViewById<TextView>(R.id.ThirdCategory)
+        val thirdcategory = findViewById<TextView>(R.id.ThirdCategory)
+        handleCategoryClick(
+            healthAndwellnessCategoryDropdown,
+            healthandwellnessHobbiesContainer,
+            HealthandWellnesslayoutParams,
+            healthAndwellnessCategoryTextView,
+            thirdcategory)
+        handleCategoryClick(
+            healthAndwellnessCategoryDropdown,
+            healthandwellnessHobbiesContainer,
+            HealthandWellnesslayoutParams,
+            healthAndwellnessCategoryTextView,
+            thirdcategory)
+
         val addThirdCategoryFirstHobbyButton = findViewById<Button>(R.id.AddThirdCategoryFirstHobby)
         val addThirdCategorySecondHobbyButton = findViewById<Button>(R.id.AddThirdCategorySecondHobby)
         val addThirdCategoryThirdHobbyButton = findViewById<Button>(R.id.AddThirdCategoryThirdHobby)
@@ -305,34 +303,25 @@ class Categories : AppCompatActivity() {
             }
         }
 
-
-        healthAndwellnessCategoryDropdown.setOnClickListener {
-            if (healthandwellnessHobbiesContainer.visibility == View.GONE){
-                healthandwellnessHobbiesContainer.visibility = View.VISIBLE
-                HealthandWellnesslayoutParams.setMargins(0,-55.dpToPx(),0,0)
-            }
-            else{
-                healthandwellnessHobbiesContainer.visibility = View.GONE
-                HealthandWellnesslayoutParams.setMargins(0,0,0,0)
-            }
-        }
-
-        healthAndwellnessCategoryTextView.setOnClickListener {
-            if (healthandwellnessHobbiesContainer.visibility == View.GONE){
-                healthandwellnessHobbiesContainer.visibility = View.VISIBLE
-                HealthandWellnesslayoutParams.setMargins(0,-55.dpToPx(),0,0)
-            }
-            else{
-                healthandwellnessHobbiesContainer.visibility = View.GONE
-                HealthandWellnesslayoutParams.setMargins(0,0,0,0)
-            }
-        }
-
         //Fourth Hobby
         val musicandperformingCategoryDropdown = findViewById<ImageView>(R.id.MusicandperformingDropdown)
         val musicandperformingHobbiesContainer = findViewById<RelativeLayout>(R.id.MusicandPerforminghobbiesContainer)
         val MusicandPerforminglayoutParams = creativeArtsHobbiesContainer.layoutParams as LinearLayout.LayoutParams
         val musicandperformingCategoryTextView = findViewById<TextView>(R.id.FourthCategory)
+        val fourthcategory = findViewById<TextView>(R.id.FourthCategory)
+        handleCategoryClick(
+            musicandperformingCategoryDropdown,
+            musicandperformingHobbiesContainer,
+            MusicandPerforminglayoutParams,
+            musicandperformingCategoryTextView,
+            fourthcategory)
+        handleCategoryClick(
+            musicandperformingCategoryDropdown,
+            musicandperformingHobbiesContainer,
+            MusicandPerforminglayoutParams,
+            musicandperformingCategoryTextView,
+            fourthcategory)
+
         val addFourthCategoryFirstHobbyButton = findViewById<Button>(R.id.AddFourthCategoryFirstHobby)
         val addFourthCategorySecondHobbyButton = findViewById<Button>(R.id.AddFourthCategorySecondHobby)
         val addFourthCategoryThirdHobbyButton = findViewById<Button>(R.id.AddFourthCategoryThirdHobby)
@@ -407,33 +396,25 @@ class Categories : AppCompatActivity() {
             }
         }
 
-        musicandperformingCategoryDropdown.setOnClickListener {
-            if (musicandperformingHobbiesContainer.visibility == View.GONE){
-                musicandperformingHobbiesContainer.visibility = View.VISIBLE
-                MusicandPerforminglayoutParams.setMargins(0,-55.dpToPx(),0,0)
-            }
-            else{
-                musicandperformingHobbiesContainer.visibility = View.GONE
-                MusicandPerforminglayoutParams.setMargins(0,0,0,0)
-            }
-        }
-        musicandperformingCategoryTextView.setOnClickListener {
-            if (musicandperformingHobbiesContainer.visibility == View.GONE){
-                musicandperformingHobbiesContainer.visibility = View.VISIBLE
-                MusicandPerforminglayoutParams.setMargins(0,-55.dpToPx(),0,0)
-            }
-            else{
-                musicandperformingHobbiesContainer.visibility = View.GONE
-                MusicandPerforminglayoutParams.setMargins(0,0,0,0)
-            }
-        }
-
-
         //Fifth Hobby
         val readingandwritingCategoryDropdown = findViewById<ImageView>(R.id.ReadingandWritingDropdown)
         val readingandwritingHobbiesContainer = findViewById<RelativeLayout>(R.id.ReadingandWritinghobbiesContainer)
         val ReadingandWritinglayoutParams = creativeArtsHobbiesContainer.layoutParams as LinearLayout.LayoutParams
         val readingandwritingCategoryTextView = findViewById<TextView>(R.id.FifthCategory)
+        val fifthcategory = findViewById<TextView>(R.id.FifthCategory)
+        handleCategoryClick(
+            readingandwritingCategoryDropdown,
+            readingandwritingHobbiesContainer,
+            ReadingandWritinglayoutParams,
+            readingandwritingCategoryTextView,
+            fifthcategory)
+        handleCategoryClick(
+            readingandwritingCategoryDropdown,
+            readingandwritingHobbiesContainer,
+            ReadingandWritinglayoutParams,
+            readingandwritingCategoryTextView,
+            fifthcategory)
+
         val addFifthCategoryFirstHobbyButton = findViewById<Button>(R.id.AddFifthCategoryFirstHobby)
         val addFifthCategorySecondHobbyButton = findViewById<Button>(R.id.AddFifthCategorySecondHobby)
         val addFifthCategoryThirdHobbyButton = findViewById<Button>(R.id.AddFifthCategoryThirdHobby)
@@ -507,33 +488,25 @@ class Categories : AppCompatActivity() {
             }
         }
 
-        readingandwritingCategoryDropdown.setOnClickListener {
-            if (readingandwritingHobbiesContainer.visibility == View.GONE){
-                readingandwritingHobbiesContainer.visibility = View.VISIBLE
-                ReadingandWritinglayoutParams.setMargins(0,-55.dpToPx(),0,0)
-            }
-            else{
-                readingandwritingHobbiesContainer.visibility = View.GONE
-                ReadingandWritinglayoutParams.setMargins(0,0,0,0)
-            }
-        }
-       readingandwritingCategoryTextView.setOnClickListener {
-            if (readingandwritingHobbiesContainer.visibility == View.GONE){
-                readingandwritingHobbiesContainer.visibility = View.VISIBLE
-                ReadingandWritinglayoutParams.setMargins(0,-55.dpToPx(),0,0)
-            }
-            else{
-                readingandwritingHobbiesContainer.visibility = View.GONE
-                ReadingandWritinglayoutParams.setMargins(0,0,0,0)
-            }
-        }
-
-
         //Sixth Hobby
         val scienceandtechCategoryDropdown = findViewById<ImageView>(R.id.ScienceandTechDropdown)
         val scienceandtechHobbiesContainer = findViewById<RelativeLayout>(R.id.ScienceandTechhobbiesContainer)
         val ScienceandTechlayoutParams = creativeArtsHobbiesContainer.layoutParams as LinearLayout.LayoutParams
         val scienceandtechCategoryTextView = findViewById<TextView>(R.id.SixthCategory)
+        val sixthcategory = findViewById<TextView>(R.id.SixthCategory)
+        handleCategoryClick(
+            scienceandtechCategoryDropdown,
+            scienceandtechHobbiesContainer,
+            ScienceandTechlayoutParams,
+            scienceandtechCategoryTextView,
+            sixthcategory)
+        handleCategoryClick(
+            scienceandtechCategoryDropdown,
+            scienceandtechHobbiesContainer,
+            ScienceandTechlayoutParams,
+            scienceandtechCategoryTextView,
+            sixthcategory) // Replace this with the actual TextView for the selected category)
+
         val addSixthCategoryFirstHobbyButton = findViewById<Button>(R.id.AddSixthCategoryFirstHobby)
         val addSixthCategorySecondHobbyButton = findViewById<Button>(R.id.AddSixthCategorySecondHobby)
         val addSixthCategoryThirdHobbyButton = findViewById<Button>(R.id.AddSixthCategoryThirdHobby)
@@ -607,28 +580,6 @@ class Categories : AppCompatActivity() {
             }
         }
 
-        scienceandtechCategoryDropdown.setOnClickListener {
-            if (scienceandtechHobbiesContainer.visibility == View.GONE){
-                scienceandtechHobbiesContainer.visibility = View.VISIBLE
-                ScienceandTechlayoutParams.setMargins(0,-55.dpToPx(),0,0)
-            }
-            else{
-                scienceandtechHobbiesContainer.visibility = View.GONE
-                ScienceandTechlayoutParams.setMargins(0,0,0,0)
-            }
-        }
-
-        scienceandtechCategoryTextView.setOnClickListener {
-            if (scienceandtechHobbiesContainer.visibility == View.GONE){
-                scienceandtechHobbiesContainer.visibility = View.VISIBLE
-                ScienceandTechlayoutParams.setMargins(0,-55.dpToPx(),0,0)
-            }
-            else{
-                scienceandtechHobbiesContainer.visibility = View.GONE
-                ScienceandTechlayoutParams.setMargins(0,0,0,0)
-            }
-        }
-
         val UnselectedHomeImageClick = findViewById<ImageView>(R.id.ClickUnselectedHome)
         UnselectedHomeImageClick.setOnClickListener {
             val intent = Intent(this, Home::class.java)
@@ -637,11 +588,6 @@ class Categories : AppCompatActivity() {
         val UnselectedUserImageClick = findViewById<ImageView>(R.id.ClickUnselectedUser)
         UnselectedUserImageClick.setOnClickListener {
             val intent = Intent(this, User_Profile::class.java)
-            startActivity(intent)
-        }
-        val UnselectedCalendarImageClick = findViewById<ImageView>(R.id.ClickUnselectedCalendar)
-        UnselectedCalendarImageClick.setOnClickListener {
-            val intent = Intent(this, Calendar::class.java)
             startActivity(intent)
         }
     }
@@ -871,4 +817,40 @@ class Categories : AppCompatActivity() {
             }
         })
     }
+    private fun handleCategoryClick(
+        dropdownImageView: ImageView,
+        categoryContainer: RelativeLayout,
+        layoutParams: LinearLayout.LayoutParams,
+        categoryTextView: TextView,
+        selectedCategoryTextView: TextView? = null
+    ) {
+        var isDropdownVisible = false
+
+        fun toggleDropdown() {
+            if (isDropdownVisible) {
+                categoryContainer.visibility = View.GONE
+                layoutParams.setMargins(0, 0, 0, 0)
+                dropdownImageView.setImageResource(R.drawable.down)
+
+                selectedCategoryTextView?.typeface = Typeface.DEFAULT
+            } else {
+                categoryContainer.visibility = View.VISIBLE
+                layoutParams.setMargins(0, -55.dpToPx(), 0, 0)
+                dropdownImageView.setImageResource(R.drawable.up)
+
+                selectedCategoryTextView?.typeface = Typeface.DEFAULT_BOLD
+            }
+            isDropdownVisible = !isDropdownVisible
+        }
+
+        dropdownImageView.setOnClickListener {
+            toggleDropdown()
+        }
+
+        categoryTextView.setOnClickListener {
+            toggleDropdown()
+        }
+        selectedCategoryTextView?.typeface = Typeface.DEFAULT
+    }
+
 }

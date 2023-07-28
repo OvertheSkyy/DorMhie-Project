@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.View
 import android.content.Context
 import android.widget.ImageView
-import android.widget.RelativeLayout
 import android.widget.TextView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -29,11 +28,6 @@ class User_Profile : AppCompatActivity() {
         val UnselectedCategoriesImageClick = findViewById<ImageView>(R.id.ClickUnselectedCategories)
         UnselectedCategoriesImageClick.setOnClickListener {
             val intent = Intent(this, Categories::class.java)
-            startActivity(intent)
-        }
-        val UnselectedCalendarImageClick = findViewById<ImageView>(R.id.ClickUnselectedCalendar)
-        UnselectedCalendarImageClick.setOnClickListener {
-            val intent = Intent(this, Calendar::class.java)
             startActivity(intent)
         }
 

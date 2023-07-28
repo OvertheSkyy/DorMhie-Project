@@ -1748,8 +1748,8 @@
         app:layout_constraintBottom_toBottomOf="parent" />
     <ImageView
         android:id="@+id/ClickUnselectedHome"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="41dp"
+        android:layout_height="41dp"
         android:src="@drawable/home_unselected"
         android:contentDescription="Home page"
         android:clickable="true"
@@ -1757,45 +1757,33 @@
         app:layout_constraintEnd_toStartOf="@id/ClickselectedCategories"
         app:layout_constraintTop_toTopOf="@id/botrectangle"
         app:layout_constraintBottom_toBottomOf="@id/botrectangle"
-        android:layout_marginStart="29dp"
+        android:layout_marginStart="45dp"
         app:layout_constraintHorizontal_chainStyle="spread_inside"/>
 
     <ImageView
         android:id="@+id/ClickselectedCategories"
-        android:layout_width="38dp"
-        android:layout_height="38dp"
+        android:layout_width="41dp"
+        android:layout_height="41dp"
         android:src="@drawable/categories_selected"
         android:contentDescription="Categories page"
         android:clickable="true"
         app:layout_constraintStart_toEndOf="@id/ClickUnselectedHome"
-        app:layout_constraintEnd_toStartOf="@id/ClickUnselectedCalendar"
-        app:layout_constraintTop_toTopOf="@id/botrectangle"
-        app:layout_constraintBottom_toBottomOf="@id/botrectangle"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"/>
-    <ImageView
-        android:id="@+id/ClickUnselectedCalendar"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/calendar_unselected"
-        android:contentDescription="Calendar Page"
-        android:clickable="true"
-        app:layout_constraintStart_toEndOf="@id/ClickselectedCategories"
         app:layout_constraintEnd_toStartOf="@id/ClickUnselectedUser"
         app:layout_constraintTop_toTopOf="@id/botrectangle"
         app:layout_constraintBottom_toBottomOf="@id/botrectangle"
         app:layout_constraintHorizontal_chainStyle="spread_inside"/>
     <ImageView
         android:id="@+id/ClickUnselectedUser"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
+        android:layout_width="41dp"
+        android:layout_height="41dp"
         android:src="@drawable/user_unselected"
         android:contentDescription="User page"
         android:clickable="true"
-        app:layout_constraintStart_toEndOf="@id/ClickUnselectedCalendar"
+        app:layout_constraintStart_toEndOf="@id/ClickselectedCategories"
         app:layout_constraintEnd_toEndOf="@id/botrectangle"
         app:layout_constraintTop_toTopOf="@id/botrectangle"
         app:layout_constraintBottom_toBottomOf="@id/botrectangle"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="45dp"
         app:layout_constraintHorizontal_chainStyle="spread_inside"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

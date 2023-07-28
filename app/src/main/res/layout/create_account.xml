@@ -47,56 +47,14 @@
     </TextView>
 
     <View
-        android:id="@+id/firstdot"
-        android:layout_width="26dp"
-        android:layout_height="26dp"
-        android:background="@drawable/dot_active"
+        android:id="@+id/linedesign"
+        android:layout_width="200dp"
+        android:layout_height="5dp"
+        android:background="@drawable/line_active"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/createacctxt"
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="82dp"
-        android:layout_marginEnd="252dp"/>
-    <View
-        android:layout_width="26dp"
-        android:layout_height="26dp"
-        android:background="@drawable/dot_inactive"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/createacctxt"
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="167dp"
-        android:layout_marginEnd="167dp"/>
-    <View
-        android:layout_width="26dp"
-        android:layout_height="26dp"
-        android:background="@drawable/dot_inactive"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/createacctxt"
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="252dp"
-        android:layout_marginEnd="82dp"/>
-    <View
-        android:layout_width="59.01dp"
-        android:layout_height="2dp"
-        android:background="@drawable/line_inactive"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/createacctxt"
-        android:layout_marginTop="45.45dp"
-        android:layout_marginStart="108dp"
-        android:layout_marginEnd="193dp"/>
-    <View
-        android:layout_width="59.01dp"
-        android:layout_height="2dp"
-        android:background="@drawable/line_inactive"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/createacctxt"
-        android:layout_marginTop="45.45dp"
-        android:layout_marginStart="193dp"
-        android:layout_marginEnd="107.99dp"/>
+        android:layout_marginTop="45.45dp" />
     
     <RelativeLayout
         android:id="@+id/Namefill"
@@ -105,7 +63,7 @@
         android:background="@drawable/createaccount_bg"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/firstdot"
+        app:layout_constraintTop_toBottomOf="@id/linedesign"
         android:layout_marginTop="48dp">
         <ImageView
             android:layout_width="35dp"

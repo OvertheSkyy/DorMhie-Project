@@ -19,7 +19,7 @@
             android:name=".CalendarAdapter"
             android:exported="false" />
         <activity
-            android:name=".Calendar"
+            android:name=".Home"
             android:exported="false" />
         <activity
             android:name=".EditHobby"

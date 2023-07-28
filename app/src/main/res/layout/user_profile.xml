@@ -13,28 +13,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
-    <ImageView
-        android:id="@+id/Clickmenu"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:src="@drawable/menu"
-        android:contentDescription="Menu button"
-        android:clickable="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/rectanglebg"
-        app:layout_constraintBottom_toBottomOf="@id/rectanglebg"
-        android:layout_marginStart="16dp" />
-    <ImageView
-        android:id="@+id/ClickNotification"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:src="@drawable/setting"
-        android:contentDescription="Notifications"
-        android:clickable="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/rectanglebg"
-        app:layout_constraintBottom_toBottomOf="@id/rectanglebg"
-        android:layout_marginEnd="16dp"/>
+
     <TextView
         android:id="@+id/UserProfileTxt"
         android:layout_width="0dp"
@@ -45,11 +24,21 @@
         android:fontFamily="@font/inter_light"
         android:textFontWeight="1000"
         app:layout_constraintTop_toTopOf="@id/rectanglebg"
-        app:layout_constraintStart_toEndOf="@id/Clickmenu"
-        app:layout_constraintEnd_toStartOf="@id/ClickNotification"
-        android:layout_marginStart="27dp"
-        android:layout_marginEnd="27dp"
+        app:layout_constraintStart_toStartOf="@id/rectanglebg"
+        app:layout_constraintEnd_toStartOf="@id/ClickSettings"
+        android:layout_marginStart="85dp"
         android:layout_marginTop="19dp"/>
+    <ImageView
+        android:id="@+id/ClickSettings"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:src="@drawable/setting"
+        android:contentDescription="Settings"
+        android:clickable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/rectanglebg"
+        app:layout_constraintBottom_toBottomOf="@id/rectanglebg"
+        android:layout_marginEnd="22dp"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -59,8 +48,8 @@
         app:layout_constraintTop_toBottomOf="@id/rectanglebg"
         app:layout_constraintBottom_toTopOf="@id/botrectangle"
         android:layout_marginTop="23dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp">
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -114,51 +103,6 @@
                     android:padding="0dp"/>
             </RelativeLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="22dp">
-                <View
-                    android:id="@+id/Premiumbg"
-                    android:layout_width="274dp"
-                    android:layout_height="60dp"
-                    android:background="@drawable/premiumbg"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
-                <TextView
-                    android:id="@+id/Upgrade"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Upgrade to Premium"
-                    android:textSize="14sp"
-                    android:textColor="#000"
-                    android:fontFamily="@font/inter_light"
-                    android:textFontWeight="1000"
-                    app:layout_constraintTop_toTopOf="@id/Premiumbg"
-                    app:layout_constraintStart_toStartOf="@id/Premiumbg"
-                    android:layout_marginStart="21dp"
-                    android:layout_marginTop="13dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Unlock all Premium features"
-                    android:textSize="11sp"
-                    android:textColor="#545454"
-                    android:fontFamily="@font/inter_light"
-                    app:layout_constraintTop_toBottomOf="@id/Upgrade"
-                    app:layout_constraintStart_toStartOf="@id/Premiumbg"
-                    android:layout_marginStart="21dp"/>
-                <ImageView
-                    android:layout_width="41dp"
-                    android:layout_height="41dp"
-                    android:src="@drawable/premium"
-                    android:layout_toEndOf="@id/Upgrade"
-                    app:layout_constraintTop_toTopOf="@id/Premiumbg"
-                    app:layout_constraintStart_toEndOf="@id/Upgrade"
-                    android:layout_marginStart="53dp"
-                    android:layout_marginTop="10dp"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
                 android:id="@+id/txtHobbyOverview"
@@ -169,15 +113,14 @@
                 android:textColor="#205375"
                 android:fontFamily="@font/inter_light"
                 android:textFontWeight="900"
-                android:layout_marginTop="23dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginStart="3dp"/>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/Preview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="9dp"
-                android:layout_marginStart="7dp">
+                android:layout_marginTop="15dp">
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/Overview"
                     android:layout_width="265dp"
@@ -254,193 +197,9 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/Communitybutton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="27dp">
-                <View
-                    android:id="@+id/communitybg"
-                    android:layout_width="274dp"
-                    android:layout_height="37dp"
-                    android:background="@drawable/premiumbg"
-                    android:backgroundTint="#E8E2E2"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"/>
-                <ImageView
-                    android:id="@+id/CommunityImage"
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:src="@drawable/communitypic"
-                    app:layout_constraintTop_toTopOf="@id/communitybg"
-                    app:layout_constraintStart_toStartOf="@id/communitybg"
-                    android:layout_marginStart="18dp"
-                    android:layout_marginTop="5dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Community"
-                    android:textSize="12sp"
-                    android:textColor="#000"
-                    android:fontFamily="@font/inter_light"
-                    app:layout_constraintTop_toTopOf="@id/communitybg"
-                    app:layout_constraintStart_toEndOf="@id/CommunityImage"
-                    android:layout_marginStart="11dp"
-                    android:layout_marginTop="11dp"/>
-                <ImageView
-                    android:id="@+id/morebutton_community"
-                    android:layout_width="16dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/more_btn"
-                    app:layout_constraintTop_toTopOf="@id/communitybg"
-                    app:layout_constraintEnd_toEndOf="@id/communitybg"
-                    android:layout_marginEnd="24dp"
-                    android:layout_marginTop="9dp"
-                    android:clickable="true"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/Achievementsbutton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="7dp">
-                <View
-                    android:id="@+id/Achievementsbg"
-                    android:layout_width="274dp"
-                    android:layout_height="37dp"
-                    android:background="@drawable/premiumbg"
-                    android:backgroundTint="#E8E2E2"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
-                <ImageView
-                    android:id="@+id/AchievementsImage"
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:src="@drawable/achievements"
-                    app:layout_constraintTop_toTopOf="@id/Achievementsbg"
-                    app:layout_constraintStart_toStartOf="@id/Achievementsbg"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginStart="18dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Achievements"
-                    android:textSize="12sp"
-                    android:textColor="#000"
-                    android:fontFamily="@font/inter_light"
-                    app:layout_constraintTop_toTopOf="@id/Achievementsbg"
-                    app:layout_constraintStart_toEndOf="@id/AchievementsImage"
-                    android:layout_marginTop="11dp"
-                    android:layout_marginStart="11dp"/>
-                <ImageView
-                    android:id="@+id/morebutton_achievements"
-                    android:layout_width="16dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/more_btn"
-                    app:layout_constraintTop_toTopOf="@id/Achievementsbg"
-                    app:layout_constraintEnd_toEndOf="@id/Achievementsbg"
-                    android:layout_marginTop="9dp"
-                    android:layout_marginEnd="24dp"
-                    android:clickable="true"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/favoritebutton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="7dp">
-                <View
-                    android:id="@+id/favbg"
-                    android:layout_width="274dp"
-                    android:layout_height="37dp"
-                    android:background="@drawable/premiumbg"
-                    android:backgroundTint="#E8E2E2"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
-                <ImageView
-                    android:id="@+id/favImage"
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:src="@drawable/favorites"
-                    app:layout_constraintTop_toTopOf="@id/favbg"
-                    app:layout_constraintStart_toStartOf="@id/favbg"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginStart="18dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Favorites"
-                    android:textSize="12sp"
-                    android:textColor="#000"
-                    android:fontFamily="@font/inter_light"
-                    app:layout_constraintTop_toTopOf="@id/favbg"
-                    app:layout_constraintStart_toEndOf="@id/favImage"
-                    android:layout_marginTop="11dp"
-                    android:layout_marginStart="11dp"/>
-                <ImageView
-                    android:id="@+id/morebutton_favorites"
-                    android:layout_width="16dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/more_btn"
-                    app:layout_constraintTop_toTopOf="@id/favbg"
-                    app:layout_constraintEnd_toEndOf="@id/favbg"
-                    android:layout_marginTop="9dp"
-                    android:layout_marginEnd="24dp"
-                    android:clickable="true"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/completedbutton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="7dp">
-                <View
-                    android:id="@+id/Completedtaskbg"
-                    android:layout_width="274dp"
-                    android:layout_height="37dp"
-                    android:background="@drawable/premiumbg"
-                    android:backgroundTint="#E8E2E2"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"/>
-                <ImageView
-                    android:id="@+id/Completedimage"
-                    android:layout_width="27dp"
-                    android:layout_height="28dp"
-                    android:src="@drawable/completed"
-                    app:layout_constraintTop_toTopOf="@id/Completedbg"
-                    app:layout_constraintStart_toStartOf="@id/Completedbg"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginStart="18dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Completed"
-                    android:textSize="12sp"
-                    android:textColor="#000"
-                    android:fontFamily="@font/inter_light"
-                    app:layout_constraintTop_toTopOf="@id/Completedbg"
-                    app:layout_constraintStart_toEndOf="@id/Completedimage"
-                    android:layout_marginTop="11dp"
-                    android:layout_marginStart="11dp"/>
-                <ImageView
-                    android:id="@+id/morebutton_completed"
-                    android:layout_width="16dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/more_btn"
-                    app:layout_constraintTop_toTopOf="@id/Completedbg"
-                    app:layout_constraintEnd_toEndOf="@id/Completedbg"
-                    android:layout_marginTop="9dp"
-                    android:layout_marginEnd="24dp"
-                    android:clickable="true"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp">
+                android:layout_marginTop="200dp">
                 <View
                     android:id="@+id/btnlogout"
                     android:layout_width="274dp"
@@ -482,8 +241,8 @@
         app:layout_constraintBottom_toBottomOf="parent" />
     <ImageView
         android:id="@+id/ClickHome"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="41dp"
+        android:layout_height="41dp"
         android:src="@drawable/home_unselected"
         android:contentDescription="Home page"
         android:clickable="true"
@@ -491,44 +250,32 @@
         app:layout_constraintEnd_toStartOf="@id/ClickUnselectedCategories"
         app:layout_constraintTop_toTopOf="@id/botrectangle"
         app:layout_constraintBottom_toBottomOf="@id/botrectangle"
-        android:layout_marginStart="29dp"
+        android:layout_marginStart="45dp"
         app:layout_constraintHorizontal_chainStyle="spread_inside"/>
     <ImageView
         android:id="@+id/ClickUnselectedCategories"
-        android:layout_width="38dp"
-        android:layout_height="38dp"
+        android:layout_width="41dp"
+        android:layout_height="41dp"
         android:src="@drawable/categories_unselected"
         android:contentDescription="Categories page"
         android:clickable="true"
         app:layout_constraintStart_toEndOf="@id/ClickHome"
-        app:layout_constraintEnd_toStartOf="@id/ClickUnselectedCalendar"
-        app:layout_constraintTop_toTopOf="@id/botrectangle"
-        app:layout_constraintBottom_toBottomOf="@id/botrectangle"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"/>
-    <ImageView
-        android:id="@+id/ClickUnselectedCalendar"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/calendar_unselected"
-        android:contentDescription="Calendar Page"
-        android:clickable="true"
-        app:layout_constraintStart_toEndOf="@id/ClickUnselectedCategories"
         app:layout_constraintEnd_toStartOf="@id/ClickUnselectedUser"
         app:layout_constraintTop_toTopOf="@id/botrectangle"
         app:layout_constraintBottom_toBottomOf="@id/botrectangle"
         app:layout_constraintHorizontal_chainStyle="spread_inside"/>
     <ImageView
         android:id="@+id/ClickUnselectedUser"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
+        android:layout_width="41dp"
+        android:layout_height="41dp"
         android:src="@drawable/user_selected"
         android:contentDescription="User page"
         android:clickable="true"
-        app:layout_constraintStart_toEndOf="@id/ClickUnselectedCalendar"
+        app:layout_constraintStart_toEndOf="@id/ClickUnselectedCategories"
         app:layout_constraintEnd_toEndOf="@id/botrectangle"
         app:layout_constraintTop_toTopOf="@id/botrectangle"
         app:layout_constraintBottom_toBottomOf="@id/botrectangle"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="45dp"
         app:layout_constraintHorizontal_chainStyle="spread_inside"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
