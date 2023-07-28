@@ -16,7 +16,7 @@
         <item name="android:textSize">13sp</item>
     </style>
     <style name="CalendarViewStyle" parent="android:style/Widget.CalendarView">
-        <item name="android:calendarTextColor">@drawable/selecteddate</item>
+        <item name="android:calendarTextColor">@drawable/currentdate</item>
     </style>
 
     

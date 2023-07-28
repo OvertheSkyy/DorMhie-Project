@@ -23,6 +23,8 @@ class Calendar : AppCompatActivity() {
     private var currentMonth: Int = 0
     private var currentYear: Int = 0
 
+    private var selectedDate: Date? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.calendar_page)
@@ -50,10 +52,13 @@ class Calendar : AppCompatActivity() {
         currentMonth = initialCalendar.get(Calendar.MONTH)
         currentYear = initialCalendar.get(Calendar.YEAR)
 
+        val currentDate = Calendar.getInstance().time
+
         calendarAdapter = CalendarAdapter(this, currentMonth, currentYear)
         gridView.adapter = calendarAdapter
 
         updateMonthAndYearTextView()
+
 
         val dateNext: ImageView = findViewById(R.id.DateNext)
         val dateBack: ImageView = findViewById(R.id.DateBack)
@@ -80,7 +85,9 @@ class Calendar : AppCompatActivity() {
         // Create the adapter with the current month and year
         calendarAdapter = CalendarAdapter(this, currentMonth, currentYear)
         gridView.adapter = calendarAdapter
+
     }
+
     private fun updateMonthAndYearTextView() {
         val monthName = DateFormatSymbols().months[currentMonth]
         val monthYearText = "$monthName, $currentYear"

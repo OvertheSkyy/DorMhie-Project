@@ -72,7 +72,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/MonthandYearConstraint"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -81,9 +82,12 @@
                     android:layout_width="28dp"
                     android:layout_height="28dp"
                     android:src="@drawable/left"
+                    android:contentDescription="BackButton"
                     android:clickable="true"
                     android:layout_marginTop="4dp"
-                    android:layout_marginStart="70dp"/>
+                    android:layout_marginStart="70dp"
+                    app:layout_constraintEnd_toStartOf="@id/MonthandYear"
+                    app:layout_constraintTop_toTopOf="@id/MonthandYearConstraint"/>
                 <TextView
                     android:id="@+id/MonthandYear"
                     android:layout_width="wrap_content"
@@ -92,16 +96,22 @@
                     android:textSize="22sp"
                     android:textColor="#205375"
                     android:fontFamily="@font/inter_black"
-                    android:clickable="true" />
+                    android:clickable="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/MonthandYearConstraint"/>
                 <ImageView
                     android:id="@+id/DateNext"
                     android:layout_width="25dp"
                     android:layout_height="28dp"
                     android:src="@drawable/right"
+                    android:contentDescription="NextButton"
                     android:clickable="true"
                     android:layout_marginTop="3dp"
-                    android:layout_marginStart="-2dp"/>
-            </LinearLayout>
+                    android:layout_marginStart="-2dp"
+                    app:layout_constraintStart_toEndOf="@id/MonthandYear"
+                    app:layout_constraintTop_toTopOf="@id/MonthandYearConstraint"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
                 android:id="@+id/CalendarBackground"
