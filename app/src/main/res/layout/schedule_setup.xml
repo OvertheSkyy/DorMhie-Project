@@ -126,7 +126,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/Timepicker"
-                    android:layout_marginTop="60dp"/>
+                    android:layout_marginTop="55dp"/>
                 
                 <ImageView
                     android:id="@+id/RepeatHobbyImage"
@@ -152,17 +152,6 @@
                     app:layout_constraintTop_toTopOf="@id/RepeatHobbyBG"
                     android:layout_marginTop="14dp"
                     android:layout_marginStart="5dp"/>
-                <ImageView
-                    android:id="@+id/ClickSetRepeatHobby"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/right"
-                    app:layout_constraintTop_toTopOf="@id/RepeatHobbyBG"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginTop="14dp"
-                    android:clickable="true"
-                    android:contentDescription="Set Days"/>
 
                 <LinearLayout
                     android:id="@+id/SetUpDays"
@@ -173,8 +162,8 @@
                     app:layout_constraintTop_toBottomOf="@id/RepeatHobbyBG"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="5dp"
-                    android:visibility="gone">
+                    android:layout_marginTop="7dp"
+                    android:visibility="visible">
 
                     <CheckBox
                         android:id="@+id/CheckMonday"
@@ -252,121 +241,9 @@
                         android:textFontWeight="500"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="-20dp"/>
-                    <Button
-                        android:id="@+id/ButtonDonePickingDays"
-                        android:layout_width="80dp"
-                        android:layout_height="40dp"
-                        android:backgroundTint="@color/Splashbg"
-                        android:text="Done"
-                        android:textColor="@color/white"
-                        android:textSize="12sp"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="-10dp"
-                        android:clickable="true"/>
+
 
                 </LinearLayout>
-
-                <View
-                    android:id="@+id/Reminderbg"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:background="@drawable/progress_rectangle"
-                    android:backgroundTint="#E6E6E6"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/SetUpDays"
-                    android:layout_marginTop="7dp"/>
-                <ImageView
-                    android:id="@+id/ReminderPic"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/remind"
-                    app:layout_constraintStart_toStartOf="@id/Reminderbg"
-                    app:layout_constraintTop_toTopOf="@id/Reminderbg"
-                    app:layout_constraintEnd_toEndOf="@id/Reminderbg"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginEnd="249dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Remind at"
-                    android:textSize="16sp"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/inter_light"
-                    android:textFontWeight="300"
-                    app:layout_constraintStart_toEndOf="@id/ReminderPic"
-                    app:layout_constraintTop_toTopOf="@id/Reminderbg"
-                    android:layout_marginTop="14dp"
-                    android:layout_marginStart="5dp"/>
-
-                <View
-                    android:id="@+id/Notificationsbg"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:background="@drawable/progress_rectangle"
-                    android:backgroundTint="#E6E6E6"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/Reminderbg"
-                    android:layout_marginTop="7dp"/>
-                <ImageView
-                    android:id="@+id/Notificationspic"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/notif"
-                    app:layout_constraintStart_toStartOf="@id/Notificationsbg"
-                    app:layout_constraintTop_toTopOf="@id/Notificationsbg"
-                    app:layout_constraintEnd_toEndOf="@id/Notificationsbg"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginEnd="249dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Notifications"
-                    android:textSize="16sp"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/inter_light"
-                    android:textFontWeight="300"
-                    app:layout_constraintStart_toEndOf="@id/Notificationspic"
-                    app:layout_constraintTop_toTopOf="@id/Notificationsbg"
-                    android:layout_marginTop="14dp"
-                    android:layout_marginStart="5dp"/>
-
-                <View
-                    android:id="@+id/Notesbg"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:background="@drawable/progress_rectangle"
-                    android:backgroundTint="#E6E6E6"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/Notificationsbg"
-                    android:layout_marginTop="7dp"/>
-                <ImageView
-                    android:id="@+id/NotesPic"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/notes"
-                    app:layout_constraintStart_toStartOf="@id/Notesbg"
-                    app:layout_constraintTop_toTopOf="@id/Notesbg"
-                    app:layout_constraintEnd_toEndOf="@id/Notesbg"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginEnd="249dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Notes"
-                    android:textSize="16sp"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/inter_light"
-                    android:textFontWeight="300"
-                    app:layout_constraintStart_toEndOf="@id/NotesPic"
-                    app:layout_constraintTop_toTopOf="@id/Notesbg"
-                    android:layout_marginTop="14dp"
-                    android:layout_marginStart="5dp"/>
 
                 <Button
                     android:id="@+id/SetUpSchedCancelButton"
@@ -380,10 +257,10 @@
                     android:backgroundTint="#D9D9D9"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/Notesbg"
+                    app:layout_constraintTop_toBottomOf="@id/SetUpDays"
                     android:layout_marginStart="62dp"
                     android:layout_marginEnd="191dp"
-                    android:layout_marginTop="70dp"/>
+                    android:layout_marginTop="10dp"/>
 
                 <Button
                     android:id="@+id/SetUpSchedSaveButton"
@@ -397,10 +274,10 @@
                     android:backgroundTint="#D7942E"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/Notesbg"
+                    app:layout_constraintTop_toBottomOf="@id/SetUpDays"
                     android:layout_marginStart="190dp"
                     android:layout_marginEnd="63dp"
-                    android:layout_marginTop="70dp"/>
+                    android:layout_marginTop="10dp"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

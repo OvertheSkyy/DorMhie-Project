@@ -82,26 +82,6 @@ class SetUpSchedule : AppCompatActivity() {
             }
         }
 
-        val clicksetRepeatHobby = findViewById<ImageView>(R.id.ClickSetRepeatHobby)
-        clicksetRepeatHobby.setOnClickListener {
-            val setUpDays = findViewById<LinearLayout>(R.id.SetUpDays)
-            if (setUpDays.visibility == View.VISIBLE){
-                setUpDays.visibility = View.GONE
-            }
-            else{
-                setUpDays.visibility = View.VISIBLE
-            }
-        }
-        val doneButton = findViewById<Button>(R.id.ButtonDonePickingDays)
-        doneButton.setOnClickListener {
-            val setUpDays = findViewById<LinearLayout>(R.id.SetUpDays)
-            if (setUpDays.visibility == View.VISIBLE) {
-                setUpDays.visibility = View.GONE
-            } else {
-                setUpDays.visibility = View.VISIBLE
-            }
-        }
-
         loadSavedTime()
         loadSelectedDays()
 
@@ -112,8 +92,6 @@ class SetUpSchedule : AppCompatActivity() {
             saveSelectedTime()
             saveSelectedDays()
         }
-
-
     }
 
     override fun onResume() {
@@ -126,6 +104,7 @@ class SetUpSchedule : AppCompatActivity() {
     private fun saveSelectedTime() {
         val sharedPreferences = getSharedPreferences("SchedulePrefs", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
+
         editor.putInt("hour", selectedHour)
         editor.putInt("minute", selectedMinute)
         editor.putString("am_pm", selectedAMPM)
@@ -134,6 +113,7 @@ class SetUpSchedule : AppCompatActivity() {
         Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show()
 
         val intent = Intent(this, Home::class.java)
+
         intent.putExtra("selectedHour", selectedHour)
         intent.putExtra("selectedMinute", selectedMinute)
         intent.putExtra("selectedAMPM", selectedAMPM)

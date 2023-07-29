@@ -277,8 +277,8 @@
                     android:layout_height="wrap_content"
                     android:text="MY HOBBIES"
                     android:textColor="#205375"
-                    android:textSize="24sp"
-                    android:fontFamily="@font/inter_black"
+                    android:textSize="22sp"
+                    android:fontFamily="@font/inter_light"
                     app:layout_constraintTop_toTopOf="@id/MyHobbiesTextContainer"
                     app:layout_constraintBottom_toBottomOf="@id/MyHobbiesTextContainer"
                     app:layout_constraintStart_toStartOf="@id/MyHobbiesTextContainer"/>
@@ -321,7 +321,7 @@
                             android:id="@+id/HobbyName1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Hobby1"
+                            android:text="Sample"
                             android:textSize="22sp"
                             android:textColor="#205375"
                             android:fontFamily="@font/inter_light"
@@ -341,7 +341,19 @@
                             android:fontFamily="@font/inter_light"
                             app:layout_constraintTop_toTopOf="@id/hobbybox"
                             app:layout_constraintStart_toEndOf="@id/HobbyName1"
-                            android:layout_marginTop="37.5dp"
+                            android:layout_marginTop="45dp"
+                            android:layout_marginStart="15dp"/>
+                        <TextView
+                            android:id="@+id/DateAssignedForHobby1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="MON "
+                            android:textSize="16sp"
+                            android:textColor="#545454"
+                            android:fontFamily="@font/inter_light"
+                            app:layout_constraintTop_toTopOf="@id/hobbybox"
+                            app:layout_constraintStart_toEndOf="@id/HobbyName1"
+                            android:layout_marginTop="25dp"
                             android:layout_marginStart="15dp"/>
 
                         <Button
