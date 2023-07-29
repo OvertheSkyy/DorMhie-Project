@@ -14,43 +14,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
-    <ImageView
-        android:id="@+id/Clickmenu"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:src="@drawable/menu"
-        android:contentDescription="Menu button"
-        android:clickable="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/rectanglebg"
-        app:layout_constraintBottom_toBottomOf="@id/rectanglebg"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginBottom="11dp"/>
-    <ImageView
-        android:id="@+id/ClickNotification"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:src="@drawable/notification"
-        android:contentDescription="Notifications"
-        android:clickable="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/rectanglebg"
-        app:layout_constraintBottom_toBottomOf="@id/rectanglebg"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginBottom="11dp"
-        />
+
     <View
         android:id="@+id/searchrectangle"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:background="@drawable/search_rectangle"
         app:layout_constraintTop_toTopOf="@id/rectanglebg"
-        app:layout_constraintStart_toEndOf="@id/Clickmenu"
-        app:layout_constraintEnd_toStartOf="@id/ClickNotification"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/ClickSettings"
         app:layout_constraintHorizontal_chainStyle="packed"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="50dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="13dp"/>
@@ -63,10 +37,9 @@
         android:inputType="textCapSentences"
         style="@style/FixEditText"
         app:layout_constraintTop_toTopOf="@id/rectanglebg"
-        app:layout_constraintStart_toEndOf="@id/Clickmenu"
-        app:layout_constraintEnd_toStartOf="@id/ClickNotification"
-        android:layout_marginStart="35dp"
-        android:layout_marginEnd="100dp"
+        app:layout_constraintStart_toStartOf="@id/searchrectangle"
+        app:layout_constraintEnd_toStartOf="@id/ClickSearchIcon"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="27dp"/>
     <ImageView
         android:id="@+id/ClickSearchIcon"
@@ -76,12 +49,28 @@
         android:clickable="true"
         app:layout_constraintTop_toTopOf="@id/rectanglebg"
         app:layout_constraintStart_toEndOf="@id/EditTxtSearch"
-        app:layout_constraintEnd_toStartOf="@id/ClickNotification"
+        app:layout_constraintEnd_toStartOf="@id/ClickSettings"
         android:layout_marginTop="27dp"
-        android:layout_marginStart="81dp"
+        android:layout_marginStart="10dp"
         android:layout_marginEnd="28dp"/>
+
+    <ImageView
+        android:id="@+id/ClickSettings"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:src="@drawable/setting"
+        android:contentDescription="Settings"
+        android:clickable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/rectanglebg"
+        app:layout_constraintBottom_toBottomOf="@id/rectanglebg"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginBottom="11dp"
+        />
+
     <ScrollView
-        android:layout_width="match_parent"
+        android:layout_width="305dp"
         android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -109,15 +98,29 @@
                 android:id="@+id/CookingCategoryContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="11dp">
-
+                android:layout_marginTop="35dp">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/hobbies_rectangle"
+                    android:layout_alignParentStart="true"/>
                 <ImageView
                     android:id="@+id/CookingCategorydropdown"
-                    android:layout_width="21dp"
-                    android:layout_height="21dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/down"
-                    android:layout_marginStart="18dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="15dp"
+                    android:layout_centerVertical="true"
                     android:clickable="true"/>
+                <ImageView
+                    android:id="@+id/CookingIcon"
+                    android:layout_width="40dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/cooking_icon"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/CookingCategorydropdown"
+                    android:layout_marginStart="9dp"/>
                 <TextView
                     android:id="@+id/FirstCategory"
                     android:layout_width="wrap_content"
@@ -127,8 +130,9 @@
                     android:textColor="#1F2122"
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="600"
-                    android:layout_marginTop="-3dp"
-                    android:layout_marginStart="45dp"
+                    android:layout_toEndOf="@id/CookingIcon"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="13dp"
                     android:clickable="true"/>
             </RelativeLayout>
 
@@ -150,7 +154,7 @@
                     android:id="@+id/ImageBaking"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
-                    android:src="@drawable/cooking"
+                    android:src="@drawable/baking"
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="80dp"
                     android:layout_marginStart="10dp"/>
@@ -176,28 +180,9 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_toStartOf="@id/bakingInfo"
-                    android:layout_marginTop="88dp"
-                    android:layout_marginEnd="7dp"/>
-
-                <ImageView
-                    android:id="@+id/bakingInfo"
-                    android:layout_width="18dp"
-                    android:layout_height="19dp"
-                    android:layout_marginTop="91dp"
-                    android:layout_marginEnd="3dp"
-                    android:layout_toStartOf="@id/ClickFavoriteBaking"
-                    android:clickable="true"
-                    android:src="@drawable/info" />
-                <ImageView
-                    android:id="@+id/ClickFavoriteBaking"
-                    android:layout_width="21dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/unselectedheart"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="91dp"
-                    android:layout_marginEnd="10dp"
-                    android:clickable="true"/>
+                    android:layout_marginTop="88dp"
+                    android:layout_marginEnd="25dp"/>
                 <View
                     android:id="@+id/subCooking2"
                     android:layout_width="match_parent"
@@ -210,7 +195,7 @@
                     android:id="@+id/ImageHomebrewing"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
-                    android:src="@drawable/cooking"
+                    android:src="@drawable/homebrewing"
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="150dp"
                     android:layout_marginStart="10dp"/>
@@ -236,28 +221,9 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_toStartOf="@id/HomebrewingInfo"
-                    android:layout_marginTop="158dp"
-                    android:layout_marginEnd="7dp"/>
-                <ImageView
-                    android:id="@+id/HomebrewingInfo"
-                    android:layout_width="18dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/info"
-                    android:layout_toStartOf="@id/ClickFavoriteHomebrewing"
-                    android:layout_marginTop="160dp"
-                    android:layout_marginEnd="3dp"
-                    android:clickable="true"/>
-                <ImageView
-                    android:id="@+id/ClickFavoriteHomebrewing"
-                    android:layout_width="21dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/unselectedheart"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="160dp"
-                    android:layout_marginEnd="10dp"
-                    android:clickable="true"/>
-
+                    android:layout_marginTop="158dp"
+                    android:layout_marginEnd="25dp"/>
                 <View
                     android:id="@+id/subCooking3"
                     android:layout_width="match_parent"
@@ -270,7 +236,7 @@
                     android:id="@+id/ImageHealthyCooking"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
-                    android:src="@drawable/cooking"
+                    android:src="@drawable/healthy_cooking"
                     app:layout_constraintTop_toTopOf="@id/subCooking3"
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="220dp"
@@ -297,28 +263,9 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_toStartOf="@id/HealthyCookingInfo"
-                    android:layout_marginTop="228dp"
-                    android:layout_marginEnd="7dp"/>
-                <ImageView
-                    android:id="@+id/HealthyCookingInfo"
-                    android:layout_width="18dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/info"
-                    android:layout_toStartOf="@id/ClickFavoriteHHealthyCooking"
-                    android:layout_marginTop="230dp"
-                    android:layout_marginEnd="3dp"
-                    android:clickable="true"/>
-                <ImageView
-                    android:id="@+id/ClickFavoriteHHealthyCooking"
-                    android:layout_width="21dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/unselectedheart"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="230dp"
-                    android:layout_marginEnd="10dp"
-                    android:clickable="true"/>
-
+                    android:layout_marginTop="228dp"
+                    android:layout_marginEnd="25dp"/>
                 <View
                     android:id="@+id/subCooking4"
                     android:layout_width="match_parent"
@@ -331,7 +278,7 @@
                     android:id="@+id/ImageFoodpreservation"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
-                    android:src="@drawable/cooking"
+                    android:src="@drawable/food_preservation"
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="289dp"
                     android:layout_marginStart="10dp"/>
@@ -357,41 +304,37 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_toStartOf="@id/FoodPreservationInfo"
-                    android:layout_marginTop="297dp"
-                    android:layout_marginEnd="7dp"/>
-                <ImageView
-                    android:id="@+id/FoodPreservationInfo"
-                    android:layout_width="18dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/info"
-                    android:layout_toStartOf="@id/ClickFavoriteFoodPreservation"
-                    android:layout_marginTop="300dp"
-                    android:layout_marginEnd="3dp"
-                    android:clickable="true"/>
-                <ImageView
-                    android:id="@+id/ClickFavoriteFoodPreservation"
-                    android:layout_width="21dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/unselectedheart"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="300dp"
-                    android:layout_marginEnd="10dp"
-                    android:clickable="true"/>
+                    android:layout_marginTop="297dp"
+                    android:layout_marginEnd="25dp"/>
             </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/CreativeArtsCategoryContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp">
+                android:layout_marginTop="18dp">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/hobbies_rectangle"
+                    android:layout_alignParentStart="true"/>
                 <ImageView
                     android:id="@+id/CreativeArtsDropdown"
-                    android:layout_width="21dp"
-                    android:layout_height="21dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/down"
-                    android:layout_marginStart="18dp"
-                    />
+                    android:layout_marginStart="15dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"/>
+                <ImageView
+                    android:id="@+id/creativeartsImage"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/creativearts"
+                    android:layout_toEndOf="@id/CreativeArtsDropdown"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="9dp"/>
                 <TextView
                     android:id="@+id/SecondCategory"
                     android:layout_width="wrap_content"
@@ -401,8 +344,9 @@
                     android:textColor="#1F2122"
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="600"
-                    android:layout_marginTop="-3dp"
-                    android:layout_marginStart="45dp"/>
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/creativeartsImage"
+                    android:layout_marginStart="12dp"/>
             </RelativeLayout>
 
             <RelativeLayout
@@ -410,7 +354,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="-55dp"
-                android:visibility="visible">
+                android:visibility="gone">
                 <View
                     android:id="@+id/subCreativeArts1"
                     android:layout_width="match_parent"
@@ -423,7 +367,7 @@
                     android:id="@+id/artsImage"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
-                    android:src="@drawable/creative_arts"
+                    android:src="@drawable/creative_writing"
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="80dp"
                     android:layout_marginStart="10dp"/>
@@ -449,27 +393,9 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_toStartOf="@id/WritingInfo"
-                    android:layout_marginTop="88dp"
-                    android:layout_marginEnd="7dp"/>
-                <ImageView
-                    android:id="@+id/WritingInfo"
-                    android:layout_width="18dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/info"
-                    android:layout_toStartOf="@id/ClickFavoriteWriting"
-                    android:layout_marginTop="90dp"
-                    android:layout_marginEnd="3dp"
-                    android:clickable="true"/>
-                <ImageView
-                    android:id="@+id/ClickFavoriteWriting"
-                    android:layout_width="21dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/unselectedheart"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="91dp"
-                    android:layout_marginEnd="10dp"
-                    android:clickable="true"/>
+                    android:layout_marginTop="88dp"
+                    android:layout_marginEnd="25dp"/>
                 <View
                     android:id="@+id/subCreativeArts2"
                     android:layout_width="match_parent"
@@ -482,7 +408,7 @@
                     android:id="@+id/ImageArts"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
-                    android:src="@drawable/creative_arts"
+                    android:src="@drawable/drawing"
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="150dp"
                     android:layout_marginStart="10dp"/>
@@ -508,28 +434,9 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_toStartOf="@id/DrawingInfo"
-                    android:layout_marginTop="158dp"
-                    android:layout_marginEnd="7dp"/>
-                <ImageView
-                    android:id="@+id/DrawingInfo"
-                    android:layout_width="18dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/info"
-                    android:layout_toStartOf="@id/ClickFavoriteDrawing"
-                    android:layout_marginTop="160dp"
-                    android:layout_marginEnd="3dp"
-                    android:clickable="true"/>
-                <ImageView
-                    android:id="@+id/ClickFavoriteDrawing"
-                    android:layout_width="21dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/unselectedheart"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="160dp"
-                    android:layout_marginEnd="10dp"
-                    android:clickable="true"/>
-
+                    android:layout_marginTop="158dp"
+                    android:layout_marginEnd="25dp"/>
                 <View
                     android:id="@+id/subCreativeArts3"
                     android:layout_width="match_parent"
@@ -542,7 +449,7 @@
                     android:id="@+id/ImageFiberArts"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
-                    android:src="@drawable/creative_arts"
+                    android:src="@drawable/fiber_arts"
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="220dp"
                     android:layout_marginStart="10dp"/>
@@ -568,28 +475,9 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_toStartOf="@id/FiberArtsInfo"
-                    android:layout_marginTop="228dp"
-                    android:layout_marginEnd="7dp"/>
-                <ImageView
-                    android:id="@+id/FiberArtsInfo"
-                    android:layout_width="18dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/info"
-                    android:layout_toStartOf="@id/ClickFavoriteFiberArts"
-                    android:layout_marginTop="230dp"
-                    android:layout_marginEnd="3dp"
-                    android:clickable="true"/>
-                <ImageView
-                    android:id="@+id/ClickFavoriteFiberArts"
-                    android:layout_width="21dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/unselectedheart"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="230dp"
-                    android:layout_marginEnd="10dp"
-                    android:clickable="true"/>
-
+                    android:layout_marginTop="228dp"
+                    android:layout_marginEnd="25dp"/>
                 <View
                     android:id="@+id/subCreativeArts4"
                     android:layout_width="match_parent"
@@ -602,7 +490,7 @@
                     android:id="@+id/Imagepainting"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
-                    android:src="@drawable/creative_arts"
+                    android:src="@drawable/painting"
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="289dp"
                     android:layout_marginStart="10dp"/>
@@ -628,40 +516,37 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_toStartOf="@id/PaintingInfo"
-                    android:layout_marginTop="297dp"
-                    android:layout_marginEnd="7dp"/>
-                <ImageView
-                    android:id="@+id/PaintingInfo"
-                    android:layout_width="18dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/info"
-                    android:layout_toStartOf="@id/ClickFavoritePainting"
-                    android:layout_marginTop="300dp"
-                    android:layout_marginEnd="3dp"
-                    android:clickable="true"/>
-                <ImageView
-                    android:id="@+id/ClickFavoritePainting"
-                    android:layout_width="21dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/unselectedheart"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="300dp"
-                    android:layout_marginEnd="10dp"
-                    android:clickable="true"/>
+                    android:layout_marginTop="297dp"
+                    android:layout_marginEnd="25dp"/>
             </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/HealthandWellnessCategoryContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp">
+                android:layout_marginTop="18dp">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/hobbies_rectangle"
+                    android:layout_alignParentStart="true"/>
                 <ImageView
                     android:id="@+id/HealthandWellnessDropdown"
-                    android:layout_width="21dp"
-                    android:layout_height="21dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/down"
-                    android:layout_marginStart="18dp"/>
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="15dp"/>
+                <ImageView
+                    android:id="@+id/Healthandwellnesspic"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/healthandwellnes"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/HealthandWellnessDropdown"
+                    android:layout_marginStart="9dp"/>
                 <TextView
                     android:id="@+id/ThirdCategory"
                     android:layout_width="wrap_content"
@@ -671,8 +556,9 @@
                     android:textColor="#1F2122"
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="600"
-                    android:layout_marginStart="45dp"
-                    android:layout_marginTop="-3dp"/>
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/Healthandwellnesspic"
+                    android:layout_marginStart="12dp"/>
             </RelativeLayout>
 
             <RelativeLayout
@@ -693,7 +579,7 @@
                     android:id="@+id/Imagegardening"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
-                    android:src="@drawable/health_and_wellness"
+                    android:src="@drawable/gardening"
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="80dp"
                     android:layout_marginStart="10dp"/>
@@ -719,27 +605,10 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_toStartOf="@id/GardeningInfo"
-                    android:layout_marginTop="88dp"
-                    android:layout_marginEnd="7dp"/>
-                <ImageView
-                    android:id="@+id/GardeningInfo"
-                    android:layout_width="18dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/info"
-                    android:layout_toStartOf="@id/ClickFavoriteGardening"
-                    android:layout_marginTop="90dp"
-                    android:layout_marginEnd="3dp"
-                    android:clickable="true"/>
-                <ImageView
-                    android:id="@+id/ClickFavoriteGardening"
-                    android:layout_width="21dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/unselectedheart"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="91dp"
-                    android:layout_marginEnd="10dp"
-                    android:clickable="true"/>
+                    android:layout_marginTop="88dp"
+                    android:layout_marginEnd="25dp"/>
+
                 <View
                     android:id="@+id/subHealthandWellness2"
                     android:layout_width="match_parent"
@@ -752,7 +621,7 @@
                     android:id="@+id/ImageMartialArts"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
-                    android:src="@drawable/health_and_wellness"
+                    android:src="@drawable/martial_arts"
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="150dp"
                     android:layout_marginStart="10dp"/>
@@ -778,27 +647,9 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_toStartOf="@id/MartialArtsInfo"
-                    android:layout_marginTop="158dp"
-                    android:layout_marginEnd="7dp"/>
-                <ImageView
-                    android:id="@+id/MartialArtsInfo"
-                    android:layout_width="18dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/info"
-                    android:layout_toStartOf="@id/ClickFavoriteMartialArts"
-                    android:layout_marginTop="160dp"
-                    android:layout_marginEnd="3dp"
-                    android:clickable="true"/>
-                <ImageView
-                    android:id="@+id/ClickFavoriteMartialArts"
-                    android:layout_width="21dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/unselectedheart"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="160dp"
-                    android:layout_marginEnd="10dp"
-                    android:clickable="true"/>
+                    android:layout_marginTop="158dp"
+                    android:layout_marginEnd="25dp"/>
 
                 <View
                     android:id="@+id/subHealthandWellness3"
@@ -812,7 +663,7 @@
                     android:id="@+id/ImageRunning"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
-                    android:src="@drawable/health_and_wellness"
+                    android:src="@drawable/running"
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="220dp"
                     android:layout_marginStart="10dp"/>
@@ -838,27 +689,9 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_toStartOf="@id/RunningInfo"
-                    android:layout_marginTop="228dp"
-                    android:layout_marginEnd="7dp"/>
-                <ImageView
-                    android:id="@+id/RunningInfo"
-                    android:layout_width="18dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/info"
-                    android:layout_toStartOf="@id/ClickFavoriteRunning"
-                    android:layout_marginTop="230dp"
-                    android:layout_marginEnd="3dp"
-                    android:clickable="true"/>
-                <ImageView
-                    android:id="@+id/ClickFavoriteRunning"
-                    android:layout_width="21dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/unselectedheart"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="230dp"
-                    android:layout_marginEnd="10dp"
-                    android:clickable="true"/>
+                    android:layout_marginTop="228dp"
+                    android:layout_marginEnd="25dp"/>
 
                 <View
                     android:id="@+id/subHealthandWellness4"
@@ -872,7 +705,7 @@
                     android:id="@+id/ImageSwimming"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
-                    android:src="@drawable/health_and_wellness"
+                    android:src="@drawable/swimming"
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="289dp"
                     android:layout_marginStart="10dp"/>
@@ -898,40 +731,38 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_toStartOf="@id/SwimmingInfo"
-                    android:layout_marginTop="297dp"
-                    android:layout_marginEnd="7dp"/>
-                <ImageView
-                    android:id="@+id/SwimmingInfo"
-                    android:layout_width="18dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/info"
-                    android:layout_toStartOf="@id/ClickFavoriteSwimming"
-                    android:layout_marginTop="300dp"
-                    android:layout_marginEnd="3dp"
-                    android:clickable="true"/>
-                <ImageView
-                    android:id="@+id/ClickFavoriteSwimming"
-                    android:layout_width="21dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/unselectedheart"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="300dp"
-                    android:layout_marginEnd="10dp"
-                    android:clickable="true"/>
+                    android:layout_marginTop="297dp"
+                    android:layout_marginEnd="25dp"/>
+
             </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/MusicPerformanceCategoryContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp">
+                android:layout_marginTop="18dp">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/hobbies_rectangle"
+                    android:layout_alignParentStart="true"/>
                 <ImageView
                     android:id="@+id/MusicandperformingDropdown"
-                    android:layout_width="21dp"
-                    android:layout_height="21dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/down"
-                    android:layout_marginStart="18dp" />
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="15dp"/>
+                <ImageView
+                    android:id="@+id/Musicpic"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/music_and_performing"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/MusicandperformingDropdown"
+                    android:layout_marginStart="9dp"/>
                 <TextView
                     android:id="@+id/FourthCategory"
                     android:layout_width="wrap_content"
@@ -941,8 +772,9 @@
                     android:textColor="#1F2122"
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="600"
-                    android:layout_marginTop="-3dp"
-                    android:layout_marginStart="45dp"/>
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/Musicpic"
+                    android:layout_marginStart="12dp"/>
             </RelativeLayout>
 
             <RelativeLayout
@@ -963,7 +795,7 @@
                     android:id="@+id/ImageGuitar"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
-                    android:src="@drawable/music"
+                    android:src="@drawable/guitar"
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="80dp"
                     android:layout_marginStart="10dp"/>
@@ -989,27 +821,9 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_toStartOf="@id/GuitarInfo"
-                    android:layout_marginTop="88dp"
-                    android:layout_marginEnd="7dp"/>
-                <ImageView
-                    android:id="@+id/GuitarInfo"
-                    android:layout_width="18dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/info"
-                    android:layout_toStartOf="@id/ClickFavoriteGuitar"
-                    android:layout_marginTop="90dp"
-                    android:layout_marginEnd="3dp"
-                    android:clickable="true"/>
-                <ImageView
-                    android:id="@+id/ClickFavoriteGuitar"
-                    android:layout_width="21dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/unselectedheart"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="91dp"
-                    android:layout_marginEnd="10dp"
-                    android:clickable="true"/>
+                    android:layout_marginTop="88dp"
+                    android:layout_marginEnd="25dp"/>
 
                 <View
                     android:id="@+id/subMusicandPerforming2"
@@ -1023,7 +837,7 @@
                     android:id="@+id/ImageSinging"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
-                    android:src="@drawable/music"
+                    android:src="@drawable/singing"
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="150dp"
                     android:layout_marginStart="10dp"/>
@@ -1049,27 +863,9 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_toStartOf="@id/SingingInfo"
-                    android:layout_marginTop="158dp"
-                    android:layout_marginEnd="7dp"/>
-                <ImageView
-                    android:id="@+id/SingingInfo"
-                    android:layout_width="18dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/info"
-                    android:layout_toStartOf="@id/ClickFavoriteSinging"
-                    android:layout_marginTop="160dp"
-                    android:layout_marginEnd="3dp"
-                    android:clickable="true"/>
-                <ImageView
-                    android:id="@+id/ClickFavoriteSinging"
-                    android:layout_width="21dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/unselectedheart"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="160dp"
-                    android:layout_marginEnd="10dp"
-                    android:clickable="true"/>
+                    android:layout_marginTop="158dp"
+                    android:layout_marginEnd="25dp"/>
 
                 <View
                     android:id="@+id/subMusicandPerforming3"
@@ -1083,7 +879,7 @@
                     android:id="@+id/ImageSongwriting"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
-                    android:src="@drawable/music"
+                    android:src="@drawable/songwriting"
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="220dp"
                     android:layout_marginStart="10dp"/>
@@ -1109,27 +905,9 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_toStartOf="@id/SongwritingInfo"
-                    android:layout_marginTop="228dp"
-                    android:layout_marginEnd="7dp"/>
-                <ImageView
-                    android:id="@+id/SongwritingInfo"
-                    android:layout_width="18dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/info"
-                    android:layout_toStartOf="@id/ClickFavoriteSongwriting"
-                    android:layout_marginTop="230dp"
-                    android:layout_marginEnd="3dp"
-                    android:clickable="true"/>
-                <ImageView
-                    android:id="@+id/ClickFavoriteSongwriting"
-                    android:layout_width="21dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/unselectedheart"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="230dp"
-                    android:layout_marginEnd="10dp"
-                    android:clickable="true"/>
+                    android:layout_marginTop="228dp"
+                    android:layout_marginEnd="25dp"/>
 
                 <View
                     android:id="@+id/subMusicandPerforming4"
@@ -1143,7 +921,7 @@
                     android:id="@+id/ImageDancing"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
-                    android:src="@drawable/music"
+                    android:src="@drawable/dancing"
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="289dp"
                     android:layout_marginStart="10dp"/>
@@ -1169,40 +947,38 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_toStartOf="@id/DancingInfo"
-                    android:layout_marginTop="297dp"
-                    android:layout_marginEnd="7dp"/>
-                <ImageView
-                    android:id="@+id/DancingInfo"
-                    android:layout_width="18dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/info"
-                    android:layout_toStartOf="@id/ClickFavoriteDancing"
-                    android:layout_marginTop="300dp"
-                    android:layout_marginEnd="3dp"
-                    android:clickable="true"/>
-                <ImageView
-                    android:id="@+id/ClickFavoriteDancing"
-                    android:layout_width="21dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/unselectedheart"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="300dp"
-                    android:layout_marginEnd="10dp"
-                    android:clickable="true"/>
+                    android:layout_marginTop="297dp"
+                    android:layout_marginEnd="25dp"/>
+
             </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/readingWritingCategoryContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp">
+                android:layout_marginTop="18dp">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/hobbies_rectangle"
+                    android:layout_alignParentStart="true"/>
                 <ImageView
                     android:id="@+id/ReadingandWritingDropdown"
-                    android:layout_width="21dp"
-                    android:layout_height="21dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/down"
-                    android:layout_marginStart="18dp" />
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="15dp" />
+                <ImageView
+                    android:id="@+id/ReadingPic"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/readingnwriting"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/ReadingandWritingDropdown"
+                    android:layout_marginStart="9dp"/>
                 <TextView
                     android:id="@+id/FifthCategory"
                     android:layout_width="wrap_content"
@@ -1212,8 +988,9 @@
                     android:textColor="#1F2122"
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="600"
-                    android:layout_marginTop="-3dp"
-                    android:layout_marginStart="45dp"/>
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/ReadingPic"
+                    android:layout_marginStart="15dp"/>
             </RelativeLayout>
 
             <RelativeLayout
@@ -1221,7 +998,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="-55dp"
-                android:visibility="gone">
+                android:visibility="visible">
                 <View
                     android:id="@+id/subReadingandWriting1"
                     android:layout_width="match_parent"
@@ -1234,7 +1011,7 @@
                     android:id="@+id/ImageBlogging"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
-                    android:src="@drawable/reading_and_writing"
+                    android:src="@drawable/blogging"
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="80dp"
                     android:layout_marginStart="10dp"/>
@@ -1260,27 +1037,9 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_toStartOf="@id/BloggingInfo"
-                    android:layout_marginTop="88dp"
-                    android:layout_marginEnd="7dp"/>
-                <ImageView
-                    android:id="@+id/BloggingInfo"
-                    android:layout_width="18dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/info"
-                    android:layout_toStartOf="@id/ClickFavoriteBlogging"
-                    android:layout_marginTop="90dp"
-                    android:layout_marginEnd="3dp"
-                    android:clickable="true"/>
-                <ImageView
-                    android:id="@+id/ClickFavoriteBlogging"
-                    android:layout_width="21dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/unselectedheart"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="91dp"
-                    android:layout_marginEnd="10dp"
-                    android:clickable="true"/>
+                    android:layout_marginTop="88dp"
+                    android:layout_marginEnd="25dp"/>
 
                 <View
                     android:id="@+id/subReadingandWriting2"
@@ -1294,7 +1053,7 @@
                     android:id="@+id/ImageFictionWriting"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
-                    android:src="@drawable/reading_and_writing"
+                    android:src="@drawable/fictionwriting"
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="150dp"
                     android:layout_marginStart="10dp"/>
@@ -1320,27 +1079,9 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_toStartOf="@id/FictionWritingInfo"
-                    android:layout_marginTop="158dp"
-                    android:layout_marginEnd="7dp"/>
-                <ImageView
-                    android:id="@+id/FictionWritingInfo"
-                    android:layout_width="18dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/info"
-                    android:layout_toStartOf="@id/ClickFavoriteFictionWriting"
-                    android:layout_marginTop="160dp"
-                    android:layout_marginEnd="3dp"
-                    android:clickable="true"/>
-                <ImageView
-                    android:id="@+id/ClickFavoriteFictionWriting"
-                    android:layout_width="21dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/unselectedheart"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="160dp"
-                    android:layout_marginEnd="10dp"
-                    android:clickable="true"/>
+                    android:layout_marginTop="158dp"
+                    android:layout_marginEnd="25dp"/>
 
                 <View
                     android:id="@+id/subReadingandWriting3"
@@ -1354,7 +1095,7 @@
                     android:id="@+id/ImageJournaling"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
-                    android:src="@drawable/reading_and_writing"
+                    android:src="@drawable/journaling"
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="220dp"
                     android:layout_marginStart="10dp"/>
@@ -1380,27 +1121,9 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_toStartOf="@id/journalingInfo"
-                    android:layout_marginTop="228dp"
-                    android:layout_marginEnd="7dp"/>
-                <ImageView
-                    android:id="@+id/journalingInfo"
-                    android:layout_width="18dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/info"
-                    android:layout_toStartOf="@id/ClickFavoriteJournaling"
-                    android:layout_marginTop="230dp"
-                    android:layout_marginEnd="3dp"
-                    android:clickable="true"/>
-                <ImageView
-                    android:id="@+id/ClickFavoriteJournaling"
-                    android:layout_width="21dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/unselectedheart"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="230dp"
-                    android:layout_marginEnd="10dp"
-                    android:clickable="true"/>
+                    android:layout_marginTop="228dp"
+                    android:layout_marginEnd="25dp"/>
 
                 <View
                     android:id="@+id/subReadingandWriting4"
@@ -1414,7 +1137,7 @@
                     android:id="@+id/ImageLanguageLearning"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
-                    android:src="@drawable/reading_and_writing"
+                    android:src="@drawable/languagelearning"
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="289dp"
                     android:layout_marginStart="10dp"/>
@@ -1440,40 +1163,38 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_toStartOf="@id/LanguageLearningInfo"
-                    android:layout_marginTop="297dp"
-                    android:layout_marginEnd="7dp"/>
-                <ImageView
-                    android:id="@+id/LanguageLearningInfo"
-                    android:layout_width="18dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/info"
-                    android:layout_toStartOf="@id/ClickFavoriteLanguageLearning"
-                    android:layout_marginTop="300dp"
-                    android:layout_marginEnd="3dp"
-                    android:clickable="true"/>
-                <ImageView
-                    android:id="@+id/ClickFavoriteLanguageLearning"
-                    android:layout_width="21dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/unselectedheart"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="300dp"
-                    android:layout_marginEnd="10dp"
-                    android:clickable="true"/>
+                    android:layout_marginTop="297dp"
+                    android:layout_marginEnd="25dp"/>
+
             </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/SciencetechCategoryContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp">
+                android:layout_marginTop="18dp">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/hobbies_rectangle"
+                    android:layout_alignParentStart="true"/>
                 <ImageView
                     android:id="@+id/ScienceandTechDropdown"
-                    android:layout_width="21dp"
-                    android:layout_height="21dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/down"
-                    android:layout_marginStart="18dp"/>
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="15dp"/>
+                <ImageView
+                    android:id="@+id/ScienceandTechPic"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/scienceandtech"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/ScienceandTechDropdown"
+                    android:layout_marginStart="9dp"/>
                 <TextView
                     android:id="@+id/SixthCategory"
                     android:layout_width="wrap_content"
@@ -1483,8 +1204,9 @@
                     android:textColor="#1F2122"
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="600"
-                    android:layout_marginTop="-3dp"
-                    android:layout_marginStart="45dp"/>
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/ScienceandTechPic"
+                    android:layout_marginStart="12dp"/>
             </RelativeLayout>
 
             <RelativeLayout
@@ -1505,7 +1227,7 @@
                     android:id="@+id/ImageAstronomy"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
-                    android:src="@drawable/science_and_technology"
+                    android:src="@drawable/astronomy"
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="80dp"
                     android:layout_marginStart="10dp"/>
@@ -1531,27 +1253,9 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_toStartOf="@id/AstronomyInfo"
-                    android:layout_marginTop="88dp"
-                    android:layout_marginEnd="7dp"/>
-                <ImageView
-                    android:id="@+id/AstronomyInfo"
-                    android:layout_width="18dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/info"
-                    android:layout_toStartOf="@id/ClickFavoriteAstronomy"
-                    android:layout_marginTop="90dp"
-                    android:layout_marginEnd="3dp"
-                    android:clickable="true"/>
-                <ImageView
-                    android:id="@+id/ClickFavoriteAstronomy"
-                    android:layout_width="21dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/unselectedheart"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="91dp"
-                    android:layout_marginEnd="10dp"
-                    android:clickable="true"/>
+                    android:layout_marginTop="88dp"
+                    android:layout_marginEnd="25dp"/>
 
                 <View
                     android:id="@+id/subScienceandTech2"
@@ -1565,7 +1269,7 @@
                     android:id="@+id/ImageCoding"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
-                    android:src="@drawable/science_and_technology"
+                    android:src="@drawable/coding_and_programming"
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="150dp"
                     android:layout_marginStart="10dp"/>
@@ -1591,27 +1295,9 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_toStartOf="@id/CodingInfo"
-                    android:layout_marginTop="158dp"
-                    android:layout_marginEnd="7dp"/>
-                <ImageView
-                    android:id="@+id/CodingInfo"
-                    android:layout_width="18dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/info"
-                    android:layout_toStartOf="@id/ClickFavoriteCoding"
-                    android:layout_marginTop="160dp"
-                    android:layout_marginEnd="3dp"
-                    android:clickable="true"/>
-                <ImageView
-                    android:id="@+id/ClickFavoriteCoding"
-                    android:layout_width="21dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/unselectedheart"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="160dp"
-                    android:layout_marginEnd="10dp"
-                    android:clickable="true"/>
+                    android:layout_marginTop="158dp"
+                    android:layout_marginEnd="25dp"/>
 
                 <View
                     android:id="@+id/subScienceandTech3"
@@ -1625,7 +1311,7 @@
                     android:id="@+id/ImageElectronics"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
-                    android:src="@drawable/science_and_technology"
+                    android:src="@drawable/electronics"
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="220dp"
                     android:layout_marginStart="10dp"/>
@@ -1651,27 +1337,9 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_toStartOf="@id/ElectronicsInfo"
-                    android:layout_marginTop="228dp"
-                    android:layout_marginEnd="7dp"/>
-                <ImageView
-                    android:id="@+id/ElectronicsInfo"
-                    android:layout_width="18dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/info"
-                    android:layout_toStartOf="@id/ClickFavoriteElectronics"
-                    android:layout_marginTop="230dp"
-                    android:layout_marginEnd="3dp"
-                    android:clickable="true"/>
-                <ImageView
-                    android:id="@+id/ClickFavoriteElectronics"
-                    android:layout_width="21dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/unselectedheart"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="230dp"
-                    android:layout_marginEnd="10dp"
-                    android:clickable="true"/>
+                    android:layout_marginTop="228dp"
+                    android:layout_marginEnd="25dp"/>
 
                 <View
                     android:id="@+id/subScienceandTech4"
@@ -1685,7 +1353,7 @@
                     android:id="@+id/ImageVideoGaming"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
-                    android:src="@drawable/science_and_technology"
+                    android:src="@drawable/video_gaming"
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="289dp"
                     android:layout_marginStart="10dp"/>
@@ -1711,27 +1379,10 @@
                     android:fontFamily="@font/inter_light"
                     android:padding="0dp"
                     android:backgroundTint="#205375"
-                    android:layout_toStartOf="@id/VideoGamingInfo"
-                    android:layout_marginTop="297dp"
-                    android:layout_marginEnd="7dp"/>
-                <ImageView
-                    android:id="@+id/VideoGamingInfo"
-                    android:layout_width="18dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/info"
-                    android:layout_toStartOf="@id/ClickFavoriteVideoGaming"
-                    android:layout_marginTop="300dp"
-                    android:layout_marginEnd="3dp"
-                    android:clickable="true"/>
-                <ImageView
-                    android:id="@+id/ClickFavoriteVideoGaming"
-                    android:layout_width="21dp"
-                    android:layout_height="19dp"
-                    android:src="@drawable/unselectedheart"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="300dp"
-                    android:layout_marginEnd="10dp"
-                    android:clickable="true"/>
+                    android:layout_marginTop="297dp"
+                    android:layout_marginEnd="25dp"/>
+
             </RelativeLayout>
 
         </LinearLayout>
