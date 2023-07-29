@@ -3,7 +3,20 @@
     <style name="Base.Theme.HOBBITS" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <item name="colorPrimary">@color/my_dark_primary</item>
-        <item name="android:textColor">@color/search</item>
-
+        <item name="android:textColor">@color/black</item>
     </style>
+
+    <style name="CustomNumberPicker">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="CustomCheckBox">
+        <!-- Text color for the CheckBox in dark mode -->
+        <item name="android:textColor">@color/black</item>
+        <!-- Background color for the CheckBox in dark mode -->
+        <item name="android:background">@android:color/transparent</item>
+        <!-- Customize other attributes of the CheckBox as needed -->
+        <item name="android:buttonTint">@color/black</item>
+    </style>
+
 </resources>

@@ -43,7 +43,8 @@
         android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rectanglebg">
+        app:layout_constraintTop_toBottomOf="@id/rectanglebg"
+        app:layout_constraintBottom_toTopOf="@id/botrectangle">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -93,7 +94,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="40dp"
                         android:layout_marginStart="-50dp"
-                        style="@style/NumberPickerStyle"
+                        style="@style/CustomNumberPicker"
                         android:selectionDividerHeight="0dp"/>
                     <TextView
                         android:layout_width="wrap_content"
@@ -109,7 +110,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="40dp"
                         android:layout_marginStart="-60dp"
-                        style="@style/NumberPickerStyle"
+                        style="@style/CustomNumberPicker"
                         android:selectionDividerHeight="0dp"/>
                     <Spinner
                         android:id="@+id/am_pm_spinner"
@@ -174,10 +175,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Monday"
+                        android:backgroundTint="@color/black"
                         android:textSize="15sp"
                         android:textColor="@color/black"
                         android:fontFamily="@font/inter_light"
                         android:textFontWeight="500"
+                        style="@style/CustomCheckBox"
                         android:button="@drawable/checkbox_selector"
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="5dp"/>
@@ -267,7 +270,8 @@
                     app:layout_constraintTop_toBottomOf="@id/SetUpDays"
                     android:layout_marginStart="62dp"
                     android:layout_marginEnd="191dp"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"/>
 
                 <Button
                     android:id="@+id/SetUpSchedSaveButton"
@@ -284,11 +288,22 @@
                     app:layout_constraintTop_toBottomOf="@id/SetUpDays"
                     android:layout_marginStart="190dp"
                     android:layout_marginEnd="63dp"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
     </ScrollView>
+
+    <View
+        android:id="@+id/botrectangle"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:background="@drawable/rectangle_bot"
+        android:backgroundTint="@color/bgcolor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
