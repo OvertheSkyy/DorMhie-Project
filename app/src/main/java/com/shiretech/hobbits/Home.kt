@@ -16,12 +16,14 @@ import java.text.DateFormatSymbols
 import java.util.Calendar
 import java.util.*
 
-
 class Home : AppCompatActivity() {
 
     private lateinit var gridView: GridView
     private lateinit var calendarAdapter: CalendarAdapter
     private lateinit var monthYearTextView: TextView
+    private lateinit var displayTimeView: TextView
+
+
 
     private var currentMonth: Int = 0
     private var currentYear: Int = 0
@@ -33,6 +35,7 @@ class Home : AppCompatActivity() {
         setContentView(R.layout.home_page)
 
         val textViewWelcome = findViewById<TextView>(R.id.TextViewWelcome)
+        val textViewTime = findViewById<TextView>(R.id.TimeAssignedForHobby1)
 
         val currentUser: FirebaseUser? = FirebaseAuth.getInstance().currentUser
 
@@ -107,6 +110,24 @@ class Home : AppCompatActivity() {
         // Create the adapter with the current month and year
         calendarAdapter = CalendarAdapter(this, currentMonth, currentYear)
         gridView.adapter = calendarAdapter
+
+
+        //SCHEDULE
+
+
+
+
+        displayTimeView = findViewById(R.id.TimeAssignedForHobby1)
+
+        val sharedPreferences = getSharedPreferences("SchedulePrefs", MODE_PRIVATE)
+        val savedHour = sharedPreferences.getInt("hour", 12)
+        val savedMinute = sharedPreferences.getInt("minute", 0)
+        val savedAMPM = sharedPreferences.getString("am_pm", "AM")
+
+        val displayText = " ${String.format("%02d", savedHour)}:${String.format("%02d", savedMinute)} $savedAMPM"
+        displayTimeView.text = displayText
+
+
 
     }
 

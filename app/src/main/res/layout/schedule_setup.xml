@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bgcolor">
@@ -118,12 +119,13 @@
         android:id="@+id/RepeatHobbyBG"
         android:layout_width="283dp"
         android:layout_height="50dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/progress_rectangle"
         android:backgroundTint="#E6E6E6"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/Timepicker"
-        android:layout_marginTop="60dp"/>
+        android:clickable="true"/>
     <ImageView
         android:id="@+id/RepeatHobbyImage"
         android:layout_width="32dp"
@@ -135,18 +137,36 @@
         android:layout_marginTop="10dp"
         android:layout_marginStart="12dp"
         android:layout_marginEnd="249dp"/>
+
+    <ImageView
+        android:id="@+id/SelectDateButton"
+        android:layout_width="27dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="4dp"
+        android:clickable="true"
+        android:src="@drawable/selectdate"
+        app:layout_constraintBottom_toBottomOf="@+id/RepeatHobbyBG"
+        app:layout_constraintEnd_toEndOf="@+id/RepeatHobbyBG"
+        app:layout_constraintHorizontal_bias="0.922"
+        app:layout_constraintStart_toStartOf="@id/RepeatHobbyBG"
+        app:layout_constraintTop_toTopOf="@+id/RepeatHobbyBG"
+        app:layout_constraintVertical_bias="0.0" />
+
     <TextView
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Repeat Hobby"
-        android:textSize="16sp"
-        android:textColor="@color/black"
-        android:fontFamily="@font/inter_light"
-        android:textFontWeight="300"
-        app:layout_constraintStart_toEndOf="@id/RepeatHobbyImage"
-        app:layout_constraintTop_toTopOf="@id/RepeatHobbyBG"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="14dp"
-        android:layout_marginStart="5dp"/>
+        android:fontFamily="@font/inter_light"
+        android:text="Repeat Hobby"
+        android:textColor="@color/black"
+        android:textFontWeight="300"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@id/RepeatHobbyImage"
+        app:layout_constraintTop_toTopOf="@id/RepeatHobbyBG" />
 
     <View
         android:id="@+id/ReminderBG"
