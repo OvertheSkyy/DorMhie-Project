@@ -165,7 +165,10 @@ class EditHobby : AppCompatActivity() {
 
         // Create the "hobbies" node under the "categories" node for the specific hobby
         val hobbiesRef = categoriesRef.child("hobbies").child(hobbyName)
-        hobbiesRef.child("hobbits").setValue(hobbits)
+
+        // Convert ArrayList<String> to Map<String, String> before storing
+        val hobbitsMap = hobbits?.mapIndexed { index, hobbit -> "hobbit$index" to hobbit }?.toMap()
+        hobbiesRef.child("hobbits").setValue(hobbitsMap)
             .addOnSuccessListener {
                 Log.d("EditHobby", "Hobbits updated in the database")
                 Toast.makeText(applicationContext, "Hobbits updated successfully!", Toast.LENGTH_SHORT).show()
@@ -176,19 +179,20 @@ class EditHobby : AppCompatActivity() {
                     if (hobbitEditTexts != null) {
                         val hobbitName = hobbits?.get(currentHobbitIndex - 1)
                         if (hobbitName != null) {
-                            val bitsRef = hobbiesRef.child("hobbits").child(hobbitName).child("bits")
+                            val bitsRef = hobbiesRef.child("hobbits").child("hobbit$currentHobbitIndex").child("bits")
 
                             val bitTextList = hobbitEditTexts.map { it.text.toString().trim() }.filter { it.isNotEmpty() }
-                            val updatedBits = bitTextList.joinToString("\n")
-                            bitsRef.setValue(updatedBits)
-                                .addOnSuccessListener {
-                                    Log.d("EditHobby", "Bits updated for hobbit $hobbitName in the database")
-                                    Toast.makeText(applicationContext, "Bits updated for hobbit $hobbitName successfully!", Toast.LENGTH_SHORT).show()
-                                }
-                                .addOnFailureListener {
-                                    Log.e("EditHobby", "Failed to update bits for hobbit $hobbitName in the database: $it")
-                                    Toast.makeText(applicationContext, "Failed to update bits for hobbit $hobbitName!", Toast.LENGTH_SHORT).show()
-                                }
+                            for ((index, bitText) in bitTextList.withIndex()) {
+                                bitsRef.child("$index").setValue(bitText)
+                                    .addOnSuccessListener {
+                                        Log.d("EditHobby", "Bit $index updated for hobbit $hobbitName in the database")
+                                        Toast.makeText(applicationContext, "Bit $index updated for hobbit $hobbitName successfully!", Toast.LENGTH_SHORT).show()
+                                    }
+                                    .addOnFailureListener {
+                                        Log.e("EditHobby", "Failed to update bit $index for hobbit $hobbitName in the database: $it")
+                                        Toast.makeText(applicationContext, "Failed to update bit $index for hobbit $hobbitName!", Toast.LENGTH_SHORT).show()
+                                    }
+                            }
                         }
                     }
                 }
