@@ -162,10 +162,13 @@ class EditHobby : AppCompatActivity() {
 
         // Create the "categories" node under the user's node
         val categoriesRef = userRef.child("categories")
-        categoriesRef.child(hobbyName).child("hobbits").setValue(hobbits)
+
+        // Create the "hobbies" node under the "categories" node for the specific hobby
+        val hobbiesRef = categoriesRef.child("hobbies").child(hobbyName)
+        hobbiesRef.child("hobbits").setValue(hobbits)
             .addOnSuccessListener {
                 Log.d("EditHobby", "Hobbits updated in the database")
-                Toast.makeText(this, "Hobbits updated successfully!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "Hobbits updated successfully!", Toast.LENGTH_SHORT).show()
 
                 // Update the bits for each hobbit in the database
                 for (currentHobbitIndex in hobbitEditTextMap.keys) {
@@ -173,18 +176,18 @@ class EditHobby : AppCompatActivity() {
                     if (hobbitEditTexts != null) {
                         val hobbitName = hobbits?.get(currentHobbitIndex - 1)
                         if (hobbitName != null) {
-                            val bitsRef = categoriesRef.child(hobbyName).child("hobbits").child(hobbitName).child("bits")
+                            val bitsRef = hobbiesRef.child("hobbits").child(hobbitName).child("bits")
 
                             val bitTextList = hobbitEditTexts.map { it.text.toString().trim() }.filter { it.isNotEmpty() }
                             val updatedBits = bitTextList.joinToString("\n")
                             bitsRef.setValue(updatedBits)
                                 .addOnSuccessListener {
                                     Log.d("EditHobby", "Bits updated for hobbit $hobbitName in the database")
-                                    Toast.makeText(this, "Bits updated for hobbit $hobbitName successfully!", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(applicationContext, "Bits updated for hobbit $hobbitName successfully!", Toast.LENGTH_SHORT).show()
                                 }
                                 .addOnFailureListener {
                                     Log.e("EditHobby", "Failed to update bits for hobbit $hobbitName in the database: $it")
-                                    Toast.makeText(this, "Failed to update bits for hobbit $hobbitName!", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(applicationContext, "Failed to update bits for hobbit $hobbitName!", Toast.LENGTH_SHORT).show()
                                 }
                         }
                     }
@@ -192,7 +195,7 @@ class EditHobby : AppCompatActivity() {
             }
             .addOnFailureListener {
                 Log.e("EditHobby", "Failed to update hobbits in the database: $it")
-                Toast.makeText(this, "Failed to update hobbits!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "Failed to update hobbits!", Toast.LENGTH_SHORT).show()
             }
     }
 }
