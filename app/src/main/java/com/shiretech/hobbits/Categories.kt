@@ -19,7 +19,7 @@ class Categories : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.categories_subpage)
+        setContentView(R.layout.categories_page)
 
         database = FirebaseDatabase.getInstance().reference
 

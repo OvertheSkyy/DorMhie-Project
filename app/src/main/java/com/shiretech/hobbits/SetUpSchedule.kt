@@ -11,6 +11,9 @@ import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import android.content.Intent
+import android.widget.CheckBox
+import android.widget.ImageView
+import android.widget.LinearLayout
 
 
 class SetUpSchedule : AppCompatActivity() {
@@ -78,13 +81,36 @@ class SetUpSchedule : AppCompatActivity() {
                 // Do nothing
             }
         }
+
+        val clicksetRepeatHobby = findViewById<ImageView>(R.id.ClickSetRepeatHobby)
+        clicksetRepeatHobby.setOnClickListener {
+            val setUpDays = findViewById<LinearLayout>(R.id.SetUpDays)
+            if (setUpDays.visibility == View.VISIBLE){
+                setUpDays.visibility = View.GONE
+            }
+            else{
+                setUpDays.visibility = View.VISIBLE
+            }
+        }
+        val doneButton = findViewById<Button>(R.id.ButtonDonePickingDays)
+        doneButton.setOnClickListener {
+            val setUpDays = findViewById<LinearLayout>(R.id.SetUpDays)
+            if (setUpDays.visibility == View.VISIBLE) {
+                setUpDays.visibility = View.GONE
+            } else {
+                setUpDays.visibility = View.VISIBLE
+            }
+        }
+
         loadSavedTime()
+        loadSelectedDays()
 
 
         // Assuming you have a Save button with the ID 'saveButton'
         val saveButton = findViewById<Button>(R.id.SetUpSchedSaveButton)
         saveButton.setOnClickListener {
             saveSelectedTime()
+            saveSelectedDays()
         }
 
 
@@ -135,7 +161,6 @@ class SetUpSchedule : AppCompatActivity() {
         AMPMSpinner.setSelection(amPmPosition)
     }
 
-
     private fun setDefaultTime() {
         // Set the default time to 12:00
         selectedHour = 12
@@ -148,5 +173,49 @@ class SetUpSchedule : AppCompatActivity() {
         val amPmPosition = aMPMOptions.indexOf(selectedAMPM)
         AMPMSpinner.setSelection(amPmPosition)
     }
+    private fun loadSelectedDays(){
+        val sharedPreferences = getSharedPreferences("SchedulePrefs", Context.MODE_PRIVATE)
+        val SelectedDays = sharedPreferences.getStringSet("selectedDays", emptySet())
 
+        val CheckBoxMonday = findViewById<CheckBox>(R.id.CheckMonday)
+        val CheckBoxTuesday = findViewById<CheckBox>(R.id.CheckTuesday)
+        val CheckBoxWednesday = findViewById<CheckBox>(R.id.CheckWednesday)
+        val CheckBoxThursday = findViewById<CheckBox>(R.id.CheckThursday)
+        val CheckBoxFriday = findViewById<CheckBox>(R.id.CheckFriday)
+        val CheckBoxSaturday = findViewById<CheckBox>(R.id.CheckSaturday)
+        val CheckBoxSunday = findViewById<CheckBox>(R.id.CheckSunday)
+
+        //Updates Checkbox states
+        CheckBoxMonday.isChecked = SelectedDays?.contains("Monday") == true
+        CheckBoxTuesday.isChecked = SelectedDays?.contains("Tuesday") == true
+        CheckBoxWednesday.isChecked = SelectedDays?.contains("Wednesday") == true
+        CheckBoxThursday.isChecked = SelectedDays?.contains("Thursday") == true
+        CheckBoxFriday.isChecked = SelectedDays?.contains("Friday") == true
+        CheckBoxSaturday.isChecked = SelectedDays?.contains("Saturday") == true
+        CheckBoxSunday.isChecked = SelectedDays?.contains("Sunday") == true
+    }
+    private fun saveSelectedDays(){
+        val sharedPreferences = getSharedPreferences("SchedulePrefs", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+
+        val selectedDays = mutableSetOf<String>()
+        val CheckBoxMonday = findViewById<CheckBox>(R.id.CheckMonday)
+        val CheckBoxTuesday = findViewById<CheckBox>(R.id.CheckTuesday)
+        val CheckBoxWednesday = findViewById<CheckBox>(R.id.CheckWednesday)
+        val CheckBoxThursday = findViewById<CheckBox>(R.id.CheckThursday)
+        val CheckBoxFriday = findViewById<CheckBox>(R.id.CheckFriday)
+        val CheckBoxSaturday = findViewById<CheckBox>(R.id.CheckSaturday)
+        val CheckBoxSunday = findViewById<CheckBox>(R.id.CheckSunday)
+
+        if (CheckBoxMonday.isChecked) selectedDays.add("Monday")
+        if (CheckBoxTuesday.isChecked) selectedDays.add("Tuesday")
+        if (CheckBoxWednesday.isChecked) selectedDays.add("Wednesday")
+        if (CheckBoxThursday.isChecked) selectedDays.add("Thursday")
+        if (CheckBoxFriday.isChecked) selectedDays.add("Friday")
+        if (CheckBoxSaturday.isChecked) selectedDays.add("Saturday")
+        if (CheckBoxSunday.isChecked) selectedDays.add("Sunday")
+
+        editor.putStringSet("selectedDays", selectedDays)
+        editor.apply()
+    }
 }
