@@ -21,4 +21,8 @@
 
     <color name="faded">#B6B6B6</color>
     <color name="date">#1F2122</color>
+
+    <color name="search">#545454</color>
+
+    <color name="my_dark_primary">#D7942E</color>
 </resources>

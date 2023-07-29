@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.9" />
-    
+
     <ImageView
         android:id="@+id/buuble1"
         android:layout_width="250dp"
@@ -69,7 +69,7 @@
         android:id="@+id/emailLogin"
         android:layout_width="295dp"
         android:layout_height="36dp"
-        android:background="@drawable/bg_emailandpassword"
+        android:background="@drawable/createaccount_bg"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/pleasetext"
@@ -89,9 +89,9 @@
             android:id="@+id/EditTxtEmail"
             android:hint="Email"
             android:inputType="textEmailAddress"
-            style="@style/FixEditText"
             android:textSize="12sp"
             android:textColor="#1F2122"
+            style="@style/FixEditText"
             android:fontFamily="@font/inter_light"
             android:gravity="center_vertical"
             android:paddingStart="44dp" />
@@ -101,7 +101,7 @@
         android:id="@+id/passwordlogin"
         android:layout_width="295dp"
         android:layout_height="36dp"
-        android:background="@drawable/bg_emailandpassword"
+        android:background="@drawable/createaccount_bg"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/emailLogin"

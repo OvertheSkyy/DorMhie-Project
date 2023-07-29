@@ -12,6 +12,8 @@ import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
 import android.graphics.Typeface
+import android.widget.EditText
+import androidx.core.content.ContextCompat
 
 class Categories : AppCompatActivity() {
 
@@ -25,6 +27,8 @@ class Categories : AppCompatActivity() {
 
         fetchCategories()
 
+        val EditTextcolor = findViewById<EditText>(R.id.EditTxtSearch)
+        EditTextcolor.setTextColor(ContextCompat.getColor(this, R.color.black))
         //First Category
         val cookingCategoryDropdown = findViewById<ImageView>(R.id.CookingCategorydropdown)
         val cookingHobbiesContainer = findViewById<RelativeLayout>(R.id.CookinghobbiesContainer)

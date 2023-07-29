@@ -1,0 +1,9 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Unchecked state -->
+    <item android:drawable="@drawable/ic_checkbox_unchecked" android:state_checked="false" />
+
+    <!-- Checked state -->
+    <item android:drawable="@drawable/ic_checkbox_checked" android:state_checked="true" />
+
+    <!-- Add any other states if needed, such as pressed, focused, etc. -->
+</selector>

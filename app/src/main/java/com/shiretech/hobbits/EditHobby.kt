@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
@@ -24,6 +25,11 @@ class EditHobby : AppCompatActivity() {
         val userId = user?.uid ?: ""
 
         val hobbitEditTextMap = HashMap<Int, Array<EditText>>()
+
+        val BackToCategoriesBtn = findViewById<ImageView>(R.id.EditHobbyClickback)
+        BackToCategoriesBtn.setOnClickListener {
+            onBackPressed()
+        }
 
         hobbitEditTextMap[1] = arrayOf(
             findViewById(R.id.hobbits1_1),

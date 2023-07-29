@@ -5,19 +5,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/bgcolor">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guide_start"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.05" />
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guide_end"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.95" />
-
     <View
         android:id="@+id/rectanglebg"
         android:layout_width="0dp"
@@ -27,13 +14,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
     <ImageView
-        android:id="@+id/Clickback"
+        android:id="@+id/EditHobbyClickback"
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:src="@drawable/left"
         android:contentDescription="Back Button"
         android:clickable="true"
-        app:layout_constraintStart_toStartOf="@id/guide_start"
+        app:layout_constraintStart_toStartOf="@id/rectanglebg"
         app:layout_constraintTop_toTopOf="@id/rectanglebg"
         app:layout_constraintBottom_toBottomOf="@id/rectanglebg"
         android:layout_marginStart="16dp" />
@@ -46,275 +33,340 @@
         android:textColor="#205375"
         android:fontFamily="@font/inter_bold"
         app:layout_constraintTop_toTopOf="@id/rectanglebg"
-        app:layout_constraintStart_toEndOf="@id/Clickback"
-        android:layout_marginStart="25dp"
+        app:layout_constraintStart_toEndOf="@id/EditHobbyClickback"
+        android:layout_marginStart="15dp"
         android:layout_marginEnd="27dp"
         android:layout_marginTop="20dp"/>
-    <ImageView
-        android:id="@+id/ClickFavorite"
-        android:layout_width="21dp"
-        android:layout_height="19dp"
-        android:src="@drawable/favorite"
-        android:contentDescription="Favorite"
-        android:clickable="true"
-        app:layout_constraintEnd_toEndOf="@id/guide_end"
-        app:layout_constraintTop_toTopOf="@id/rectanglebg"
-        app:layout_constraintBottom_toBottomOf="@id/rectanglebg"
-        android:layout_marginEnd="77dp"/>
-    <ImageView
-        android:id="@+id/ClickInfo"
-        android:layout_width="18dp"
-        android:layout_height="19dp"
-        android:src="@drawable/info"
-        android:contentDescription="Information on Hobby"
-        android:clickable="true"
-        app:layout_constraintTop_toTopOf="@id/rectanglebg"
-        app:layout_constraintStart_toEndOf="@id/ClickFavorite"
-        android:layout_marginTop="25dp"
-        android:layout_marginStart="8dp"/>
-    <ImageView
-        android:layout_width="20dp"
-        android:layout_height="19dp"
-        android:src="@drawable/help"
-        android:contentDescription="Help"
-        android:clickable="true"
-        app:layout_constraintTop_toTopOf="@id/rectanglebg"
-        app:layout_constraintStart_toEndOf="@id/ClickInfo"
-        android:layout_marginTop="25dp"
-        android:layout_marginStart="8dp"/>
+
 
     <ScrollView
         android:id="@+id/ScrollViewHobbits"
         android:layout_width="327dp"
-        android:layout_height="523dp"
+        android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@id/rectanglebg"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginTop="34dp"
-        android:layout_marginBottom="122dp">
-        <RelativeLayout
+        android:layout_marginTop="40dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <View
-                android:layout_width="321dp"
-                android:layout_height="37dp"
-                android:background="@drawable/hobbitsbg"/>
-            <EditText
-                android:id="@+id/FirstHobbits"
-                android:layout_width="wrap_content"
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/HOBBITS1"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="1. Hobbits 1.0"
-                android:backgroundTint="@android:color/transparent"
-                android:background="@null"
-                android:textSize="14sp"
-                android:textColor="#205375"
-                android:fontFamily="@font/inter_light"
-                android:textFontWeight="700"
-                android:layout_marginTop="9dp"
-                android:layout_marginStart="18dp"/>
-            <View
-                android:layout_width="321dp"
-                android:layout_height="110dp"
+                android:background="@drawable/hobbitsbg"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <EditText
+                    android:id="@+id/FirstHobbits"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="1. Hobbits 1.0"
+                    android:backgroundTint="@android:color/transparent"
+                    android:background="@null"
+                    android:textSize="14sp"
+                    android:textColor="#205375"
+                    android:fontFamily="@font/inter_light"
+                    android:textFontWeight="700"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginBottom="9dp"
+                    app:layout_constraintTop_toTopOf="@id/HOBBITS1"
+                    app:layout_constraintStart_toStartOf="@id/HOBBITS1"
+                    app:layout_constraintBottom_toBottomOf="@id/HOBBITS1"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/Hobbits1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@drawable/underhobbitsbg"
-                android:layout_marginTop="37dp"/>
-            <EditText
-                android:id="@+id/hobbits1_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@android:color/transparent"
-                android:background="@null"
-                android:text="Hobbits 1.1"
-                android:textSize="11sp"
-                android:textColor="#000"
-                android:fontFamily="@font/inter_light"
-                android:textFontWeight="300"
-                android:layout_marginTop="49dp"
-                android:layout_marginStart="38dp"
-                android:clickable="true"/>
-            <EditText
-                android:id="@+id/hobbits1_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@android:color/transparent"
-                android:background="@null"
-                android:text="Hobbits 1.2"
-                android:textSize="11sp"
-                android:textColor="#000"
-                android:fontFamily="@font/inter_light"
-                android:textFontWeight="300"
-                android:layout_marginTop="74dp"
-                android:layout_marginStart="38dp"
-                android:clickable="true"/>
-            <EditText
-                android:id="@+id/hobbits1_3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@android:color/transparent"
-                android:background="@null"
-                android:text="Hobbits 1.3"
-                android:textSize="11sp"
-                android:textColor="#000"
-                android:fontFamily="@font/inter_light"
-                android:textFontWeight="300"
-                android:layout_marginTop="99dp"
-                android:layout_marginStart="38dp"
-                android:clickable="true"/>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                app:layout_constraintTop_toBottomOf="@id/HOBBITS1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
 
-                <View
-                    android:layout_width="321dp"
-                    android:layout_height="37dp"
-                    android:background="@drawable/hobbitsbg"
-                    android:layout_marginTop="162dp"/>
                 <EditText
-                    android:id="@+id/SecondHobbits"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/hobbits1_1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@android:color/transparent"
                     android:background="@null"
-                    android:text="2. Hobbits 2.0"
-                    android:textSize="14sp"
-                    android:textColor="#205375"
-                    android:fontFamily="@font/inter_light"
-                    android:textFontWeight="700"
-                    android:layout_marginTop="171dp"
-                    android:layout_marginStart="18dp"/>
-                <View
-                    android:layout_width="321dp"
-                    android:layout_height="110dp"
-                    android:background="@drawable/underhobbitsbg"
-                    android:layout_marginTop="199dp"/>
-                <EditText
-                    android:id="@+id/hobbits2_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/transparent"
-                    android:background="@null"
-                    android:text="Hobbits 2.1"
+                    android:text="Hobbits 1.1"
                     android:textSize="11sp"
                     android:textColor="#000"
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="300"
-                    android:layout_marginTop="211dp"
-                    android:layout_marginStart="38dp"
-                    android:clickable="true"/>
+                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:clickable="true"
+                    app:layout_constraintTop_toTopOf="@id/Hobbits1"
+                    app:layout_constraintStart_toStartOf="parent"/>
                 <EditText
-                    android:id="@+id/hobbits2_2"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/hobbits1_2"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@android:color/transparent"
                     android:background="@null"
-                    android:text="Hobbits 2.2"
+                    android:text="Hobbits 1.2"
                     android:textSize="11sp"
                     android:textColor="#000"
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="300"
-                    android:layout_marginTop="236dp"
-                    android:layout_marginStart="38dp"
-                    android:clickable="true"/>
+                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:clickable="true"
+                    app:layout_constraintTop_toBottomOf="@id/hobbits1_1"
+                    app:layout_constraintStart_toStartOf="parent"/>
                 <EditText
-                    android:id="@+id/hobbits2_3"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/hobbits1_3"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@android:color/transparent"
                     android:background="@null"
-                    android:text="Hobbits 2.3"
+                    android:text="Hobbits 1.3"
                     android:textSize="11sp"
                     android:textColor="#000"
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="300"
-                    android:layout_marginTop="261dp"
-                    android:layout_marginStart="38dp"
-                    android:clickable="true"/>
-            </RelativeLayout>
+                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:clickable="true"
+                    app:layout_constraintTop_toBottomOf="@id/hobbits1_2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@id/Hobbits1"
+                    android:layout_marginBottom="12dp"/>
 
-            <RelativeLayout
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <View
-                    android:layout_width="321dp"
-                    android:layout_height="37dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/Hobbits1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="30dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/HOBBITS2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/hobbitsbg"
-                    android:layout_marginTop="324dp"/>
-                <EditText
-                    android:id="@+id/ThirdHobbits"
-                    android:layout_width="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <EditText
+                        android:id="@+id/SecondHobbits"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@android:color/transparent"
+                        android:background="@null"
+                        android:text="2. Hobbits 2.0"
+                        android:textSize="14sp"
+                        android:textColor="#205375"
+                        android:fontFamily="@font/inter_light"
+                        android:textFontWeight="700"
+                        android:layout_marginTop="9dp"
+                        android:layout_marginStart="18dp"
+                        android:layout_marginBottom="9dp"
+                        app:layout_constraintTop_toTopOf="@id/HOBBITS2"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/Hobbits2"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/transparent"
-                    android:background="@null"
-                    android:text="3. Hobbits 3.0"
-                    android:textSize="14sp"
-                    android:textColor="#205375"
-                    android:fontFamily="@font/inter_light"
-                    android:textFontWeight="700"
-                    android:layout_marginTop="333dp"
-                    android:layout_marginStart="18dp"/>
-                <View
-                    android:layout_width="321dp"
-                    android:layout_height="110dp"
                     android:background="@drawable/underhobbitsbg"
-                    android:layout_marginTop="361dp"/>
-                <EditText
-                    android:id="@+id/hobbits3_1"
-                    android:layout_width="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/HOBBITS2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <EditText
+                        android:id="@+id/hobbits2_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@android:color/transparent"
+                        android:background="@null"
+                        android:text="Hobbits 2.1"
+                        android:textSize="11sp"
+                        android:textColor="#000"
+                        android:fontFamily="@font/inter_light"
+                        android:textFontWeight="300"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        app:layout_constraintTop_toTopOf="@id/Hobbits2"
+                        app:layout_constraintStart_toStartOf="@id/Hobbits2"
+                        android:clickable="true"/>
+                    <EditText
+                        android:id="@+id/hobbits2_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@android:color/transparent"
+                        android:background="@null"
+                        android:text="Hobbits 2.2"
+                        android:textSize="11sp"
+                        android:textColor="#000"
+                        android:fontFamily="@font/inter_light"
+                        android:textFontWeight="300"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        app:layout_constraintTop_toBottomOf="@id/hobbits2_1"
+                        app:layout_constraintStart_toStartOf="@id/Hobbits2"
+                        android:clickable="true"/>
+                    <EditText
+                        android:id="@+id/hobbits2_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@android:color/transparent"
+                        android:background="@null"
+                        android:text="Hobbits 2.3"
+                        android:textSize="11sp"
+                        android:textColor="#000"
+                        android:fontFamily="@font/inter_light"
+                        android:textFontWeight="300"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="12dp"
+                        app:layout_constraintTop_toBottomOf="@id/hobbits2_2"
+                        app:layout_constraintStart_toStartOf="@id/Hobbits2"
+                        app:layout_constraintBottom_toBottomOf="@id/Hobbits2"
+                        android:clickable="true"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/transparent"
-                    android:background="@null"
-                    android:text="Hobbits 3.1"
-                    android:textSize="11sp"
-                    android:textColor="#000"
-                    android:fontFamily="@font/inter_light"
-                    android:textFontWeight="300"
-                    android:layout_marginTop="373dp"
-                    android:layout_marginStart="38dp"
-                    android:clickable="true"/>
-                <EditText
-                    android:id="@+id/hobbits3_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/transparent"
-                    android:background="@null"
-                    android:text="Hobbits 2.2"
-                    android:textSize="11sp"
-                    android:textColor="#000"
-                    android:fontFamily="@font/inter_light"
-                    android:textFontWeight="300"
-                    android:layout_marginTop="398dp"
-                    android:layout_marginStart="38dp"
-                    android:clickable="true"/>
-                <EditText
-                    android:id="@+id/hobbits3_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/transparent"
-                    android:background="@null"
-                    android:text="Hobbits 2.3"
-                    android:textSize="11sp"
-                    android:textColor="#000"
-                    android:fontFamily="@font/inter_light"
-                    android:textFontWeight="300"
-                    android:layout_marginTop="423dp"
-                    android:layout_marginStart="38dp"
-                    android:clickable="true"/>
-            </RelativeLayout>
-        </RelativeLayout>
+                    app:layout_constraintTop_toBottomOf="@id/Hobbits2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="30dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/HOBBITS3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/hobbitsbg"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <EditText
+                            android:id="@+id/ThirdHobbits"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@android:color/transparent"
+                            android:background="@null"
+                            android:text="3. Hobbits 3.0"
+                            android:textSize="14sp"
+                            android:textColor="#205375"
+                            android:fontFamily="@font/inter_light"
+                            android:textFontWeight="700"
+                            android:layout_marginTop="9dp"
+                            android:layout_marginStart="18dp"
+                            android:layout_marginBottom="9dp"
+                            app:layout_constraintTop_toTopOf="@id/HOBBITS3"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/Hobbits3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/underhobbitsbg"
+                        app:layout_constraintTop_toBottomOf="@id/HOBBITS3"
+                        app:layout_constraintStart_toStartOf="@id/HOBBITS3"
+                        app:layout_constraintEnd_toEndOf="@id/HOBBITS3">
+                        <EditText
+                            android:id="@+id/hobbits3_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@android:color/transparent"
+                            android:background="@null"
+                            android:text="Hobbits 3.1"
+                            android:textSize="11sp"
+                            android:textColor="#000"
+                            android:fontFamily="@font/inter_light"
+                            android:textFontWeight="300"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            app:layout_constraintTop_toTopOf="@id/Hobbits3"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:clickable="true"/>
+                        <EditText
+                            android:id="@+id/hobbits3_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@android:color/transparent"
+                            android:background="@null"
+                            android:text="Hobbits 2.2"
+                            android:textSize="11sp"
+                            android:textColor="#000"
+                            android:fontFamily="@font/inter_light"
+                            android:textFontWeight="300"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            app:layout_constraintTop_toBottomOf="@id/hobbits3_1"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:clickable="true"/>
+                        <EditText
+                            android:id="@+id/hobbits3_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@android:color/transparent"
+                            android:background="@null"
+                            android:text="Hobbits 2.3"
+                            android:textSize="11sp"
+                            android:textColor="#000"
+                            android:fontFamily="@font/inter_light"
+                            android:textFontWeight="300"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginBottom="12dp"
+                            app:layout_constraintTop_toBottomOf="@id/hobbits3_2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:clickable="true"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <Button
+                        android:id="@+id/ButtonSetSched"
+                        android:layout_width="156dp"
+                        android:layout_height="32dp"
+                        android:layout_marginTop="8dp"
+                        android:backgroundTint="#D7942E"
+                        android:fontFamily="@font/inter_bold"
+                        android:padding="0dp"
+                        android:text="Set up Schedule"
+                        android:textColor="#FDF8F0"
+                        android:textSize="14sp"
+                        android:layout_margin="51dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/Hobbits3"
+                        />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-    <Button
-        android:id="@+id/ButtonSetSched"
-        android:layout_width="156dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="8dp"
-        android:backgroundTint="#D7942E"
-        android:fontFamily="@font/inter_bold"
-        android:padding="0dp"
-        android:text="Set up Schedule"
-        android:textColor="#FDF8F0"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ScrollViewHobbits" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

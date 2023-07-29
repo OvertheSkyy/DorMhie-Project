@@ -75,6 +75,7 @@
                     app:layout_constraintTop_toBottomOf="@id/SetUpSchedText"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginStart="24dp"
                     android:layout_marginTop="20dp">
 
                     <TextView
@@ -92,6 +93,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="40dp"
                         android:layout_marginStart="-50dp"
+                        style="@style/NumberPickerStyle"
                         android:selectionDividerHeight="0dp"/>
                     <TextView
                         android:layout_width="wrap_content"
@@ -107,12 +109,14 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="40dp"
                         android:layout_marginStart="-60dp"
+                        style="@style/NumberPickerStyle"
                         android:selectionDividerHeight="0dp"/>
                     <Spinner
                         android:id="@+id/am_pm_spinner"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:entries="@array/am_pm_options"
+                        style="@style/NumberPickerStyle"
                         android:layout_marginTop="60dp"
                         android:layout_marginStart="5dp"/>
                 </LinearLayout>
@@ -174,7 +178,9 @@
                         android:textColor="@color/black"
                         android:fontFamily="@font/inter_light"
                         android:textFontWeight="500"
-                        android:layout_marginStart="10dp"/>
+                        android:button="@drawable/checkbox_selector"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="5dp"/>
                     <CheckBox
                         android:id="@+id/CheckTuesday"
                         android:layout_width="wrap_content"
@@ -184,8 +190,8 @@
                         android:textColor="@color/black"
                         android:fontFamily="@font/inter_light"
                         android:textFontWeight="500"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="-20dp"/>
+                        android:button="@drawable/checkbox_selector"
+                        android:layout_marginStart="15dp"/>
                     <CheckBox
                         android:id="@+id/CheckWednesday"
                         android:layout_width="wrap_content"
@@ -195,8 +201,8 @@
                         android:textColor="@color/black"
                         android:fontFamily="@font/inter_light"
                         android:textFontWeight="500"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="-20dp"/>
+                        android:button="@drawable/checkbox_selector"
+                        android:layout_marginStart="15dp"/>
                     <CheckBox
                         android:id="@+id/CheckThursday"
                         android:layout_width="wrap_content"
@@ -206,8 +212,8 @@
                         android:textColor="@color/black"
                         android:fontFamily="@font/inter_light"
                         android:textFontWeight="500"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="-20dp"/>
+                        android:button="@drawable/checkbox_selector"
+                        android:layout_marginStart="15dp"/>
                     <CheckBox
                         android:id="@+id/CheckFriday"
                         android:layout_width="wrap_content"
@@ -217,8 +223,8 @@
                         android:textColor="@color/black"
                         android:fontFamily="@font/inter_light"
                         android:textFontWeight="500"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="-20dp"/>
+                        android:layout_marginStart="15dp"
+                        android:button="@drawable/checkbox_selector"/>
                     <CheckBox
                         android:id="@+id/CheckSaturday"
                         android:layout_width="wrap_content"
@@ -228,8 +234,8 @@
                         android:textColor="@color/black"
                         android:fontFamily="@font/inter_light"
                         android:textFontWeight="500"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="-20dp"/>
+                        android:button="@drawable/checkbox_selector"
+                        android:layout_marginStart="15dp"/>
                     <CheckBox
                         android:id="@+id/CheckSunday"
                         android:layout_width="wrap_content"
@@ -239,8 +245,9 @@
                         android:textColor="@color/black"
                         android:fontFamily="@font/inter_light"
                         android:textFontWeight="500"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="-20dp"/>
+                        android:button="@drawable/checkbox_selector"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginBottom="5dp"/>
 
 
                 </LinearLayout>

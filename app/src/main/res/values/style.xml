@@ -19,5 +19,11 @@
         <item name="android:calendarTextColor">@drawable/currentdate</item>
     </style>
 
-    
+    <style name="NumberPickerStyle">
+        <!-- Apply a custom text color -->
+        <item name="android:textColorPrimary">@color/white</item>
+        <!-- Apply a custom divider color -->
+        <item name="android:colorControlNormal">@color/black</item>
+    </style>
+
 </resources>
