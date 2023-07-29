@@ -163,43 +163,39 @@ class EditHobby : AppCompatActivity() {
         // Create the "categories" node under the user's node
         val categoriesRef = userRef.child("categories")
 
-        // Create the "hobbies" node under the "categories" node for the specific hobby
-        val hobbiesRef = categoriesRef.child("hobbies").child(hobbyName)
+        // Fetch the current number of hobbies to determine the next index
+        val hobbiesRef = categoriesRef.child("hobbies")
+        hobbiesRef.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val hobbyIndex = dataSnapshot.childrenCount.toInt()
 
-        // Convert ArrayList<String> to Map<String, String> before storing
-        val hobbitsMap = hobbits?.mapIndexed { index, hobbit -> "hobbit$index" to hobbit }?.toMap()
-        hobbiesRef.child("hobbits").setValue(hobbitsMap)
-            .addOnSuccessListener {
-                Log.d("EditHobby", "Hobbits updated in the database")
-                Toast.makeText(applicationContext, "Hobbits updated successfully!", Toast.LENGTH_SHORT).show()
+                // Create the "hobbies" node under the "categories" node
+                val hobbyRef = hobbiesRef.child("savedhobby$hobbyIndex")
+                hobbyRef.child("name").setValue(hobbyName)
 
-                // Update the bits for each hobbit in the database
-                for (currentHobbitIndex in hobbitEditTextMap.keys) {
-                    val hobbitEditTexts = hobbitEditTextMap[currentHobbitIndex]
+                // Create the "hobbits" node under the "hobbies" node
+                val hobbitsRef = hobbyRef.child("hobbits")
+                for ((index, hobbit) in hobbits!!.withIndex()) {
+                    val hobbitRef = hobbitsRef.child("hobbit$index")
+                    hobbitRef.child("name").setValue(hobbit)
+
+                    val hobbitEditTexts = hobbitEditTextMap[index + 1]
                     if (hobbitEditTexts != null) {
-                        val hobbitName = hobbits?.get(currentHobbitIndex - 1)
-                        if (hobbitName != null) {
-                            val bitsRef = hobbiesRef.child("hobbits").child("hobbit$currentHobbitIndex").child("bits")
-
-                            val bitTextList = hobbitEditTexts.map { it.text.toString().trim() }.filter { it.isNotEmpty() }
-                            for ((index, bitText) in bitTextList.withIndex()) {
-                                bitsRef.child("$index").setValue(bitText)
-                                    .addOnSuccessListener {
-                                        Log.d("EditHobby", "Bit $index updated for hobbit $hobbitName in the database")
-                                        Toast.makeText(applicationContext, "Bit $index updated for hobbit $hobbitName successfully!", Toast.LENGTH_SHORT).show()
-                                    }
-                                    .addOnFailureListener {
-                                        Log.e("EditHobby", "Failed to update bit $index for hobbit $hobbitName in the database: $it")
-                                        Toast.makeText(applicationContext, "Failed to update bit $index for hobbit $hobbitName!", Toast.LENGTH_SHORT).show()
-                                    }
-                            }
+                        val bitsRef = hobbitRef.child("bits")
+                        val bitTextList = hobbitEditTexts.map { it.text.toString().trim() }.filter { it.isNotEmpty() }
+                        for ((bitIndex, bitText) in bitTextList.withIndex()) {
+                            bitsRef.child("bit$bitIndex").setValue(bitText)
                         }
                     }
                 }
+
+                Log.d("EditHobby", "Hobbits updated in the database")
+                Toast.makeText(applicationContext, "Hobbits updated successfully!", Toast.LENGTH_SHORT).show()
             }
-            .addOnFailureListener {
-                Log.e("EditHobby", "Failed to update hobbits in the database: $it")
-                Toast.makeText(applicationContext, "Failed to update hobbits!", Toast.LENGTH_SHORT).show()
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                Log.e("EditHobby", "Failed to fetch hobbies: ${databaseError.message}")
             }
+        })
     }
 }

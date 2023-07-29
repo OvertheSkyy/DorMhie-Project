@@ -49,7 +49,12 @@ class SetUpSchedule : AppCompatActivity() {
         hourPicker.setOnValueChangedListener { _, _, newValue ->  }
         minutePicker.setOnValueChangedListener { _, _, newValue ->  }
 
+        val SetUpSchedSaveButton = findViewById<Button>(R.id.SetUpSchedSaveButton)
+        SetUpSchedSaveButton.setOnClickListener {
 
+            val intent = Intent(this, Progress_List::class.java)
+            startActivity(intent)
+        }
 
         val spinnerAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, aMPMOptions)
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
