@@ -28,10 +28,7 @@
             android:name=".Categories"
             android:exported="false" />
         <activity
-            android:name=".Progress"
-            android:exported="false" />
-        <activity
-            android:name=".Home"
+            android:name=".Progress_List"
             android:exported="false" />
         <activity
             android:name=".User_Profile"

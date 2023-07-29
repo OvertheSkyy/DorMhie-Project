@@ -1,8 +1,10 @@
 package com.shiretech.hobbits
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.NumberPicker
 import android.widget.Spinner
 
@@ -41,5 +43,12 @@ class SetUpSchedule : AppCompatActivity() {
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         AMPMSpinner.adapter = spinnerAdapter
 
+        val SetUpSchedSaveButton = findViewById<Button>(R.id.SetUpSchedSaveButton)
+        SetUpSchedSaveButton.setOnClickListener {
+
+            val intent = Intent(this, Progress_List::class.java)
+            startActivity(intent)
+        }
     }
+
 }
