@@ -3,6 +3,8 @@ package com.shiretech.hobbits
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Button
 import android.widget.GridView
 import android.widget.TextView
 import android.widget.ImageView
@@ -10,6 +12,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import java.text.DateFormatSymbols
@@ -18,6 +21,7 @@ import java.util.*
 
 class Home : AppCompatActivity() {
 
+    private lateinit var database: DatabaseReference
     private lateinit var gridView: GridView
     private lateinit var calendarAdapter: CalendarAdapter
     private lateinit var monthYearTextView: TextView
@@ -59,6 +63,33 @@ class Home : AppCompatActivity() {
             })
         }
 
+        val user = FirebaseAuth.getInstance().currentUser
+        val userId = user?.uid ?: ""
+
+        val hobbyNameTextView = findViewById<TextView>(R.id.HobbyName1)
+
+        database = FirebaseDatabase.getInstance().getReference("users").child(userId)
+        val hobbiesRef = database.child("categories").child("hobbies").child("savedhobby0")
+
+        // Fetch the hobby name from the database
+        hobbiesRef.child("name").addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val hobbyName = dataSnapshot.getValue(String::class.java)
+                if (hobbyName != null) {
+                    hobbyNameTextView.text = hobbyName
+                }
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                Log.e("Home", "Failed to fetch hobby name: ${databaseError.message}")
+            }
+        })
+
+        val ButtonViewProgress = findViewById<Button>(R.id.ButtonViewProgress)
+        ButtonViewProgress.setOnClickListener{
+            val intent = Intent(this, Progress_List::class.java)
+            startActivity(intent)
+        }
         val UnselectedCategoriesImageClick = findViewById<ImageView>(R.id.ClickUnselectedCategories)
         UnselectedCategoriesImageClick.setOnClickListener {
             val intent = Intent(this, Categories::class.java)
