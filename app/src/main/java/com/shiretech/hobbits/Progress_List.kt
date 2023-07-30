@@ -2,6 +2,7 @@ package com.shiretech.hobbits
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -27,6 +28,11 @@ class Progress_List : AppCompatActivity() {
             findViewById(R.id.SecondHobbitsProgress),
             findViewById(R.id.ThirdHobbitsProgress)
         )
+
+        val BackToHomeBtn = findViewById<ImageView>(R.id.Clickback)
+        BackToHomeBtn.setOnClickListener {
+            onBackPressed()
+        }
 
         val hobbitBitTextViews = ArrayList<ArrayList<TextView>>()
         for (i in 0 until 3) {

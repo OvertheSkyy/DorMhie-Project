@@ -52,13 +52,6 @@ class SetUpSchedule : AppCompatActivity() {
         hourPicker.setOnValueChangedListener { _, _, newValue ->  }
         minutePicker.setOnValueChangedListener { _, _, newValue ->  }
 
-        val SetUpSchedSaveButton = findViewById<Button>(R.id.SetUpSchedSaveButton)
-        SetUpSchedSaveButton.setOnClickListener {
-
-            val intent = Intent(this, Progress_List::class.java)
-            startActivity(intent)
-        }
-
         val spinnerAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, aMPMOptions)
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         AMPMSpinner.adapter = spinnerAdapter
@@ -71,6 +64,7 @@ class SetUpSchedule : AppCompatActivity() {
         minutePicker.setOnValueChangedListener { _, _, newValue ->
             selectedMinute = newValue
         }
+
 
         AMPMSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -91,6 +85,9 @@ class SetUpSchedule : AppCompatActivity() {
         saveButton.setOnClickListener {
             saveSelectedTime()
             saveSelectedDays()
+
+            val intent = Intent(this, Progress_List::class.java)
+            startActivity(intent)
         }
     }
 
