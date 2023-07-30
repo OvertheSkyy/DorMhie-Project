@@ -34,6 +34,11 @@ class Progress_List : AppCompatActivity() {
             findViewById<ImageView>(R.id.xprogress3_3)
         )
 
+        val ClickbackBtn = findViewById<ImageView>(R.id.Clickback)
+        ClickbackBtn.setOnClickListener {
+            onBackPressed()
+        }
+
         for (imageView in imageViews) {
             imageViewsMap[imageView.id] = false // Initialize all images as unchecked
             imageView.setOnClickListener {
