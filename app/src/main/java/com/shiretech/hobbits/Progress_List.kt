@@ -12,10 +12,12 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
+
 class Progress_List : AppCompatActivity() {
 
     private lateinit var database: DatabaseReference
 
+    private val imageViewsMap = hashMapOf<Int, Boolean>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.progress_list)
@@ -85,5 +87,29 @@ class Progress_List : AppCompatActivity() {
                 Log.e("Progress_List", "Failed to fetch hobby data: ${databaseError.message}")
             }
         })
+
+        val imageViews = arrayOf(
+            findViewById<ImageView>(R.id.xprogress1_1),
+            findViewById<ImageView>(R.id.xprogress1_2),
+            findViewById<ImageView>(R.id.xprogress1_3),
+            findViewById<ImageView>(R.id.xprogress2_1),
+            findViewById<ImageView>(R.id.xprogress2_2),
+            findViewById<ImageView>(R.id.xprogress2_3),
+            findViewById<ImageView>(R.id.xprogress3_1),
+            findViewById<ImageView>(R.id.xprogress3_2),
+            findViewById<ImageView>(R.id.xprogress3_3)
+        )
+
+        for (imageView in imageViews) {
+            imageViewsMap[imageView.id] = false // Initialize all images as unchecked
+            imageView.setOnClickListener {
+                val isChecked = imageViewsMap[imageView.id] ?: false
+                imageViewsMap[imageView.id] = !isChecked
+                imageView.setImageResource(
+                    if (isChecked) R.drawable.unchecked_progress
+                    else R.drawable.progress_checked
+                )
+            }
+        }
     }
 }
