@@ -26,6 +26,7 @@ class Home : AppCompatActivity() {
     private lateinit var calendarAdapter: CalendarAdapter
     private lateinit var monthYearTextView: TextView
     private lateinit var displayTimeView: TextView
+    private lateinit var dateAssignedTextView: TextView
 
 
 
@@ -188,9 +189,8 @@ class Home : AppCompatActivity() {
         //SCHEDULE
 
 
-
-
         displayTimeView = findViewById(R.id.TimeAssignedForHobby0)
+
 
         val sharedPreferences = getSharedPreferences("SchedulePrefs", MODE_PRIVATE)
         val savedHour = sharedPreferences.getInt("hour", 12)
@@ -201,6 +201,16 @@ class Home : AppCompatActivity() {
         displayTimeView.text = displayText
 
 
+        dateAssignedTextView = findViewById(R.id.DateAssignedForHobby0)
+
+        // Retrieve the selected days from the intent
+        val selectedDays = intent.getStringArrayExtra("selectedDays")
+
+        // Update the TextView with the selected days
+        if (selectedDays != null && selectedDays.isNotEmpty()) {
+            val daysString = selectedDays.joinToString(" ")
+            dateAssignedTextView.text = daysString
+        }
 
     }
 

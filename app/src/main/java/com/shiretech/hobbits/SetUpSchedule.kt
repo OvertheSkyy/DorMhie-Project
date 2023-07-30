@@ -76,6 +76,26 @@ class SetUpSchedule : AppCompatActivity() {
             }
         }
 
+        val CheckBoxMonday = findViewById<CheckBox>(R.id.CheckMonday)
+        val CheckBoxTuesday = findViewById<CheckBox>(R.id.CheckTuesday)
+        val CheckBoxWednesday = findViewById<CheckBox>(R.id.CheckWednesday)
+        val CheckBoxThursday = findViewById<CheckBox>(R.id.CheckThursday)
+        val CheckBoxFriday = findViewById<CheckBox>(R.id.CheckFriday)
+        val CheckBoxSaturday = findViewById<CheckBox>(R.id.CheckSaturday)
+        val CheckBoxSunday = findViewById<CheckBox>(R.id.CheckSunday)
+
+        // Set up click listeners for the checkboxes
+        CheckBoxMonday.setOnCheckedChangeListener { _, _ -> saveSelectedDays() }
+        CheckBoxTuesday.setOnCheckedChangeListener { _, _ -> saveSelectedDays() }
+        CheckBoxWednesday.setOnCheckedChangeListener { _, _ -> saveSelectedDays() }
+        CheckBoxThursday.setOnCheckedChangeListener { _, _ -> saveSelectedDays() }
+        CheckBoxFriday.setOnCheckedChangeListener { _, _ -> saveSelectedDays() }
+        CheckBoxSaturday.setOnCheckedChangeListener { _, _ -> saveSelectedDays() }
+        CheckBoxSunday.setOnCheckedChangeListener { _, _ -> saveSelectedDays() }
+
+        // Load the previously selected days on activity creation
+        loadSelectedDays()
+
         loadSavedTime()
         loadSelectedDays()
 
@@ -87,7 +107,13 @@ class SetUpSchedule : AppCompatActivity() {
             saveSelectedDays()
 
             val intent = Intent(this, Home::class.java)
+
+            val sharedPreferences = getSharedPreferences("SchedulePrefs", Context.MODE_PRIVATE)
+            val selectedDays = sharedPreferences.getStringSet("selectedDays", emptySet())?.toTypedArray()
+            intent.putExtra("selectedDays", selectedDays)
+
             startActivity(intent)
+            finish()
         }
     }
 
@@ -163,13 +189,13 @@ class SetUpSchedule : AppCompatActivity() {
         val CheckBoxSunday = findViewById<CheckBox>(R.id.CheckSunday)
 
         //Updates Checkbox states
-        CheckBoxMonday.isChecked = SelectedDays?.contains("Monday") == true
-        CheckBoxTuesday.isChecked = SelectedDays?.contains("Tuesday") == true
-        CheckBoxWednesday.isChecked = SelectedDays?.contains("Wednesday") == true
-        CheckBoxThursday.isChecked = SelectedDays?.contains("Thursday") == true
-        CheckBoxFriday.isChecked = SelectedDays?.contains("Friday") == true
-        CheckBoxSaturday.isChecked = SelectedDays?.contains("Saturday") == true
-        CheckBoxSunday.isChecked = SelectedDays?.contains("Sunday") == true
+        CheckBoxMonday.isChecked = SelectedDays?.contains("Mon") == true
+        CheckBoxTuesday.isChecked = SelectedDays?.contains("Tues") == true
+        CheckBoxWednesday.isChecked = SelectedDays?.contains("Wed") == true
+        CheckBoxThursday.isChecked = SelectedDays?.contains("Thur") == true
+        CheckBoxFriday.isChecked = SelectedDays?.contains("Fri") == true
+        CheckBoxSaturday.isChecked = SelectedDays?.contains("Sat") == true
+        CheckBoxSunday.isChecked = SelectedDays?.contains("Sun") == true
     }
     private fun saveSelectedDays(){
         val sharedPreferences = getSharedPreferences("SchedulePrefs", Context.MODE_PRIVATE)
@@ -184,13 +210,37 @@ class SetUpSchedule : AppCompatActivity() {
         val CheckBoxSaturday = findViewById<CheckBox>(R.id.CheckSaturday)
         val CheckBoxSunday = findViewById<CheckBox>(R.id.CheckSunday)
 
-        if (CheckBoxMonday.isChecked) selectedDays.add("Monday")
-        if (CheckBoxTuesday.isChecked) selectedDays.add("Tuesday")
-        if (CheckBoxWednesday.isChecked) selectedDays.add("Wednesday")
-        if (CheckBoxThursday.isChecked) selectedDays.add("Thursday")
-        if (CheckBoxFriday.isChecked) selectedDays.add("Friday")
-        if (CheckBoxSaturday.isChecked) selectedDays.add("Saturday")
-        if (CheckBoxSunday.isChecked) selectedDays.add("Sunday")
+        if (CheckBoxMonday.isChecked) selectedDays.add("Mon")
+        if (CheckBoxTuesday.isChecked) selectedDays.add("Tues")
+        if (CheckBoxWednesday.isChecked) selectedDays.add("Wed")
+        if (CheckBoxThursday.isChecked) selectedDays.add("Thur")
+        if (CheckBoxFriday.isChecked) selectedDays.add("Fri")
+        if (CheckBoxSaturday.isChecked) selectedDays.add("Sat")
+        if (CheckBoxSunday.isChecked) selectedDays.add("Sun")
+
+        // Limit the selected days to 3
+        if (selectedDays.size > 3) {
+            // Display a message to the user
+            Toast.makeText(this, "You can only select a maximum of 3 days.", Toast.LENGTH_SHORT).show()
+
+            // Uncheck the last checked checkbox
+            CheckBoxMonday.isChecked = false
+            CheckBoxTuesday.isChecked = false
+            CheckBoxWednesday.isChecked = false
+            CheckBoxThursday.isChecked = false
+            CheckBoxFriday.isChecked = false
+            CheckBoxSaturday.isChecked = false
+            CheckBoxSunday.isChecked = false
+
+            // Remove the unchecked day from the selectedDays set
+            selectedDays.remove("Mon")
+            selectedDays.remove("Tues")
+            selectedDays.remove("Wed")
+            selectedDays.remove("Thur")
+            selectedDays.remove("Fri")
+            selectedDays.remove("Sat")
+            selectedDays.remove("Sun")
+        }
 
         editor.putStringSet("selectedDays", selectedDays)
         editor.apply()

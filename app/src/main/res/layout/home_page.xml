@@ -329,7 +329,6 @@
                             android:textFontWeight="1000"
                             app:layout_constraintTop_toTopOf="@id/hobbybox"
                             app:layout_constraintStart_toStartOf="parent"
-
                             android:layout_marginTop="30dp"
                             android:layout_marginStart="17.5dp"/>
                         <TextView
@@ -342,20 +341,20 @@
                             android:fontFamily="@font/inter_light"
                             app:layout_constraintTop_toTopOf="@id/hobbybox"
                             app:layout_constraintStart_toEndOf="@id/HobbyName0"
-                            android:layout_marginTop="45dp"
-                            android:layout_marginStart="15dp"/>
+                            android:layout_marginTop="25dp"
+                            android:layout_marginStart="10dp"/>
                         <TextView
                             android:id="@+id/DateAssignedForHobby0"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="MON "
-                            android:textSize="16sp"
+                            android:textSize="13sp"
                             android:textColor="#545454"
                             android:fontFamily="@font/inter_light"
-                            app:layout_constraintTop_toTopOf="@id/hobbybox"
-                            app:layout_constraintStart_toEndOf="@id/HobbyName0"
-                            android:layout_marginTop="25dp"
-                            android:layout_marginStart="15dp"/>
+                            app:layout_constraintTop_toBottomOf="@id/TimeAssignedForHobby0"
+                            app:layout_constraintStart_toStartOf="@id/TimeAssignedForHobby0"
+                            android:layout_marginStart="105dp"
+                            android:layout_marginEnd="80dp"/>
 
 
                         <Button
@@ -370,7 +369,7 @@
                             android:backgroundTint="#205375"
                             app:layout_constraintTop_toTopOf="@id/hobbybox"
                             app:layout_constraintEnd_toEndOf="@id/MyHobbiesbg"
-                            android:layout_marginTop="38dp"
+                            android:layout_marginTop="35dp"
                             android:layout_marginEnd="15dp"/>
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
