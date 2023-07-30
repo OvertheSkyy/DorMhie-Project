@@ -193,40 +193,68 @@ class EditHobby : AppCompatActivity() {
 
         // Create the "categories" node under the user's node
         val categoriesRef = userRef.child("categories")
-
-        // Fetch the current number of hobbies to determine the next index
         val hobbiesRef = categoriesRef.child("hobbies")
-        hobbiesRef.addListenerForSingleValueEvent(object : ValueEventListener {
+
+        // Check if the hobby already exists
+        hobbiesRef.orderByChild("name").equalTo(hobbyName).addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val hobbyIndex = dataSnapshot.childrenCount.toInt()
+                if (dataSnapshot.exists()) {
+                    // Hobby already exists, update the existing data
+                    val hobbySnapshot = dataSnapshot.children.first()
 
-                // Create the "hobbies" node under the "categories" node
-                val hobbyRef = hobbiesRef.child("savedhobby$hobbyIndex")
-                hobbyRef.child("name").setValue(hobbyName)
+                    // Clear existing hobbits and bits data
+                    hobbySnapshot.child("hobbits").ref.removeValue()
 
-                // Create the "hobbits" node under the "hobbies" node
-                val hobbitsRef = hobbyRef.child("hobbits")
-                for ((index, hobbit) in hobbits!!.withIndex()) {
-                    val hobbitRef = hobbitsRef.child("hobbit$index")
-                    hobbitRef.child("name").setValue(hobbit)
+                    // Update the hobby name
+                    hobbySnapshot.child("name").ref.setValue(hobbyName)
 
-                    val hobbitEditTexts = hobbitEditTextMap[index + 1]
-                    if (hobbitEditTexts != null) {
-                        val bitsRef = hobbitRef.child("bits")
-                        val bitTextList = hobbitEditTexts.map { it.text.toString().trim() }
-                            .filter { it.isNotEmpty() }
-                        for ((bitIndex, bitText) in bitTextList.withIndex()) {
-                            bitsRef.child("bit$bitIndex").setValue(bitText)
+                    // Create the "hobbits" node under the "hobbies" node
+                    val hobbitsRef = hobbySnapshot.child("hobbits").ref
+                    for ((index, hobbit) in hobbits!!.withIndex()) {
+                        val hobbitRef = hobbitsRef.child("hobbit$index")
+                        hobbitRef.child("name").setValue(hobbit)
+
+                        val hobbitEditTexts = hobbitEditTextMap[index + 1]
+                        if (hobbitEditTexts != null) {
+                            val bitsRef = hobbitRef.child("bits")
+                            val bitTextList = hobbitEditTexts.map { it.text.toString().trim() }
+                                .filter { it.isNotEmpty() }
+                            for ((bitIndex, bitText) in bitTextList.withIndex()) {
+                                bitsRef.child("bit$bitIndex").setValue(bitText)
+                            }
                         }
                     }
-                }
 
-                Log.d("EditHobby", "Hobbits updated in the database")
-                Toast.makeText(
-                    applicationContext,
-                    "Hobbits updated successfully!",
-                    Toast.LENGTH_SHORT
-                ).show()
+                    Log.d("EditHobby", "Hobby updated in the database")
+                    Toast.makeText(applicationContext, "Hobby updated successfully!", Toast.LENGTH_SHORT).show()
+                } else {
+                    // Hobby does not exist, proceed to create new hobby
+                    val hobbyIndex = dataSnapshot.childrenCount.toInt()
+
+                    // Create the "hobbies" node under the "categories" node
+                    val hobbyRef = hobbiesRef.child("savedhobby$hobbyIndex")
+                    hobbyRef.child("name").setValue(hobbyName)
+
+                    // Create the "hobbits" node under the "hobbies" node
+                    val hobbitsRef = hobbyRef.child("hobbits")
+                    for ((index, hobbit) in hobbits!!.withIndex()) {
+                        val hobbitRef = hobbitsRef.child("hobbit$index")
+                        hobbitRef.child("name").setValue(hobbit)
+
+                        val hobbitEditTexts = hobbitEditTextMap[index + 1]
+                        if (hobbitEditTexts != null) {
+                            val bitsRef = hobbitRef.child("bits")
+                            val bitTextList = hobbitEditTexts.map { it.text.toString().trim() }
+                                .filter { it.isNotEmpty() }
+                            for ((bitIndex, bitText) in bitTextList.withIndex()) {
+                                bitsRef.child("bit$bitIndex").setValue(bitText)
+                            }
+                        }
+                    }
+
+                    Log.d("EditHobby", "Hobby added to the database")
+                    Toast.makeText(applicationContext, "Hobby added successfully!", Toast.LENGTH_SHORT).show()
+                }
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
