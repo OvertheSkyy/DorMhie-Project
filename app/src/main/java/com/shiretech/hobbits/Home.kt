@@ -66,7 +66,7 @@ class Home : AppCompatActivity() {
         val user = FirebaseAuth.getInstance().currentUser
         val userId = user?.uid ?: ""
 
-        val hobbyNameTextView = findViewById<TextView>(R.id.HobbyName1)
+        val hobbyNameTextView = findViewById<TextView>(R.id.HobbyName0)
 
         database = FirebaseDatabase.getInstance().getReference("users").child(userId)
         val hobbiesRef = database.child("categories").child("hobbies").child("savedhobby0")
@@ -85,11 +85,53 @@ class Home : AppCompatActivity() {
             }
         })
 
-        val ButtonViewProgress = findViewById<Button>(R.id.ButtonViewProgress)
-        ButtonViewProgress.setOnClickListener{
-            val intent = Intent(this, EditHobby::class.java)
-            startActivity(intent)
+        val ButtonViewProgressButtonViewProgressHobby0 = findViewById<Button>(R.id.ButtonViewProgressButtonViewProgressHobby0)
+        ButtonViewProgressButtonViewProgressHobby0.setOnClickListener {
+            database = FirebaseDatabase.getInstance().getReference("users").child(userId)
+            val hobbiesRef = database.child("categories").child("hobbies").child("savedhobby0")
+
+            hobbiesRef.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    // Retrieve the hobby name from the database
+                    val hobbyName = dataSnapshot.child("name").getValue(String::class.java)
+                    if (hobbyName != null) {
+                        // Retrieve the hobbits and bits data from the database
+                        val hobbits = ArrayList<String>()
+                        val hobbitBitsMap = HashMap<String, ArrayList<String>>()
+
+                        for (hobbitSnapshot in dataSnapshot.child("hobbits").children) {
+                            val hobbitName = hobbitSnapshot.child("name").getValue(String::class.java)
+                            if (hobbitName != null) {
+                                hobbits.add(hobbitName)
+
+                                val bits = ArrayList<String>()
+                                for (bitSnapshot in hobbitSnapshot.child("bits").children) {
+                                    val bitText = bitSnapshot.getValue(String::class.java)
+                                    if (bitText != null) {
+                                        bits.add(bitText)
+                                    }
+                                }
+                                hobbitBitsMap[hobbitName] = bits
+                            }
+                        }
+
+                        // Start EditHobby activity with the intent and pass the hobbits and bits data
+                        val intent = Intent(this@Home, EditHobby::class.java).apply {
+                            putExtra("hobbyName", hobbyName)
+                            putExtra("hobbits", hobbits)
+                            putExtra("hobbitBitsMap", hobbitBitsMap)
+                        }
+                        startActivity(intent)
+                    }
+                }
+
+                override fun onCancelled(databaseError: DatabaseError) {
+                    Log.e("Progress_List", "Failed to fetch hobby data: ${databaseError.message}")
+                }
+            })
         }
+
+
         val UnselectedCategoriesImageClick = findViewById<ImageView>(R.id.ClickUnselectedCategories)
         UnselectedCategoriesImageClick.setOnClickListener {
             val intent = Intent(this, Categories::class.java)
@@ -184,3 +226,4 @@ class Home : AppCompatActivity() {
         return previousCalendar
     }
 }
+
