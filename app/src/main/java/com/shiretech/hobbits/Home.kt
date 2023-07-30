@@ -39,7 +39,7 @@ class Home : AppCompatActivity() {
         setContentView(R.layout.home_page)
 
         val textViewWelcome = findViewById<TextView>(R.id.TextViewWelcome)
-        val textViewTime = findViewById<TextView>(R.id.TimeAssignedForHobby1)
+        val textViewTime = findViewById<TextView>(R.id.TimeAssignedForHobby0)
 
         val currentUser: FirebaseUser? = FirebaseAuth.getInstance().currentUser
 
@@ -190,7 +190,7 @@ class Home : AppCompatActivity() {
 
 
 
-        displayTimeView = findViewById(R.id.TimeAssignedForHobby1)
+        displayTimeView = findViewById(R.id.TimeAssignedForHobby0)
 
         val sharedPreferences = getSharedPreferences("SchedulePrefs", MODE_PRIVATE)
         val savedHour = sharedPreferences.getInt("hour", 12)
