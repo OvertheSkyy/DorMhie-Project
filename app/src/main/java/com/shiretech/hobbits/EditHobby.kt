@@ -16,37 +16,38 @@ import kotlin.math.min
 class EditHobby : AppCompatActivity() {
 
     private lateinit var database: DatabaseReference
+    private val imageViewsMap = hashMapOf<Int, Boolean>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.edit_hobby)
+        setContentView(R.layout.progress_list)
 
         val user = FirebaseAuth.getInstance().currentUser
         val userId = user?.uid ?: ""
 
         val hobbitEditTextMap = HashMap<Int, Array<EditText>>()
 
-        val BackToCategoriesBtn = findViewById<ImageView>(R.id.EditHobbyClickback)
+        val BackToCategoriesBtn = findViewById<ImageView>(R.id.Clickback)
         BackToCategoriesBtn.setOnClickListener {
             onBackPressed()
         }
 
         hobbitEditTextMap[1] = arrayOf(
-            findViewById(R.id.hobbits1_1),
-            findViewById(R.id.hobbits1_2),
-            findViewById(R.id.hobbits1_3)
+            findViewById(R.id.hobbitsprogress1_1),
+            findViewById(R.id.hobbitsprogress1_2),
+            findViewById(R.id.hobbitsprogress1_3)
         )
 
         hobbitEditTextMap[2] = arrayOf(
-            findViewById(R.id.hobbits2_1),
-            findViewById(R.id.hobbits2_2),
-            findViewById(R.id.hobbits2_3)
+            findViewById(R.id.hobbitsprogress2_1),
+            findViewById(R.id.hobbitsprogress2_2),
+            findViewById(R.id.hobbitsprogress2_3)
         )
 
         hobbitEditTextMap[3] = arrayOf(
-            findViewById(R.id.hobbits3_1),
-            findViewById(R.id.hobbits3_2),
-            findViewById(R.id.hobbits3_3)
+            findViewById(R.id.hobbitsprogress3_1),
+            findViewById(R.id.hobbitsprogress3_2),
+            findViewById(R.id.hobbitsprogress3_3)
         )
 
         val ButtonSetSchedule = findViewById<Button>(R.id.ButtonSetSched)
@@ -66,9 +67,9 @@ class EditHobby : AppCompatActivity() {
         val hobbits = intent.getStringArrayListExtra("hobbits")
 
         val hobbyNameTextView = findViewById<TextView>(R.id.ChangeableHobbyName)
-        val hobbit1EditText = findViewById<EditText>(R.id.FirstHobbits)
-        val hobbit2EditText = findViewById<EditText>(R.id.SecondHobbits)
-        val hobbit3EditText = findViewById<EditText>(R.id.ThirdHobbits)
+        val hobbit1EditText = findViewById<TextView>(R.id.FirstHobbitsProgress)
+        val hobbit2EditText = findViewById<TextView>(R.id.SecondHobbitsProgress)
+        val hobbit3EditText = findViewById<TextView>(R.id.ThirdHobbitsProgress)
 
         hobbyNameTextView.text = hobbyName
 
@@ -92,21 +93,21 @@ class EditHobby : AppCompatActivity() {
     private fun getHobbitEditText(hobbitIndex: Int): Array<EditText> {
         return when (hobbitIndex) {
             1 -> arrayOf(
-                findViewById(R.id.hobbits1_1),
-                findViewById(R.id.hobbits1_2),
-                findViewById(R.id.hobbits1_3)
+                findViewById(R.id.hobbitsprogress1_1),
+                findViewById(R.id.hobbitsprogress1_2),
+                findViewById(R.id.hobbitsprogress1_3)
             )
 
             2 -> arrayOf(
-                findViewById(R.id.hobbits2_1),
-                findViewById(R.id.hobbits2_2),
-                findViewById(R.id.hobbits2_3)
+                findViewById(R.id.hobbitsprogress2_1),
+                findViewById(R.id.hobbitsprogress2_2),
+                findViewById(R.id.hobbitsprogress2_3)
             )
 
             3 -> arrayOf(
-                findViewById(R.id.hobbits3_1),
-                findViewById(R.id.hobbits3_2),
-                findViewById(R.id.hobbits3_3)
+                findViewById(R.id.hobbitsprogress3_1),
+                findViewById(R.id.hobbitsprogress3_2),
+                findViewById(R.id.hobbitsprogress3_3)
             )
 
             else -> emptyArray()
@@ -188,7 +189,8 @@ class EditHobby : AppCompatActivity() {
                     val hobbitEditTexts = hobbitEditTextMap[index + 1]
                     if (hobbitEditTexts != null) {
                         val bitsRef = hobbitRef.child("bits")
-                        val bitTextList = hobbitEditTexts.map { it.text.toString().trim() }.filter { it.isNotEmpty() }
+                        val bitTextList = hobbitEditTexts.map { it.text.toString().trim() }
+                            .filter { it.isNotEmpty() }
                         for ((bitIndex, bitText) in bitTextList.withIndex()) {
                             bitsRef.child("bit$bitIndex").setValue(bitText)
                         }
@@ -196,12 +198,40 @@ class EditHobby : AppCompatActivity() {
                 }
 
                 Log.d("EditHobby", "Hobbits updated in the database")
-                Toast.makeText(applicationContext, "Hobbits updated successfully!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    applicationContext,
+                    "Hobbits updated successfully!",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
                 Log.e("EditHobby", "Failed to fetch hobbies: ${databaseError.message}")
             }
         })
+
+        val imageViews = arrayOf(
+            findViewById<ImageView>(R.id.xprogress1_1),
+            findViewById<ImageView>(R.id.xprogress1_2),
+            findViewById<ImageView>(R.id.xprogress1_3),
+            findViewById<ImageView>(R.id.xprogress2_1),
+            findViewById<ImageView>(R.id.xprogress2_2),
+            findViewById<ImageView>(R.id.xprogress2_3),
+            findViewById<ImageView>(R.id.xprogress3_1),
+            findViewById<ImageView>(R.id.xprogress3_2),
+            findViewById<ImageView>(R.id.xprogress3_3)
+        )
+
+        for (imageView in imageViews) {
+            imageViewsMap[imageView.id] = false // Initialize all images as unchecked
+            imageView.setOnClickListener {
+                val isChecked = imageViewsMap[imageView.id] ?: false
+                imageViewsMap[imageView.id] = !isChecked
+                imageView.setImageResource(
+                    if (isChecked) R.drawable.unchecked_progress
+                    else R.drawable.progress_checked
+                )
+            }
+        }
     }
 }

@@ -86,7 +86,7 @@ class SetUpSchedule : AppCompatActivity() {
             saveSelectedTime()
             saveSelectedDays()
 
-            val intent = Intent(this, Progress_List::class.java)
+            val intent = Intent(this, Home::class.java)
             startActivity(intent)
         }
     }

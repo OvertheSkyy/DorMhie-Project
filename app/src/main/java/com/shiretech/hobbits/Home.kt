@@ -87,7 +87,7 @@ class Home : AppCompatActivity() {
 
         val ButtonViewProgress = findViewById<Button>(R.id.ButtonViewProgress)
         ButtonViewProgress.setOnClickListener{
-            val intent = Intent(this, Progress_List::class.java)
+            val intent = Intent(this, EditHobby::class.java)
             startActivity(intent)
         }
         val UnselectedCategoriesImageClick = findViewById<ImageView>(R.id.ClickUnselectedCategories)
@@ -184,4 +184,3 @@ class Home : AppCompatActivity() {
         return previousCalendar
     }
 }
-
