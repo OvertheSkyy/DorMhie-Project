@@ -7,10 +7,15 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.shiretech.hobbits.databinding.CreateAccountBinding
-
+//import com.google.android.gms.auth.api.signin.GoogleSignIn
+//import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 class Create_Account : AppCompatActivity() {
     private lateinit var binding: CreateAccountBinding
     private lateinit var firebaseAuth: FirebaseAuth
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +33,8 @@ class Create_Account : AppCompatActivity() {
             val backtologinIntent = Intent(this, Log_In::class.java)
             startActivity(backtologinIntent)
         }
+
+
 
         binding.CreateAccButton.setOnClickListener {
             val name = binding.EditTxtName.text.toString()
@@ -68,3 +75,4 @@ class Create_Account : AppCompatActivity() {
         }
     }
 }
+

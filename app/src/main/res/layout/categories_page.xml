@@ -292,7 +292,7 @@
                     android:textColor="#000000"
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="400"
-                    android:layout_marginTop="288dp"
+                    android:layout_marginTop="297dp"
                     android:layout_marginStart="8dp"
                     android:layout_toEndOf="@id/ImageFoodpreservation"/>
                 <Button
@@ -1152,7 +1152,7 @@
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="400"
                     android:layout_toEndOf="@id/ImageLanguageLearning"
-                    android:layout_marginTop="289dp"
+                    android:layout_marginTop="298dp"
                     android:layout_marginStart="8dp"/>
                 <Button
                     android:id="@+id/AddFifthCategoryFourthHobby"
@@ -1284,7 +1284,7 @@
                     android:fontFamily="@font/inter_light"
                     android:textFontWeight="400"
                     android:layout_toEndOf="@id/ImageCoding"
-                    android:layout_marginTop="148dp"
+                    android:layout_marginTop="158dp"
                     android:layout_marginStart="8dp"/>
                 <Button
                     android:id="@+id/AddSixthCategorySecondHobby"

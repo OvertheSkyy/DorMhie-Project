@@ -13,6 +13,8 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 
 
 class User_Profile : AppCompatActivity() {
@@ -71,6 +73,31 @@ class User_Profile : AppCompatActivity() {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
             finish()
+
+            val logoutButton = findViewById<View>(R.id.btnlogout)
+            logoutButton.setOnClickListener {
+                logoutAndNavigateToLogin() //
+            }
         }
+    }
+
+    private fun logoutAndNavigateToLogin() {
+        val googleSignInClient = GoogleSignIn.getClient(this, GoogleSignInOptions.DEFAULT_SIGN_IN)
+        googleSignInClient.signOut()
+            .addOnCompleteListener {
+                FirebaseAuth.getInstance().signOut()
+
+                // Clear the shared preferences indicating the user is logged in
+                val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+                val editor = sharedPreferences.edit()
+                editor.putBoolean("isLoggedIn", false)
+                editor.putString("userEmail", null)
+                editor.apply()
+
+                // Redirect the user back to the login screen
+                val intent = Intent(this, Log_In::class.java)
+                startActivity(intent)
+                finish() // Optional: finish the current activity to prevent back navigation
+            }
     }
 }
