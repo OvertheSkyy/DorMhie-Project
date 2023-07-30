@@ -51,19 +51,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rectanglebg"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="14dp"
         android:layout_marginStart="27dp"
         android:layout_marginEnd="243dp"/>
 
     <ScrollView
         android:id="@+id/ScrollViewHobbits"
         android:layout_width="321dp"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/progress_percent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/rectanglebg"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginTop="34dp">
+        android:layout_marginTop="20dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -445,27 +445,32 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ProgressHobbits3">
+                <Button
+                    android:id="@+id/ButtonSetSched"
+                    android:layout_width="156dp"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="81dp"
+                    android:backgroundTint="#D7942E"
+                    android:fontFamily="@font/inter_bold"
+                    android:padding="0dp"
+                    android:text="Set up Schedule"
+                    android:textColor="#FDF8F0"
+                    android:textSize="14sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_margin="20dp"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </ScrollView>
-    <Button
-        android:id="@+id/ButtonSetSched"
-        android:layout_width="156dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="81dp"
-        android:backgroundTint="#D7942E"
-        android:fontFamily="@font/inter_bold"
-        android:padding="0dp"
-        android:text="Set up Schedule"
-        android:textColor="#FDF8F0"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ScrollViewHobbits"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_margin="10dp"
-        android:layout_marginBottom="40dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
