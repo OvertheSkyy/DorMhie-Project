@@ -215,35 +215,12 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/fb_bg"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ortxt"
-        android:layout_marginTop="25dp"
-        android:layout_marginStart="108dp"
-        android:layout_marginEnd="191dp"/>
-    <ImageView
-        android:id="@+id/clickfb"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:src="@drawable/facebook_logo"
-        android:clickable="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ortxt"
-        android:layout_marginTop="18dp"
-        android:layout_marginStart="108dp"
-        android:layout_marginEnd="191dp"/>
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:src="@drawable/google_bg"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ortxt"
-        android:layout_marginTop="25dp"
-        android:layout_marginStart="192dp"
-        android:layout_marginEnd="107dp"/>
+        android:layout_marginTop="25dp"/>
+
     <ImageView
         android:id="@+id/ClickGoogle"
         android:layout_width="61dp"
@@ -252,9 +229,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ortxt"
-        android:layout_marginTop="25dp"
-        android:layout_marginStart="192dp"
-        android:layout_marginEnd="107dp"/>
+        android:layout_marginTop="25dp"/>
+
 
     <ImageView
         android:layout_width="550dp"

@@ -20,7 +20,6 @@ import androidx.core.content.ContextCompat
 class Categories : AppCompatActivity() {
 
     private lateinit var database: DatabaseReference
-    private lateinit var editTextSearch: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,10 +27,7 @@ class Categories : AppCompatActivity() {
 
         database = FirebaseDatabase.getInstance().reference
 
-        editTextSearch = findViewById(R.id.EditTxtSearch)
-
         fetchCategories()
-
 
         //First Category
         val cookingCategoryDropdown = findViewById<ImageView>(R.id.CookingCategorydropdown)
