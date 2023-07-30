@@ -333,7 +333,7 @@
                             android:layout_marginTop="30dp"
                             android:layout_marginStart="17.5dp"/>
                         <TextView
-                            android:id="@+id/TimeAssignedForHobby1"
+                            android:id="@+id/TimeAssignedForHobby0"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="TIME"
@@ -345,7 +345,7 @@
                             android:layout_marginTop="45dp"
                             android:layout_marginStart="15dp"/>
                         <TextView
-                            android:id="@+id/DateAssignedForHobby1"
+                            android:id="@+id/DateAssignedForHobby0"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="MON "
@@ -356,6 +356,7 @@
                             app:layout_constraintStart_toEndOf="@id/HobbyName0"
                             android:layout_marginTop="25dp"
                             android:layout_marginStart="15dp"/>
+
 
                         <Button
                             android:id="@+id/ButtonViewProgressButtonViewProgressHobby0"
