@@ -46,6 +46,9 @@
             android:name=".GetStarted"
             android:exported="false" />
         <activity
+            android:name=".Progress_List"
+            android:exported="true" />
+        <activity
             android:name=".SplashScreen"
             android:exported="true">
             <intent-filter>

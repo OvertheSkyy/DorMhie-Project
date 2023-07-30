@@ -117,7 +117,7 @@ class Home : AppCompatActivity() {
                         }
 
                         // Start EditHobby activity with the intent and pass the hobbits and bits data
-                        val intent = Intent(this@Home, EditHobby::class.java).apply {
+                        val intent = Intent(this@Home, Progress_List::class.java).apply {
                             putExtra("hobbyName", hobbyName)
                             putExtra("hobbits", hobbits)
                             putExtra("hobbitBitsMap", hobbitBitsMap)
