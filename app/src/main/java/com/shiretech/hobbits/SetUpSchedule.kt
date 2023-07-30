@@ -42,26 +42,26 @@ class SetUpSchedule : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.schedule_setup)
 
-        val user = FirebaseAuth.getInstance().currentUser
-        val userId = user?.uid ?: ""
-
         val changeableHobbyNameTextView = findViewById<TextView>(R.id.SetupSchedHobbyName)
 
-        database = FirebaseDatabase.getInstance().getReference("users").child(userId)
-        val hobbiesRef = database.child("categories").child("hobbies")
+        database = FirebaseDatabase.getInstance().getReference("categories").child("0").child("hobbies")
 
-        hobbiesRef.addListenerForSingleValueEvent(object : ValueEventListener {
+        database.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val hobbySnapshot = dataSnapshot.children.firstOrNull()
+                // Check if the "hobbies" node exists
+                if (dataSnapshot.exists()) {
+                    // Assuming there is only one hobby in the "hobbies" node
+                    val hobbySnapshot = dataSnapshot.children.firstOrNull()
 
-                // Check if the hobby exists and if it has a name field
-                if (hobbySnapshot != null && hobbySnapshot.hasChild("name")) {
-                    val hobbyName = hobbySnapshot.child("name").getValue(String::class.java)
-                    changeableHobbyNameTextView.text = hobbyName
+                    // Check if the hobby exists and if it has a name field
+                    if (hobbySnapshot != null && hobbySnapshot.hasChild("name")) {
+                        val hobbyName = hobbySnapshot.child("name").getValue(String::class.java)
+                        changeableHobbyNameTextView.text = hobbyName
+                    }
                 }
             }
-
-            override fun onCancelled(databaseError: DatabaseError) {
+            
+        override fun onCancelled(databaseError: DatabaseError) {
                 Log.e("Progress_List", "Failed to fetch hobby data: ${databaseError.message}")
             }
         })
