@@ -49,73 +49,59 @@ class Progress_List : AppCompatActivity() {
         val user = FirebaseAuth.getInstance().currentUser
         val userId = user?.uid ?: ""
 
-        val hobbitNameTextViews: Array<TextView> = arrayOf(
-            findViewById(R.id.FirstHobbitsProgress),
-            findViewById(R.id.SecondHobbitsProgress),
-            findViewById(R.id.ThirdHobbitsProgress)
-        )
-
-        val BackToHomeBtn = findViewById<ImageView>(R.id.Clickback)
-        BackToHomeBtn.setOnClickListener {
-            onBackPressed()
-        }
-
-        val hobbitBitTextViews = ArrayList<ArrayList<TextView>>()
-        for (i in 0 until 3) {
-            val bitTextViews = ArrayList<TextView>()
-            for (j in 0 until 3) {
-                val bitTextView = findViewById<TextView>(
-                    resources.getIdentifier(
-                        "hobbitsprogress${i + 1}_${j + 1}",
-                        "id",
-                        packageName
-                    )
-                )
-                bitTextViews.add(bitTextView)
-            }
-            hobbitBitTextViews.add(bitTextViews)
-        }
-
         val changeableHobbyNameTextView = findViewById<TextView>(R.id.ChangeableHobbyName)
+        val hobbitNameTextView1 = findViewById<TextView>(R.id.FirstHobbitsProgress)
+        val hobbitNameTextView2 = findViewById<TextView>(R.id.SecondHobbitsProgress)
+        val hobbitNameTextView3 = findViewById<TextView>(R.id.ThirdHobbitsProgress)
+        val hobbitBitTextViews = listOf(
+            listOf(
+                findViewById<TextView>(R.id.hobbitsprogress1_1),
+                findViewById<TextView>(R.id.hobbitsprogress1_2),
+                findViewById<TextView>(R.id.hobbitsprogress1_3)
+            ),
+            listOf(
+                findViewById<TextView>(R.id.hobbitsprogress2_1),
+                findViewById<TextView>(R.id.hobbitsprogress2_2),
+                findViewById<TextView>(R.id.hobbitsprogress2_3)
+            ),
+            listOf(
+                findViewById<TextView>(R.id.hobbitsprogress3_1),
+                findViewById<TextView>(R.id.hobbitsprogress3_2),
+                findViewById<TextView>(R.id.hobbitsprogress3_3)
+            )
+        )
 
         database = FirebaseDatabase.getInstance().getReference("users").child(userId)
         val hobbiesRef = database.child("categories").child("hobbies")
 
-        // Fetch the hobby data from the database
-        // Fetch the hobby data from the database
+// Fetch the hobby data from the database
         hobbiesRef.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                var hobbitIndex = 0
-                for (hobbySnapshot in dataSnapshot.children) {
-                    val hobbitName = hobbySnapshot.child("hobbits").child("hobbit0").child("name")
-                        .getValue(String::class.java)
-                    if (hobbitName != null) {
-                        hobbitNameTextViews[hobbitIndex].text = hobbitName
-
-                        // Fetch the hobbit bits for the current hobbit
-                        val hobbitBitsSnapshot =
-                            hobbySnapshot.child("hobbits").child("hobbit0").child("bits")
-                        var bitIndex = 0
-                        for (bitSnapshot in hobbitBitsSnapshot.children) {
-                            val bitText = bitSnapshot.getValue(String::class.java)
-                            if (bitText != null && bitIndex < 3) {
-                                hobbitBitTextViews[hobbitIndex][bitIndex].text = bitText
-                                bitIndex++
-                            }
-                        }
-
-                        hobbitIndex++
-                        if (hobbitIndex >= 3) {
-                            break
-                        }
-                    }
+                val hobbySnapshot = dataSnapshot.children.firstOrNull { snapshot ->
+                    snapshot.child("hobbits").child("hobbit0").child("name").getValue(String::class.java) != null
                 }
 
-                // Fetch the hobby name from the "hobbies" node
-                val hobbyName =
-                    dataSnapshot.child("savedhobby0").child("name").getValue(String::class.java)
-                if (hobbyName != null) {
-                    changeableHobbyNameTextView.text = hobbyName
+                if (hobbySnapshot != null) {
+                    changeableHobbyNameTextView.text = hobbySnapshot.child("name").getValue(String::class.java)
+
+                    // Fetch hobbit names
+                    val hobbitNames = (0 until 3).map { hobbitIndex ->
+                        hobbySnapshot.child("hobbits").child("hobbit$hobbitIndex").child("name").getValue(String::class.java)
+                    }
+
+                    // Set hobbit names to text views
+                    hobbitNameTextView1.text = hobbitNames.getOrNull(0)
+                    hobbitNameTextView2.text = hobbitNames.getOrNull(1)
+                    hobbitNameTextView3.text = hobbitNames.getOrNull(2)
+
+                    // Fetch and set hobbit bits to text views
+                    for (hobbitIndex in 0 until 3) {
+                        val bitsSnapshot = hobbySnapshot.child("hobbits").child("hobbit$hobbitIndex").child("bits")
+                        for (bitIndex in 0 until 3) {
+                            val bitText = bitsSnapshot.child("bit$bitIndex").getValue(String::class.java)
+                            hobbitBitTextViews[hobbitIndex][bitIndex].text = bitText
+                        }
+                    }
                 }
             }
 
