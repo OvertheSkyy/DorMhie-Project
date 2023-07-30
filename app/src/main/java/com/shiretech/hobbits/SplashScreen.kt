@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.widget.ProgressBar
+import com.bumptech.glide.Glide
+import android.widget.ImageView
 import com.shiretech.hobbits.R
 
 class SplashScreen : AppCompatActivity() {
@@ -46,6 +48,15 @@ class SplashScreen : AppCompatActivity() {
                 }
             }
         }, progressUpdateInterval)
+
+        val LogoGif = findViewById<ImageView>(R.id.logo)
+
+        // Load and display the animated GIF using Glide
+        Glide.with(this)
+            .asGif()
+            .load(R.drawable.logovid) // Replace "your_animated_gif" with the name of your animated GIF in the drawable folder
+            .into(LogoGif)
+
 
         handler.postDelayed(splashRunnable, Delay_Splash_Screen)
     }

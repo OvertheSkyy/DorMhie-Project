@@ -25,7 +25,8 @@
         android:textFontWeight="1000"
         app:layout_constraintTop_toTopOf="@id/rectanglebg"
         app:layout_constraintStart_toStartOf="@id/rectanglebg"
-        android:layout_marginStart="85dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="19dp"/>
 
     <ScrollView
@@ -215,9 +216,6 @@
         </LinearLayout>
 
     </ScrollView>
-
-
-
 
     <View
         android:id="@+id/botrectangle"
