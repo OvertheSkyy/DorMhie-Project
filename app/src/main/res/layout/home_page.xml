@@ -28,21 +28,6 @@
         android:layout_marginStart="47dp"
         android:layout_marginTop="20dp"/>
 
-    <ImageView
-        android:id="@+id/ClickSettings"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:src="@drawable/setting"
-        android:contentDescription="Settings"
-        android:clickable="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/rectanglebg"
-        app:layout_constraintBottom_toBottomOf="@id/rectanglebg"
-        android:layout_marginEnd="22dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginBottom="11dp"
-        />
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"

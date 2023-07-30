@@ -12,12 +12,15 @@ import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
 import android.graphics.Typeface
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.EditText
 import androidx.core.content.ContextCompat
 
 class Categories : AppCompatActivity() {
 
     private lateinit var database: DatabaseReference
+    private lateinit var editTextSearch: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,10 +28,11 @@ class Categories : AppCompatActivity() {
 
         database = FirebaseDatabase.getInstance().reference
 
+        editTextSearch = findViewById(R.id.EditTxtSearch)
+
         fetchCategories()
 
-        val EditTextcolor = findViewById<EditText>(R.id.EditTxtSearch)
-        EditTextcolor.setTextColor(ContextCompat.getColor(this, R.color.black))
+
         //First Category
         val cookingCategoryDropdown = findViewById<ImageView>(R.id.CookingCategorydropdown)
         val cookingHobbiesContainer = findViewById<RelativeLayout>(R.id.CookinghobbiesContainer)
@@ -647,6 +651,7 @@ class Categories : AppCompatActivity() {
             }
         })
     }
+
 
     private fun renderCategories(categoryList: List<String>) {
         val firstCategoryTextView = findViewById<TextView>(R.id.FirstCategory)

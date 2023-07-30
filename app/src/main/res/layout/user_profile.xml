@@ -25,20 +25,8 @@
         android:textFontWeight="1000"
         app:layout_constraintTop_toTopOf="@id/rectanglebg"
         app:layout_constraintStart_toStartOf="@id/rectanglebg"
-        app:layout_constraintEnd_toStartOf="@id/ClickSettings"
         android:layout_marginStart="85dp"
         android:layout_marginTop="19dp"/>
-    <ImageView
-        android:id="@+id/ClickSettings"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:src="@drawable/setting"
-        android:contentDescription="Settings"
-        android:clickable="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/rectanglebg"
-        app:layout_constraintBottom_toBottomOf="@id/rectanglebg"
-        android:layout_marginEnd="22dp"/>
 
     <ScrollView
         android:layout_width="match_parent"

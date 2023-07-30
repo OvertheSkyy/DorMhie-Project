@@ -11,64 +11,53 @@
         android:layout_width="0dp"
         android:layout_height="69dp"
         android:background="@drawable/top_rectangle"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <View
-        android:id="@+id/searchrectangle"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:background="@drawable/search_rectangle"
-        app:layout_constraintTop_toTopOf="@id/rectanglebg"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/ClickSettings"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="13dp"/>
-    <EditText
-        android:id="@+id/EditTxtSearch"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Search Hobbies"
-        android:textSize="12sp"
-        android:textColorHint="@color/search"
-        android:inputType="textCapSentences"
-        style="@style/FixEditText"
-        app:layout_constraintTop_toTopOf="@id/rectanglebg"
-        app:layout_constraintStart_toStartOf="@id/searchrectangle"
-        app:layout_constraintEnd_toStartOf="@id/ClickSearchIcon"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="27dp"/>
-    <ImageView
-        android:id="@+id/ClickSearchIcon"
-        android:layout_width="19dp"
-        android:layout_height="19dp"
-        android:src="@drawable/search"
-        android:clickable="true"
-        app:layout_constraintTop_toTopOf="@id/rectanglebg"
-        app:layout_constraintStart_toEndOf="@id/EditTxtSearch"
-        app:layout_constraintEnd_toStartOf="@id/ClickSettings"
-        android:layout_marginTop="27dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="28dp"/>
-
-    <ImageView
-        android:id="@+id/ClickSettings"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:src="@drawable/setting"
-        android:contentDescription="Settings"
-        android:clickable="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/rectanglebg"
-        app:layout_constraintBottom_toBottomOf="@id/rectanglebg"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginBottom="11dp"
-        />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/rectanglebg"
+        app:layout_constraintStart_toEndOf="@+id/ClickSearchIcon"
+        app:layout_constraintTop_toTopOf="@+id/rectanglebg">
+
+        <View
+            android:id="@+id/searchrectangle"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="44dp"
+            android:background="@drawable/search_rectangle" />
+
+        <EditText
+            android:id="@+id/EditTxtSearch"
+            style="@style/FixEditText"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_alignStart="@+id/searchrectangle"
+            android:layout_alignTop="@id/searchrectangle"
+            android:layout_alignEnd="@+id/searchrectangle"
+            android:layout_alignBottom="@id/searchrectangle"
+            android:layout_marginStart="10dp"
+            android:hint="Search Hobbies"
+            android:inputType="textCapSentences"
+            android:textColorHint="@color/search"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/ClickSearchIcon"
+            android:layout_width="19dp"
+            android:layout_height="19dp"
+            android:src="@drawable/search"
+            android:clickable="true"
+            app:layout_constraintTop_toTopOf="@id/rectanglebg"
+            app:layout_constraintStart_toEndOf="@id/EditTxtSearch"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="28dp" />
+
+    </RelativeLayout>
 
     <ScrollView
         android:layout_width="305dp"
