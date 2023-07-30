@@ -22,6 +22,30 @@ class EditHobby : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.progress_list)
 
+        val imageViews = arrayOf(
+            findViewById<ImageView>(R.id.xprogress1_1),
+            findViewById<ImageView>(R.id.xprogress1_2),
+            findViewById<ImageView>(R.id.xprogress1_3),
+            findViewById<ImageView>(R.id.xprogress2_1),
+            findViewById<ImageView>(R.id.xprogress2_2),
+            findViewById<ImageView>(R.id.xprogress2_3),
+            findViewById<ImageView>(R.id.xprogress3_1),
+            findViewById<ImageView>(R.id.xprogress3_2),
+            findViewById<ImageView>(R.id.xprogress3_3)
+        )
+
+        for (imageView in imageViews) {
+            imageViewsMap[imageView.id] = false // Initialize all images as unchecked
+            imageView.setOnClickListener {
+                val isChecked = imageViewsMap[imageView.id] ?: false
+                imageViewsMap[imageView.id] = !isChecked
+                imageView.setImageResource(
+                    if (isChecked) R.drawable.unchecked_progress
+                    else R.drawable.progress_checked
+                )
+            }
+        }
+
         val user = FirebaseAuth.getInstance().currentUser
         val userId = user?.uid ?: ""
 
@@ -209,29 +233,5 @@ class EditHobby : AppCompatActivity() {
                 Log.e("EditHobby", "Failed to fetch hobbies: ${databaseError.message}")
             }
         })
-
-        val imageViews = arrayOf(
-            findViewById<ImageView>(R.id.xprogress1_1),
-            findViewById<ImageView>(R.id.xprogress1_2),
-            findViewById<ImageView>(R.id.xprogress1_3),
-            findViewById<ImageView>(R.id.xprogress2_1),
-            findViewById<ImageView>(R.id.xprogress2_2),
-            findViewById<ImageView>(R.id.xprogress2_3),
-            findViewById<ImageView>(R.id.xprogress3_1),
-            findViewById<ImageView>(R.id.xprogress3_2),
-            findViewById<ImageView>(R.id.xprogress3_3)
-        )
-
-        for (imageView in imageViews) {
-            imageViewsMap[imageView.id] = false // Initialize all images as unchecked
-            imageView.setOnClickListener {
-                val isChecked = imageViewsMap[imageView.id] ?: false
-                imageViewsMap[imageView.id] = !isChecked
-                imageView.setImageResource(
-                    if (isChecked) R.drawable.unchecked_progress
-                    else R.drawable.progress_checked
-                )
-            }
-        }
     }
 }
