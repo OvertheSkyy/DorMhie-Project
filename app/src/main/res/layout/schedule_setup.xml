@@ -26,7 +26,7 @@
         app:layout_constraintBottom_toBottomOf="@id/rectanglebg"
         android:layout_marginStart="16dp" />
     <TextView
-        android:id="@+id/SetuopSchedHobbyName"
+        android:id="@+id/SetupSchedHobbyName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Hobby Name"
@@ -132,7 +132,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/Timepicker"
                     android:layout_marginTop="55dp"/>
-                
+
                 <ImageView
                     android:id="@+id/RepeatHobbyImage"
                     android:layout_width="32dp"

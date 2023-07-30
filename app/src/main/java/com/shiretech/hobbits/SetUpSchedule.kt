@@ -11,12 +11,22 @@ import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import android.content.Intent
+import android.util.Log
 import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 
 class SetUpSchedule : AppCompatActivity() {
+
+    private lateinit var database: DatabaseReference
 
     private lateinit var hourPicker: NumberPicker
     private lateinit var minutePicker: NumberPicker
@@ -31,6 +41,30 @@ class SetUpSchedule : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.schedule_setup)
+
+        val user = FirebaseAuth.getInstance().currentUser
+        val userId = user?.uid ?: ""
+
+        val changeableHobbyNameTextView = findViewById<TextView>(R.id.SetupSchedHobbyName)
+
+        database = FirebaseDatabase.getInstance().getReference("users").child(userId)
+        val hobbiesRef = database.child("categories").child("hobbies")
+
+        hobbiesRef.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val hobbySnapshot = dataSnapshot.children.firstOrNull()
+
+                // Check if the hobby exists and if it has a name field
+                if (hobbySnapshot != null && hobbySnapshot.hasChild("name")) {
+                    val hobbyName = hobbySnapshot.child("name").getValue(String::class.java)
+                    changeableHobbyNameTextView.text = hobbyName
+                }
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                Log.e("Progress_List", "Failed to fetch hobby data: ${databaseError.message}")
+            }
+        })
 
         hourPicker = findViewById(R.id.HourPicker)
         minutePicker = findViewById(R.id.MinutePicker)

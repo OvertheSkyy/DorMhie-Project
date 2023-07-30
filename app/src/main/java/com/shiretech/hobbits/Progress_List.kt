@@ -58,7 +58,7 @@ class Progress_List : AppCompatActivity() {
         val hobbitNameTextView1 = findViewById<TextView>(R.id.FirstHobbitsProgress)
         val hobbitNameTextView2 = findViewById<TextView>(R.id.SecondHobbitsProgress)
         val hobbitNameTextView3 = findViewById<TextView>(R.id.ThirdHobbitsProgress)
-        val hobbitBitTextViews = listOf(
+        val hobbitBitEditText = listOf(
             listOf(
                 findViewById<TextView>(R.id.hobbitsprogress1_1),
                 findViewById<TextView>(R.id.hobbitsprogress1_2),
@@ -104,7 +104,7 @@ class Progress_List : AppCompatActivity() {
                         val bitsSnapshot = hobbySnapshot.child("hobbits").child("hobbit$hobbitIndex").child("bits")
                         for (bitIndex in 0 until 3) {
                             val bitText = bitsSnapshot.child("bit$bitIndex").getValue(String::class.java)
-                            hobbitBitTextViews[hobbitIndex][bitIndex].text = bitText
+                            hobbitBitEditText[hobbitIndex][bitIndex].text = bitText
                         }
                     }
                 }
